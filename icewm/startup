@@ -5,6 +5,7 @@ gnome-power-manager &
 gnome-screensaver &
 cgmailservice &
 conky -d &
+nm-applet &
 
 nautilus --no-desktop -n &
 
