@@ -1,0 +1,39 @@
+[user]
+	name = Chmouel Boudjnah
+	email = chmouel.boudjnah@rackspace.co.uk
+
+[merge]
+    tool = emerge
+
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+	grep = true
+
+[color "diff"]
+	new = blue bold
+	old = red
+	frag = yellow bold
+	meta = green bold
+	commit = normal
+	whitespace = white
+[alias]
+	st = status
+	oneline = log --pretty=oneline
+	amend = commit --amend
+    commitall = commit -a -m 
+    pa = push --tags origin master
+
+[http]
+	sslVerify = false
+
+[core]
+   excludesfile = "/home/chmouel/.gitexclude"
+
+[push]
+	default = matching
+[branch]
+	autosetupmerge = true
+[receive]
+	denyNonFastforwards = false
