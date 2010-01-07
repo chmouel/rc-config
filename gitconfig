@@ -24,6 +24,7 @@
 	amend = commit --amend
     commitall = commit -a -m 
     pa = push --tags origin master
+    po = pull --tags origin master
 
 [http]
 	sslVerify = false
