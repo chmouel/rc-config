@@ -1,42 +1,7 @@
 escape '`q'
 vbell off
+defscrollback 5000
 
-attrcolor d "=d"
-attrcolor u "=u"
-attrcolor b "=b"
-attrcolor r "=r"
-attrcolor s "=s"
-attrcolor B "=B"
-
-# Likewise, for charset
-setenv LC_CTYPE en_US.UTF-8
-
-# Add stuff to xterm (and cousins) title bars.  This is a moderate abuse of the
-# hardstatus feature--it just puts the hardstatus stuff into an xterm title
-# bar.
-termcapinfo xterm|xterm-r6|rxvt|gnome-terminal|konsole|zvt|dtterm|kterm|Eterm|zterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
-#hardstatus off
-hardstatus string "%h"
-
-# Fix broken termcap for my 3151 so bold text is closed properly.  Also
-# translate from ISO-8859-1 into the CP437 that the terminal displays.
-termcapinfo ibm3151 me=\E4@:XC=B%,\307\200,\374\201,\351\202,\342\203,\344\204,\340\205,\345\206,\347\207,\352\210,\353\211,\350\212,\357\213,\356\214,\354\215,\304\216,\305\217,\311\220,\346\221,\306\222,\364\223,\366\224,\362\225,\373\226,\371\227,\377\230,\326\231,\334\232,\242\233,\243\234,\245\235,\341\240,\355\241,\363\242,\372\243,\361\244,\321\245,\252\246,\272\247,\277\250,\254\252,\275\253,\274\254,\241\255,\253\256,\273\257,\337\341,\265\346,\261\361,\367\366,\260\370,\267\372,\262\375,\240\377,\244?,\246?,\247?,\250?,\251?,\255?,\256?,\257?,\263?,\264?,\266?,\270?,\271?,\276?,\300?,\301?,\302?,\303?,\310?,\312?,\313?,\314?,\315?,\316?,\317?,\320?,\322?,\323?,\324?,\325?,\327?,\330?,\331?,\332?,\333?,\335?,\336?,\343?,\360?,\365?,\370?,\375?,\376?
-
-
-# Please actually put things into my xterm scrollback buffer.
-termcapinfo xterm|xterms|xs ti@:te@
-
-# Give me some info at the bottom of the screen.  Since hardstatus is in use by
-# the above xterm title hack, the only source of information left is the
-# caption that normally only gets displayed if you have split windows.
-# e.g.:
-# 11:50|Mon|Jan 06|aragorn f  3$ mutt  4$ centericq  5$* less  6-&!$ man  7$ xe
-# (Current window is in reverse bold.)
-# See bottom of file for more complete description.
-#caption always "%{=b}%C|%H%{b} %L=%-Lw%45>%n%f* %t%+Lw%-0<"
-#caption always "%{=b}%C|%H%{b} %L=%-Lw%45"
-#caption always "%{cK}$LOGNAME %{bK}(%d %M %Y, %c) %{-}%{bW} %-w%{bW}%50>%{= wb}%n%f %t%{-}%+w%< %{-}"
-#caption always " %{-}$LOGNAME@%H | %{-}%c%{-} | %{-}%-Lw%{-}%50>%{-}%n%f* %t %{-}%+LW%<"
 caption always "%{=b}%?%F%:%45=%n*%f %t%?%?%F%{r}%:%{s kk}%?%?%F%{-}%? %{w}%L=%-Lw%45L>%?%F%{w}%?%{-b bw}%n*%f %t%?%F%{-}%?%+Lw%-7= %?%F%{g}%?%c%?"
 
 # Make screen messages stand out a little more - black on bright green.
@@ -50,20 +15,8 @@ vbell_msg " *beep* "
 # I know about screen.  I don't need to see it every time I start the program.
 # (Which is, admittedly, rarely.)
 startup_message off
-# Log new screen windows in utmp.
-deflogin on
 # Never, ever turn this off.
 autodetach on
-# Just in case it isn't clear...
-# shell zsh
-# I like to hear the beep.
-vbell off
-# Keep dead windows around until I tell them to exit.
-#zombie cr
-# And show the command for the windows when they're resurrected.
-verbose on
-# I like a large scrollback
-defscrollback 5000
 # Run everything in UTF-8.
 defutf8 on
 # If a window goes unresponsive, don't block the whole session waiting for it.
@@ -88,21 +41,6 @@ bindkey "OQ" select 2
 bindkey "OR" select 3
 bindkey "OS" select 4
 
-#Control Right+LEFT next/prev
-bindkey "^[[D" prev
-bindkey "^[[C" next
-bindkey "^[[5;2~" eval "copy" "stuff ^b"
-
 # Window numbering starts at 1, not 0.
 bind c screen 1
 bind 0 select 10
-
-# Login toggle is too close to screen redraw.  How about explicitly setting
-# login state, anyway?
-bind 'L'
-bind 'I' login on
-bind 'O' login off
-
-# More fixes for the IBM 3151.  Force the terminal's backspace (^H) to generate
-# the required ^?.  (This renders ^H unusable for help from the terminal.)
-bindkey -k kb stuff "\177"
