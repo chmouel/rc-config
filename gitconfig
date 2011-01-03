@@ -18,6 +18,7 @@
 	meta = green bold
 	commit = normal
 	whitespace = white
+
 [alias]
 	st = status
 	oneline = log --pretty=oneline
@@ -34,7 +35,9 @@
 
 [push]
 	default = matching
+
 [branch]
 	autosetupmerge = true
+
 [receive]
 	denyNonFastforwards = false
