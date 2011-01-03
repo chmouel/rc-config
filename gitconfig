@@ -30,7 +30,7 @@
 	sslVerify = false
 
 [core]
-   excludesfile = "/home/chmouel/.gitexclude"
+   excludesfile = "~/.gitexclude"
 
 [push]
 	default = matching
