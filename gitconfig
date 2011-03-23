@@ -26,6 +26,7 @@
     commitall = commit -a -m 
     pa = push --tags origin master
     po = pull --tags origin master
+    recommence = checkout --
 
 [http]
 	sslVerify = false
@@ -41,3 +42,9 @@
 
 [receive]
 	denyNonFastforwards = false
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[github]
+	user = chmouel
