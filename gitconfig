@@ -1,23 +1,9 @@
+[github]
+	user = chmouel
+
 [user]
 	name = Chmouel Boudjnah
-	email = chmouel.boudjnah@rackspace.co.uk
-
-[merge]
-    tool = emerge
-
-[color]
-	diff = auto
-	branch = auto
-	status = auto
-	grep = true
-
-[color "diff"]
-	new = blue bold
-	old = red
-	frag = yellow bold
-	meta = green bold
-	commit = normal
-	whitespace = white
+	email = chmouel@chmouel.com
 
 [alias]
 	st = status
@@ -26,25 +12,9 @@
     commitall = commit -a -m 
     pa = push --tags origin master
     po = pull --tags origin master
-    recommence = checkout --
-
-[http]
-	sslVerify = false
+    dlast = diff HEAD^1
+    dlog = log -n1
+    review = !sh `git rev-parse --show-toplevel`/tools/rfc.sh
 
 [core]
    excludesfile = "~/.gitexclude"
-
-[push]
-	default = matching
-
-[branch]
-	autosetupmerge = true
-
-[receive]
-	denyNonFastforwards = false
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
-[github]
-	user = chmouel
