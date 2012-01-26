@@ -23,3 +23,5 @@ tags
 .jpg
 .jpeg
 *.egg-info
+build/
+dist
