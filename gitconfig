@@ -1,6 +1,9 @@
 [github]
 	user = chmouel
 
+[hub]
+	protocol = https
+
 [user]
 	name = Chmouel Boudjnah
 	email = chmouel@chmouel.com
@@ -14,7 +17,17 @@
     po = pull --tags origin master
     dlast = diff HEAD^1
     dlog = log -n1
-    review = !sh `git rev-parse --show-toplevel`/tools/rfc.sh
+    #review = !sh `git rev-parse --show-toplevel`/tools/rfc.sh
+    review = git-review
 
 [core]
-   excludesfile = "~/.gitexclude"
+    excludesfile = "~/.gitexclude"
+    whitespace = trailing-space,space-before-tab
+	pager = less -FRSX
+
+[diff]
+	mnemonicprefix = true
+[merge]
+	tool = emerge
+[mergetool "emerge"]
+	path = /home/chmouel/bin/qemacs
