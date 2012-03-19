@@ -1,8 +1,7 @@
-key "Super+s"		x-terminal-emulator
-key "Super+e"		emacsclient -c -n -a "/home/chmouel/bin/startemacs"
-key "Super+l"		gnome-screensaver-command -a
-key "Print"		/home/chmouel/bin/google-selection.sh
-key "Super+F1"      gnome-terminal --full-screen --profile=CHMOUEL-IRC
-key "Super+F2"      gnome-terminal --profile=DWL
-key "Super+F12"      gnome-terminal --profile=MOC
-key "Super+i"      gnome-terminal  --profile=ipython
+key "Super+i"       /home/chmouel/bin/switch-to-profile weechat 6
+key "Super+s"		/home/chmouel/bin/xfce4-terminal-float
+key "Super+e"		/home/chmouel/bin/switch-to-profile emacs
+key "Super+h"		/home/chmouel/bin/switch-to-profile Hotot
+key "Super+m"		/home/chmouel/bin/switch-to-profile spotify
+key "Super+l"		/usr/bin/xscreensaver-command -lock
+

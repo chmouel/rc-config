@@ -10,15 +10,17 @@
 
 [alias]
 	st = status
-	oneline = log --pretty=oneline
 	amend = commit --amend
-    commitall = commit -a -m 
-    pa = push --tags origin master
-    po = pull --tags origin master
     dlast = diff HEAD^1
     dlog = log -n1
-    #review = !sh `git rev-parse --show-toplevel`/tools/rfc.sh
     review = git-review
+    sp = stash show -p
+    show-merged = git-show-merged
+    lg = log --graph --pretty=format:'%C(red%h%Creset -%C(yellow dim)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --no-merges
+    vdiff = difftool --tool=vimdiff2
+    vlast = difftool --tool=vimdiff2 HEAD^1
+    ediff = difftool --tool=ediff
+
 
 [core]
     excludesfile = "~/.gitexclude"
@@ -31,3 +33,6 @@
 	tool = emerge
 [mergetool "emerge"]
 	path = /home/chmouel/bin/qemacs
+
+[difftool "ediff"]
+    cmd = emacsclient --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"

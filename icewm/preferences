@@ -508,7 +508,7 @@ ClockCommand="gnome-open http://www.google.com/calendar/render"
 #  Command to select and run a program
 # RunCommand=""
 
-#  
+#
 # OpenCommand=""
 
 #  Terminal emulator must accept -e option.
@@ -545,7 +545,7 @@ NetStatusCommand="x-terminal-emulator -name netstat -title 'Network Status' -e s
 NetworkStatusDevice="wlan0 eth0"
 
 #  Clock Time format (strftime format string)
-# TimeFormat="%X"
+TimeFormat="%a %d %b %H:%M:%S"
 
 #  Alternate Clock Time format (e.g. for blinking effects)
 # TimeFormatAlt=""
@@ -568,133 +568,134 @@ NetworkStatusDevice="wlan0 eth0"
 #  Mouse binding to raise window
 # MouseWinRaise="Ctrl+Alt+Pointer_Button1"
 
-#  
+#
 # KeyWinRaise="Alt+F1"
 
-#  
-KeyWinOccupyAll="Super+Shift+S"
+#
+# KeyWinOccupyAll="Super+Shift+S"
 
-#  
+#
 # KeyWinLower="Alt+F3"
 
-#  
-# KeyWinClose="Alt+F4"
+#
+KeyWinClose="Super+Shift+c"
 
-#  
+#
 # KeyWinRestore="Alt+F5"
 
-#  
+#
 # KeyWinPrev="Alt+Shift+F6"
 
-#  
+#
 # KeyWinNext="Alt+F6"
 
-#  
+#
 # KeyWinMove="Alt+F7"
 
-#  
+#
 # KeyWinSize="Alt+F8"
 
-#  
+#
 # KeyWinMinimize="Alt+F9"
 
-#  
-KeyWinMaximize="Super+F"
+#
+KeyWinMaximize="Super+f"
 
-#  
+#
 # KeyWinMaximizeVert="Alt+Shift+F10"
 
-#  
+#
 # KeyWinMaximizeHoriz=""
 
-#  
+#
 KeyWinFullscreen="Super+Shift+f"
 
-#  
+#
 # KeyWinHide="Alt+Shift+F12"
 
-#  
+#
 # KeyWinRollup="Alt+F12"
 
-#  
-KeyWinMenu="Super+space"
+#
+#KeyWinMenu="Super+space"
+KeyWinMenu=""
 
-#  
+#
 # KeyWinArrangeN="Ctrl+Alt+KP_8"
 
-#  
+#
 # KeyWinArrangeNE="Ctrl+Alt+KP_9"
 
-#  
+#
 # KeyWinArrangeE="Ctrl+Alt+KP_6"
 
-#  
+#
 # KeyWinArrangeSE="Ctrl+Alt+KP_3"
 
-#  
+#
 # KeyWinArrangeS="Ctrl+Alt+KP_2"
 
-#  
+#
 # KeyWinArrangeSW="Ctrl+Alt+KP_1"
 
-#  
+#
 # KeyWinArrangeW="Ctrl+Alt+KP_4"
 
-#  
+#
 # KeyWinArrangeNW="Ctrl+Alt+KP_7"
 
-#  
+#
 # KeyWinArrangeC="Ctrl+Alt+KP_5"
 
-#  
+#
 # KeySysSwitchNext="Alt+Tab"
 
-#  
+#
 # KeySysSwitchLast="Alt+Shift+Tab"
 
-#  
+#
 # KeySysWinNext="Alt+Esc"
 
-#  
+#
 # KeySysWinPrev="Alt+Shift+Esc"
 
-#  
+#
 # KeySysWinMenu="Shift+Esc"
 
-#  
+#
 # KeySysDialog="Alt+Ctrl+Del"
 
-#  
+#
 # KeySysMenu="Ctrl+Esc"
 
-#  
+#
 # KeySysWindowList="Alt+Ctrl+Esc"
 
-#  
+#
 # KeySysWinListMenu=""
 
-#  
+#
 KeySysAddressBar=""
 
-#  
-# KeySysWorkspacePrev="Alt+Ctrl+Left"
+#
+KeySysWorkspacePrev="Super+Left"
 
-#  
-# KeySysWorkspaceNext="Alt+Ctrl+Right"
+#
+KeySysWorkspaceNext="Super+Right"
 
-#  
-# KeySysWorkspaceLast="Alt+Ctrl+Down"
+#
+KeySysWorkspaceLast="Super+o"
 
-#  
+#
 # KeySysWorkspacePrevTakeWin="Alt+Ctrl+Shift+Left"
 
-#  
+#
 # KeySysWorkspaceNextTakeWin="Alt+Ctrl+Shift+Right"
 
-#  
+#
 # KeySysWorkspaceLastTakeWin="Alt+Ctrl+Shift+Down"
 
-#  
+#
 KeySysWorkspace1="Super+1"
 KeySysWorkspace2="Super+2"
 KeySysWorkspace3="Super+3"
@@ -704,15 +705,15 @@ KeySysWorkspace6="Super+6"
 KeySysWorkspace7="Super+7"
 KeySysWorkspace8="Super+8"
 KeySysWorkspace9="Super+9"
-KeySysWorkspace10="Super+0"
+#KeySysWorkspace10="Super+0"
 
-#  
+#
 # KeySysWorkspace11="Alt+Ctrl+bracketleft"
 
-#  
+#
 # KeySysWorkspace12="Alt+Ctrl+bracketright"
 
-#  
+#
 KeySysWorkspace1TakeWin="Super+Shift+1"
 KeySysWorkspace2TakeWin="Super+Shift+2"
 KeySysWorkspace3TakeWin="Super+Shift+3"
@@ -724,43 +725,43 @@ KeySysWorkspace8TakeWin="Super+Shift+8"
 KeySysWorkspace9TakeWin="Super+Shift+9"
 KeySysWorkspace10TakeWin="Super+Shift+0"
 
-#  
+#
 # KeySysWorkspace11TakeWin="Alt+Ctrl+Shift+bracketleft"
 
-#  
+#
 # KeySysWorkspace12TakeWin="Alt+Ctrl+Shift+bracketright"
 
-#  
+#
 # KeySysTileVertical="Alt+Shift+F2"
 
-#  
+#
 # KeySysTileHorizontal="Alt+Shift+F3"
 
-#  
+#
 # KeySysCascade="Alt+Shift+F4"
 
-#  
+#
 # KeySysArrange="Alt+Shift+F5"
 
-#  
+#
 # KeySysArrangeIcons="Alt+Shift+F8"
 
-#  
+#
 # KeySysMinimizeAll="Alt+Shift+F9"
 
-#  
+#
 # KeySysHideAll="Alt+Shift+F11"
 
-#  
+#
 # KeySysUndoArrange="Alt+Shift+F7"
 
-#  
+#
 KeySysShowDesktop="Super+d"
 
-#  
+#
 # KeySysCollapseTaskBar="Alt+Ctrl+h"
 
-#  
+#
 
 #  Items supported in menu window (rmsnxfhualytickw)
 # WinMenuItems="rmsnxfhualyticw"
@@ -869,52 +870,52 @@ KeySysShowDesktop="Super+d"
 #  Titlebar buttons supported by theme (x,m,i,r,h,s,d)
 # TitleButtonsSupported="xmis"
 
-#  
+#
 # TitleFontName="-*-sans-medium-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # TitleFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
-#  
+#
 MenuFontName="-*-sans-bold-r-*-*-*-100-*-*-*-*-*-*"
 
-#  
+#
 # MenuFontNameXft="sans-serif,Bitstream Vera Serif:size=10:bold"
 
-#  
+#
 # StatusFontName="-*-monospace-bold-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # StatusFontNameXft="monospace,Bitstream Vera Sans Mono:size=12:bold"
 
-#  
+#
 # QuickSwitchFontName="-*-monospace-bold-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # QuickSwitchFontNameXft="monospace,Bitstream Vera Sans Mono:size=12:bold"
 
-#  
+#
 # NormalButtonFontName="-*-sans-medium-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # NormalButtonFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
-#  
+#
 # ActiveButtonFontName="-*-sans-bold-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # ActiveButtonFontNameXft="sans-serif,Bitstream Vera Serif:size=12:bold"
 
-#  
+#
 # NormalTaskBarFontName="-*-sans-medium-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # NormalTaskBarFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
-#  
+#
 # ActiveTaskBarFontName="-*-sans-bold-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # ActiveTaskBarFontNameXft="sans-serif,Bitstream Vera Serif:size=12:bold"
 
 #  fallback: NormalButtonFontName
@@ -935,46 +936,46 @@ MenuFontName="-*-sans-bold-r-*-*-*-100-*-*-*-*-*-*"
 #  fallback: ActiveButtonFontName
 # ActiveWorkspaceFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
-#  
+#
 # MinimizedWindowFontName="-*-sans-medium-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # MinimizedWindowFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
-#  
+#
 # ListBoxFontName="-*-sans-medium-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # ListBoxFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
-#  
+#
 # ToolTipFontName="-*-sans-medium-r-*-*-*-120-*-*-*-*-*-*"
 
-#  
+#
 # ToolTipFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
-#  
+#
 # ClockFontName="-*-monospace-medium-r-*-*-*-140-*-*-*-*-*-*"
 
-#  
+#
 # ClockFontNameXft="monospace,Bitstream Vera Sans Mono:size=12"
 
-#  
+#
 # ApmFontName="-*-monospace-medium-r-*-*-*-140-*-*-*-*-*-*"
 
-#  
+#
 # ApmFontNameXft="monospace,Bitstream Vera Sans Mono:size=12"
 
-#  
+#
 # InputFontName="-*-monospace-medium-r-*-*-*-140-*-*-*-*-*-*"
 
-#  
+#
 # InputFontNameXft="monospace,Bitstream Vera Sans Mono:size=12"
 
-#  
+#
 # LabelFontName="-*-sans-medium-r-*-*-*-140-*-*-*-*-*-*"
 
-#  
+#
 # LabelFontNameXft="sans-serif,Bitstream Vera Serif:size=12"
 
 #  Background of dialog windows
@@ -1211,9 +1212,9 @@ MenuFontName="-*-sans-bold-r-*-*-*-100-*-*-*-*-*-*"
 #  List of gradient pixmaps in the current theme
 # Gradients=""
 
-#  
+#
 
-WorkspaceNames="1 ", "2 ", "3 ", "4 ", "5"
+WorkspaceNames="1 ", "2 ", "3 ", "4 ", "5", "6 ", "7 ", "8 ", "9 "
 
 #
 # icewmbg preferences
@@ -1235,7 +1236,7 @@ WorkspaceNames="1 ", "2 ", "3 ", "4 ", "5"
 # DesktopBackgroundColor="rgb:00/20/40"
 
 #  Desktop background image
-#  DesktopBackgroundImage="/home/chmouel/Photos/Wallpapers/OneScreen/green-landscape-haas-1093772-xl.jpg"
+ DesktopBackgroundImage="/usr/share/backgrounds/PurpleDancers_by_Emilio_Merlino.jpg"
 
 #  Color to announce for semi-transparent windows
 # DesktopTransparencyColor=""
@@ -1243,5 +1244,4 @@ WorkspaceNames="1 ", "2 ", "3 ", "4 ", "5"
 #  Image to announce for semi-transparent windows
 #DesktopTransparencyImage=""
 
-#  
-
+#
