@@ -1,3 +1,6 @@
+[gitreview]
+	username = chmouel
+
 [github]
 	user = chmouel
 
@@ -20,6 +23,8 @@
     vdiff = difftool --tool=vimdiff2
     vlast = difftool --tool=vimdiff2 HEAD^1
     ediff = difftool --tool=ediff
+    meld = difftool --tool=meld
+    mlast = difftool --tool=meld HEAD^1
 
 
 [core]
