@@ -20,11 +20,11 @@
     sp = stash show -p
     show-merged = git-show-merged
     lg = log --graph --pretty=format:'%C(red%h%Creset -%C(yellow dim)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --no-merges
-    vdiff = difftool --tool=vimdiff2
-    vlast = difftool --tool=vimdiff2 HEAD^1
-    ediff = difftool --tool=ediff
-    meld = difftool --tool=meld
-    mlast = difftool --tool=meld HEAD^1
+    vdiff = difftool -y --tool=vimdiff2
+    vlast = difftool -y --tool=vimdiff2 HEAD^1
+    ediff = difftool -y --tool=ediff
+    meld = difftool -y --tool=meld
+    mlast = difftool -y --tool=meld HEAD^1
 
 
 [core]
