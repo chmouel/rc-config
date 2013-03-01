@@ -23,8 +23,7 @@
     vdiff = difftool -y --tool=vimdiff2
     vlast = difftool -y --tool=vimdiff2 HEAD^1
     ediff = difftool -y --tool=ediff
-    meld = difftool -y --tool=meld
-    mlast = difftool -y --tool=meld HEAD^1
+    pullall = !git pull && git submodule update --init --recursive
 
 
 [core]
