@@ -41,3 +41,5 @@
 
 [difftool "ediff"]
     cmd = emacsclient --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+[push]
+	default = matching
