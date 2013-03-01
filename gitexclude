@@ -25,3 +25,4 @@ tags
 *.egg-info
 build/
 dist
+*_flymake.py
