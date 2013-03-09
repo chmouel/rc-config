@@ -26,3 +26,4 @@ tags
 build/
 dist
 *_flymake.py
+.dir-locals.el
