@@ -19,12 +19,12 @@
     review = git-review
     sp = stash show -p
     show-merged = git-show-merged
-    lg = log --graph --pretty=format:'%C(red%h%Creset -%C(yellow dim)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --no-merges
     vdiff = difftool -y --tool=vimdiff2
     vlast = difftool -y --tool=vimdiff2 HEAD^1
     ediff = difftool -y --tool=ediff
     pullall = !git pull && git submodule update --init --recursive
     ghub = !sh -c 'git clone http://github.com/$1' -
+    logc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset%C(bold white) <%ae>%Creset' --abbrev-commit --no-merges
 
 
 [core]
