@@ -1,7 +1,0 @@
-key "Super+i"       /home/chmouel/bin/switch-to-profile weechat 6
-key "Super+s"		/home/chmouel/bin/xfce4-terminal-float
-key "Super+e"		/home/chmouel/bin/switch-to-profile emacs
-key "Super+h"		/home/chmouel/bin/switch-to-profile Hotot
-key "Super+m"		/home/chmouel/bin/switch-to-profile spotify
-key "Super+l"		/usr/bin/xscreensaver-command -lock
-
