@@ -12,35 +12,45 @@
 	email = chmouel@chmouel.com
 
 [alias]
+    log = log --no-merges
 	st = status
 	amend = commit --amend
-    dlast = diff HEAD^1
-    dlog = log -n1
+    dlast = show --color
+    dlog = show --color
     review = git-review
     sp = stash show -p
     show-merged = git-show-merged
     vdiff = difftool -y --tool=vimdiff2
     vlast = difftool -y --tool=vimdiff2 HEAD^1
+    elast = difftool -y --tool=ediff HEAD^1
     ediff = difftool -y --tool=ediff
     pullall = !git pull && git submodule update --init --recursive
-    ghub = !sh -c 'git clone http://github.com/$1' -
-    logc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset%C(bold white) <%ae>%Creset' --abbrev-commit --no-merges
     bnm = branch --no-merged
-
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --no-merges
+    gh-browse = git-browse
+    gh-clone = !sh -c 'git clone http://github.com/$1' -
+    browse-review = git-browse-review
 
 [core]
+    quotepath = false
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = "~/.gitexclude"
-    whitespace = trailing-space,space-before-tab
 	pager = less -FRSX
 
 [diff]
 	mnemonicprefix = true
+
 [merge]
 	tool = emerge
-[mergetool "emerge"]
-	path = /home/chmouel/bin/qemacs
 
-[difftool "ediff"]
-    cmd = emacsclient --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+ [difftool "ediff"]
+     cmd = /usr/local/bin/emacsclient --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+
 [push]
 	default = matching
+
+[color]
+  ui = true
+
+[grep]
+  lineNumber = true
