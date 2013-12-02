@@ -25,6 +25,7 @@
     pullall = !git pull && git submodule update --init --recursive
     ghub = !sh -c 'git clone http://github.com/$1' -
     logc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset%C(bold white) <%ae>%Creset' --abbrev-commit --no-merges
+    bnm = branch --no-merged
 
 
 [core]
