@@ -9,14 +9,15 @@
 
 [user]
 	name = Chmouel Boudjnah
-	email = chmouel@chmouel.com
+	email = chmouel@enovance.com
 
 [alias]
+    co = checkout
     log = log --no-merges
 	st = status
 	amend = commit --amend
-    dlast = show --color
-    dlog = show --color
+    dlast = diff --patch-with-stat --stat HEAD^1
+    dlog = show --summary
     review = git-review
     sp = stash show -p
     show-merged = git-show-merged
