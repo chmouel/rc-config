@@ -12,6 +12,7 @@
 	email = chmouel@enovance.com
 
 [alias]
+    jenkins-error = git-jenkins-error
     co = checkout
     log = log --no-merges
 	st = status
@@ -29,7 +30,8 @@
     bnm = branch --no-merged
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --no-merges
     gh-browse = git-browse
-    gh-clone = !sh -c 'git clone http://github.com/$1' -
+    #gh-clone = !sh -c 'git clone http://github.com/$1' -
+    gh-clone = !bash -c '[[ $1 == */* ]] || git clone http://github.com/openstack/$1 && git clone http://github.com/$1' -
     browse-review = git-browse-review
 
 [core]
