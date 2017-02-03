@@ -48,6 +48,7 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     excludesfile = ~/.gitexclude
 	pager = less -FRSX
+	autocrlf = input
 
 [diff]
 	mnemonicprefix = true
