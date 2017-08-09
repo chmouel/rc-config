@@ -6,6 +6,7 @@
 
 [github]
 	user = chmouel
+	oauth-token = 6bf3f1dd643c4a208ffcb29dfac503bd664c7ac0
 
 [hub]
 	protocol = https
@@ -68,7 +69,3 @@
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
-#[http]
-#	proxy = socks5://127.0.0.1:8080
-#[https]
-#	proxy = socks5://127.0.0.1:8080
