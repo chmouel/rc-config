@@ -4,10 +4,6 @@
 [gitreview]
 	username = chmouel
 
-[github]
-	user = chmouel
-	oauth-token = 6bf3f1dd643c4a208ffcb29dfac503bd664c7ac0
-
 [hub]
 	protocol = https
 
