@@ -25,11 +25,6 @@ tags
 .jpg
 .jpeg
 *.egg-info
-build/
 dist
 *_flymake.py
 .dir-locals.el
-*.orig
-*.idea
-\#*#
-*.ropeproject

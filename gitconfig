@@ -16,12 +16,11 @@
 	email = chmouel@chmouel.com
 
 [alias]
-    cc = !"find $(git rev-parse --show-toplevel) -name '*.pyc' -delete"
     jenkins-error = git-jenkins-error
     co = checkout
     log = log --no-merges
 	st = status -sb
-	amend = commit --amend
+	amend = commit --amend -v
     dlast = diff --patch-with-stat --stat HEAD^1
     dlog = show --summary
     review = git-review
@@ -35,14 +34,15 @@
     bnm = branch --no-merged
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --no-merges
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    browse-gh = git-browse-gh
+    gbrowse = git-browse
     gh-clone = !bash -c '[[ $1 == */* ]] || git clone http://github.com/openstack/$1 && git clone http://github.com/$1' -
-    browse-gerrit = git-browse-review
 	g = grep --break --heading --line-number
     cp = cherry-pick
     branch-date = "!git for-each-ref --sort=committerdate --format='%1B[32m%(committerdate:iso8601) %1B[34m%(committerdate:relative) %1B[0;m%(refname:short)' refs/heads/"
-    branch-cleanup = git-branch-cleanup
     bd = branch --delete
+	commit = commit -v
+    branch-cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+	ppr =  "!git push -u chmouel $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
 
 [core]
     quotepath = false
@@ -65,7 +65,3 @@
 
 [grep]
   lineNumbeR = true
-[filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
