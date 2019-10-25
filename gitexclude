@@ -1,4 +1,5 @@
 .vscode
+.envrc
 .eggs
 *.elc
 TAGS
@@ -27,4 +28,5 @@ tags
 *.egg-info
 dist
 *_flymake.py
-.dir-locals.el
+#.dir-locals.el
+#*#
