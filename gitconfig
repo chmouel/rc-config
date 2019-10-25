@@ -32,7 +32,7 @@
   ui = true
 
 [grep]
-  lineNumbeR = true
+lineNumbeR = true
 
 [commit]
 	verbose = true
