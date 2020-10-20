@@ -3,20 +3,16 @@
 	email = chmouel@chmouel.com
 	signingkey = 8E00E7B02807E02D
 
-[IncludeIF "gitdir:~/GIT/go/src/github.com/tektoncd/"]
+[IncludeIF "gitdir:~/GIT/go/src/github.com/tektoncd*/"]
 	path = ~/.gitconfig.redhat
 
-[IncludeIF "gitdir/i:~/GIT/go/src/github.com/openshift/"]
+[IncludeIF "gitdir/i:~/GIT/go/src/github.com/openshift*/"]
 	path = ~/.gitconfig.redhat
 
-[include]
-    path = ~/.gitconfig.local
 
 [core]
     quotepath = false
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitexclude
-	pager = diff-so-fancy | less --tabs=4 -RFX
 	autocrlf = input
 
 [diff]
@@ -29,14 +25,13 @@
 	default = matching
 
 [color]
-  ui = true
+	ui = true
 
 [grep]
-lineNumbeR = true
+	lineNumbeR = true
 
 [commit]
 	verbose = true
-	gpgsign = true
 
 [alias]
 	#Aliases
@@ -48,13 +43,15 @@ lineNumbeR = true
 	st = status -sb
     bl = branch -l
     co = checkout
-    commit = commit -s
 	cp = cherry-pick
 
 	# GitHUB
 	ampf = "!git amend -a&& git push --force chmouel $(git rev-parse --abbrev-ref HEAD)"
 	#ppr =  "!git push chmouel -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
 	#pprorigin =  "!git push origin -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
+    pprupstream = "!git ppr upstream chmouel"
+    pprorigin = "!git ppr origin chmouel"
+    ppropenshift = "!git ppr openshift chmouel"
 	pr = "!o=`${HOME}/bin/git-pull-request-from-branch`; [[ ${o} != \"nope\" ]] && open ${o} || { echo "git config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pull/*";git fetch -a; }"
 	prcheckout = "!f() { hub checkout $(hub browse -u -- pull/$1) ;}; f"
     issueopen = "!f() { hub browse -- issues/\"$1\" ;}; f"
@@ -62,6 +59,9 @@ lineNumbeR = true
 	issuecreate = "!f() { REPO=$(hub browse -u --|sed "s,/tree/.*,,;s,https://github.com/,,"); github-issue-cli $@ ${REPO} ;}; f"
 	issuelist = "!hub issue"
 	prlist = "!hub pr list"
+	cghissue = "!git commit -asm \"`github-issue-prefix -c`\""
+
+    magit-show = "!f() { emacsclient -n -c -e '(magit-show-commit \"'$1'\")' ;}; f $@"
 
 	# Diffs
     ediff = difftool -y --tool=ediff
@@ -70,9 +70,17 @@ lineNumbeR = true
     vlast = difftool -y --tool=vimdiff2 HEAD^..HEAD
 
 	# Misc
-    branch-cleanup = "!git branch --merged | grep  -v "\\*\\|master\\|develop" | xargs -n 1 git branch -d"
     branch-date = "!git for-each-ref --sort=committerdate --format='%1B[32m%(committerdate:iso8601) %1B[34m%(committerdate:relative) %1B[0;m%(refname:short)' refs/heads/"
     log = log --no-merges --date=human
 
 [hub]
 	protocol = https
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[pull]
+	rebase = false
