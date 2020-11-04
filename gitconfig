@@ -9,11 +9,11 @@
 [IncludeIF "gitdir/i:~/GIT/go/src/github.com/openshift*/"]
 	path = ~/.gitconfig.redhat
 
-
 [core]
     quotepath = false
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	autocrlf = input
+
 
 [diff]
 	mynemonicprefix = true
@@ -76,11 +76,13 @@
 [hub]
 	protocol = https
 
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[core]
+    excludesfile = ~/.gitexclude
 
 [pull]
 	rebase = false
+
+[include]
+    path = ~/.gitconfig.local
+[http]
+	sslVerify = true
