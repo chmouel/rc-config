@@ -55,7 +55,7 @@
 	pr = "!o=`${HOME}/bin/git-pull-request-from-branch`; [[ ${o} != \"nope\" ]] && open ${o} || { echo "git config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pull/*";git fetch -a; }"
 	prcheckout = "!f() { hub checkout $(hub browse -u -- pull/$1) ;}; f"
     issueopen = "!f() { hub browse -- issues/\"$1\" ;}; f"
-    propen = "!f() { [[ -z ${1} ]] && git pr || hub browse -- pull/\"$1\" ;}; f"
+    propen = "!gh pr view -w"
 	issuecreate = "!f() { REPO=$(hub browse -u --|sed "s,/tree/.*,,;s,https://github.com/,,"); github-issue-cli $@ ${REPO} ;}; f"
 	issuelist = "!hub issue"
 	prlist = "!hub pr list"
@@ -84,12 +84,35 @@
 
 [include]
     path = ~/.gitconfig.local
+
 [http]
 	sslVerify = true
+
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+
 [init]
 	defaultBranch = main
+
+[include]
+    path = ~/.gitconfig.local
+
+[pull]
+	rebase = false
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+	features = line-numbers decorations
+	line-numbers = false
+
