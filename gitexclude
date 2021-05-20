@@ -1,4 +1,5 @@
-.vscode
+.projectile
+.vscod
 .envrc
 .eggs
 *.elc
@@ -31,3 +32,4 @@ dist
 .dir-locals.el
 #*#
 .idea
+.mypy_cache
