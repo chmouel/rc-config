@@ -120,3 +120,5 @@
 	minus-empty-line-marker-style = normal normal
 	plus-empty-line-marker-style = normal normal
 	line-numbers-right-format = "{np:^4}│ "
+[init]
+	defaultBranch = main
