@@ -89,9 +89,11 @@
 	rebase = false
 
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
+
 [difftool]
 	prompt = false
+
 
 
 #[core]
