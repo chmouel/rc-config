@@ -54,13 +54,7 @@
     pprupstream = "!git ppr upstream chmouel"
     pprorigin = "!git ppr origin chmouel"
     ppropenshift = "!git ppr openshift chmouel"
-	pr = "!o=`${HOME}/bin/git-pull-request-from-branch`; [[ ${o} != \"nope\" ]] && open ${o} || { echo "git config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pull/*";git fetch -a; }"
-	prcheckout = "!f() { hub checkout $(hub browse -u -- pull/$1) ;}; f"
-    issueopen = "!f() { hub browse -- issues/\"$1\" ;}; f"
-    propen = "!gh pr view -w"
-	issuecreate = "!f() { REPO=$(hub browse -u --|sed "s,/tree/.*,,;s,https://github.com/,,"); github-issue-cli $@ ${REPO} ;}; f"
-	issuelist = "!hub issue"
-	prlist = "!hub pr list"
+    prv = "!gh pr view -w"
 	cghissue = "!git commit -asm \"`github-issue-prefix -c`\""
 
     magit-show = "!f() { emacsclient -n -c -e '(magit-show-commit \"'$1'\")' ;}; f $@"
@@ -116,4 +110,3 @@
     
 [include]
 	path = ~/.gitconfig.local
-
