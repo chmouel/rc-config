@@ -37,7 +37,7 @@
 [alias]
 	#Aliases
     workon = git-workon
-	amend = commit --amend -v
+	amend = commit --amend -v -s
 	ca = commit -as
 	clone1 = clone --depth=1
 	dlog = show --summary
