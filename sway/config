@@ -40,7 +40,7 @@ for_window [class="^Google-chrome"] move container to workspace $wsbrowse;worksp
 for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse
 for_window [class="^kitty"] move container to workspace $wsterm;workspace $wsterm
 for_window [app_id="^kitty"] move container to workspace $wsterm;workspace $wsterm
-for_window [app_id="^emacs"] move container to workspace 3;workspace 3
+for_window [app_id="^emacs"] move container to workspace $wscode;workspace $wscode
 for_window [class="^Slack"] move container to workspace $wschat;workspace $wschat
 for_window [class="^Spotify"] move container to workspace $wsmusic;workspace $wsmusic
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
@@ -55,6 +55,7 @@ titlebar_border_thickness 0
 titlebar_padding 2
 default_border pixel 0
 gaps inner $default_gap
+gaps outer 0
 font $default_font
 popup_during_fullscreen smart
 
@@ -99,16 +100,31 @@ input type:touchpad {
     tap enabled
 }
 
+# Mouse button, can't figure out how to do that on gnome 😍 
+bindsym --whole-window button6 workspace prev
+bindsym --whole-window button7 workspace next
+
+# XF86Launch* are mouse gestures from mx master via logid
 bindsym $mod+Return exec swjapp kitty
+bindsym XF86Launch8 exec swjapp kitty
 bindsym $mod+Shift+Return exec kitty
 
-bindsym $mod+e exec  wofi-emoji
-
 bindsym $mod+m exec swjapp -c emacs emacsclient -c -n 
+bindsym XF86Launch9 exec swjapp -c emacs emacsclient -c -n 
+
 bindsym $mod+shift+m exec emacs emacsclient -c -n 
 
 bindsym $mod+s exec swjapp -c Slack slack
+bindsym XF86Launch5 exec swjapp -c Slack slack
+
 bindsym $mod+f exec swjapp firefox
+bindsym XF86Launch6 exec swjapp firefox
+
+bindsym XF86Launch7 exec swjapp -c Google-chrome google-chrome-stable
+
+bindsym $mod+Shift+e exec  wofi-emoji
+
+bindsym $mod+r exec wofi -show drun --show drun -G
 
 
 # Kill focused window
@@ -125,7 +141,7 @@ bindsym $mod+Space exec $menu
 floating_modifier $mod normal
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+f4 exec swaymsg exit
@@ -176,6 +192,9 @@ bindsym $mod+f11 fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+control+space focus mode_toggle
 
+bindsym $mod+c floating enable;move absolute position center;resize set width 85ppt;resize set height 100ppt
+bindsym $mod+shift+c floating disable
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -196,7 +215,8 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+f7 mode "resize"
+
 
 #
 # Status Bar:
