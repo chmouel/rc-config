@@ -1,0 +1,209 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu mounch
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg ~/Pictures/wallpapers/wallpaper1.png fill
+
+focus_on_window_activation focus
+title_align center
+
+set $wsbrowse 1:
+set $wsterm 2:
+set $wscode 3:
+set $wsmusic 5:
+set $wschat 4:
+
+for_window [class="^firefox"] move container to workspace $wsbrowse;workspace $wsbrowse
+for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse
+for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse
+for_window [class="^kitty"] move container to workspace $wsterm;workspace $wsterm
+for_window [app_id="^kitty"] move container to workspace $wsterm;workspace $wsterm
+for_window [app_id="^emacs"] move container to workspace 3;workspace 3
+for_window [class="^Slack"] move container to workspace $wschat;workspace $wschat
+for_window [class="^Spotify"] move container to workspace $wsmusic;workspace $wsmusic
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
+
+## basic appearance
+set $default_gap 5
+set $default_font Source Code Pro 10
+smart_borders on
+smart_gaps off
+titlebar_border_thickness 0
+titlebar_padding 2
+default_border pixel 0
+gaps inner $default_gap
+font $default_font
+popup_during_fullscreen smart
+
+exec --no-startup-id gnome-next-meeting-applet
+exec --no-startup-id nm-applet --indicator
+
+exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+input type:keyboard {
+    xkb_layout us
+    xkb_options ctrl:nocaps
+}
+
+input type:touchpad {
+    tap enabled
+}
+
+bindsym $mod+Return exec swjapp kitty
+bindsym $mod+Shift+Return exec kitty
+
+bindsym $mod+e exec  wofi-emoji
+
+bindsym $mod+m exec swjapp -c emacs emacsclient -c -n 
+bindsym $mod+shift+m exec emacs emacsclient -c -n 
+
+bindsym $mod+s exec swjapp -c Slack slack
+bindsym $mod+f exec swjapp firefox
+
+
+# Kill focused window
+bindsym $mod+F4 kill
+
+# Start your launcher
+bindsym $mod+Space exec $menu
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+f4 exec swaymsg exit
+
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace $wsbrowse
+bindsym $mod+2 workspace $wsterm
+bindsym $mod+3 workspace $wscode
+bindsym $mod+4 workspace $wschat
+bindsym $mod+5 workspace $wsmusic
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $wsbrowse; workspace $wsbrowse
+bindsym $mod+Shift+2 move container to workspace $wsterm; workspace $wsterm
+bindsym $mod+Shift+3 move container to workspace $wscode; workspace $wscode
+bindsym $mod+Shift+4 move container to workspace $wschat; workspace $wschat
+bindsym $mod+Shift+5 move container to workspace $wsmusic; workspace $wsmusic
+bindsym $mod+Shift+6 move container to workspace number 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace number 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace number 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace number 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace number 10; workspace $wsbrowse0
+
+bindsym $mod+f5 splith
+bindsym $mod+f6 splitv
+bindsym $mod+f1 layout stacking
+bindsym $mod+f2 layout tabbed
+bindsym $mod+f3 layout toggle split
+bindsym $mod+f11 fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+control+space focus mode_toggle
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+     swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
