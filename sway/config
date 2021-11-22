@@ -5,21 +5,14 @@
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
-#
-# Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
 set $term kitty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu mounch
+set $menu mounch -p
+set $wsbrowse 1:1 
+set $wsterm 2:2 
+set $wscode 3:3 
+set $wschat 4:4 
+set $wsmusic 5:5 
 
 ### Output configuration
 #
@@ -29,25 +22,21 @@ output * bg ~/Pictures/wallpapers/wallpaper1.png fill
 focus_on_window_activation focus
 title_align center
 
-set $wsbrowse 1:
-set $wsterm 2:
-set $wscode 3:
-set $wsmusic 5:
-set $wschat 4:
-
-for_window [class="^firefox"] move container to workspace $wsbrowse;workspace $wsbrowse
-for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse
-for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse
-for_window [class="^kitty"] move container to workspace $wsterm;workspace $wsterm
-for_window [app_id="^kitty"] move container to workspace $wsterm;workspace $wsterm
-for_window [app_id="^emacs"] move container to workspace $wscode;workspace $wscode
+for_window [class="^firefox"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
+for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
+for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
+#for_window [class="^kitty"] move container to workspace $wsterm;workspace $wsterm
+#for_window [app_id="^kitty"] move container to workspace $wsterm;workspace $wsterm
+for_window [app_id="^emacs"] move container to workspace $wsterm;workspace $wsterm
+for_window [class="Code"] move container to workspace $wscode;workspace $wscode
+for_window [class="jetbrains-goland"] move container to workspace $wscode;workspace $wscode
 for_window [class="^Slack"] move container to workspace $wschat;workspace $wschat
 for_window [class="^Spotify"] move container to workspace $wsmusic;workspace $wsmusic
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
 
 ## basic appearance
-set $default_gap 5
+set $default_gap 7
 set $default_font Source Code Pro 10
 smart_borders on
 smart_gaps off
@@ -55,7 +44,6 @@ titlebar_border_thickness 0
 titlebar_padding 2
 default_border pixel 0
 gaps inner $default_gap
-gaps outer 0
 font $default_font
 popup_during_fullscreen smart
 
@@ -63,6 +51,9 @@ exec --no-startup-id gnome-next-meeting-applet
 exec --no-startup-id nm-applet --indicator
 
 exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
+
+for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
+bindsym $mod+minus exec kitty -o background_opacity=0.8 --name dropdown
 
 ### Idle configuration
 #
@@ -104,15 +95,15 @@ input type:touchpad {
 bindsym --whole-window button6 workspace prev
 bindsym --whole-window button7 workspace next
 
+
 # XF86Launch* are mouse gestures from mx master via logid
 bindsym $mod+Return exec swjapp kitty
 bindsym XF86Launch8 exec swjapp kitty
 bindsym $mod+Shift+Return exec kitty
 
-bindsym $mod+m exec swjapp -c emacs emacsclient -c -n 
-bindsym XF86Launch9 exec swjapp -c emacs emacsclient -c -n 
-
-bindsym $mod+shift+m exec emacs emacsclient -c -n 
+bindsym $mod+Backspace exec swjapp -c emacs -- emacsclient -c -n 
+bindsym XF86Launch9 exec swjapp -c emacs -- emacsclient -c -n 
+bindsym $mod+shift+Backspace exec emacsclient -c -n 
 
 bindsym $mod+s exec swjapp -c Slack slack
 bindsym XF86Launch5 exec swjapp -c Slack slack
@@ -124,14 +115,17 @@ bindsym XF86Launch7 exec swjapp -c Google-chrome google-chrome-stable
 
 bindsym $mod+Shift+e exec  wofi-emoji
 
-bindsym $mod+r exec wofi -show drun --show drun -G
+bindsym alt+f2 exec wofi -show drun --show drun -G
 
+bindsym Print exec grim -g "$(slurp)" -t png -|wl-copy -t image/png
+bindsym Shift+Print exec grim -g "$(slurp)" -t png /tmp/$(date +"Screenshot_%Y-%m-%d-%H:%M.%S.png")
+bindsym Control+Print exec grim -g "$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')"
 
 # Kill focused window
 bindsym $mod+F4 kill
 
 # Start your launcher
-bindsym $mod+Space exec $menu
+bindsym $mod+Space exec $menu|xargs swaymsg exec --
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -144,13 +138,9 @@ floating_modifier $mod normal
 bindsym $mod+Shift+r reload
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+f4 exec swaymsg exit
+bindsym $mod+Shift+f4 exit
 
 # Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -192,19 +182,29 @@ bindsym $mod+f11 fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+control+space focus mode_toggle
 
-bindsym $mod+c floating enable;move absolute position center;resize set width 85ppt;resize set height 100ppt
+bindsym $mod+c floating enable;resize set width 2110px
 bindsym $mod+shift+c floating disable
 
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+font pango:Roboto Mono Light:12
 
+set $gnome-schema org.gnome.desktop.interface
+ 
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Yaru-Pupule'
+    gsettings set $gnome-schema icon-theme 'candy-icons'
+    #gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
+    #gsettings set $gnome-schema font-name 'Your font name'
+}
+
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2 
+
+mode "resize" {
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
@@ -215,7 +215,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+f7 mode "resize"
+bindsym $mod+r mode "resize"
 
 
 #
@@ -225,5 +225,8 @@ bindsym $mod+f7 mode "resize"
 bar {
      swaybar_command waybar
 }
+
+exec eval $(gnome-keyring-daemon --start)
+exec export SSH_AUTH_SOCK
 
 include /etc/sway/config.d/*
