@@ -113,6 +113,14 @@ bindsym XF86Launch6 exec swjapp firefox
 
 bindsym XF86Launch7 exec swjapp -c Google-chrome google-chrome-stable
 
+bindsym XF86AudioRaiseVolume exec pamixer -ui 2
+bindsym XF86AudioLowerVolume exec pamixer -ud 2
+bindsym XF86AudioMute exec pamixer --toggle-mute
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+
 bindsym $mod+Shift+e exec  wofi-emoji
 
 bindsym alt+f2 exec wofi -show drun --show drun -G
