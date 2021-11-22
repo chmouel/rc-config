@@ -123,7 +123,10 @@ bindsym XF86AudioStop exec playerctl stop
 
 bindsym $mod+Shift+e exec  wofi-emoji
 
-bindsym alt+f2 exec wofi -show drun --show drun -G
+for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+# set $launcher exec $term --class=launcher -e sway-launcher-desktop
+set $launcher wofi -GmIf
+bindsym alt+f2 exec $launcher
 
 bindsym Print exec grim -g "$(slurp)" -t png -|wl-copy -t image/png
 bindsym Shift+Print exec grim -g "$(slurp)" -t png /tmp/$(date +"Screenshot_%Y-%m-%d-%H:%M.%S.png")
