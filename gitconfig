@@ -1,112 +1,120 @@
 [user]
-	name = Chmouel Boudjnah
-	email = chmouel@chmouel.com
-	signingkey = 8E00E7B02807E02D
+    name = Chmouel Boudjnah
+    email = chmouel@chmouel.com
+    signingkey = 8E00E7B02807E02D
+
+
+# one day you will be mine https://twitter.com/chmouel/status/1463206573602394118
+# [gpg]
+#     format = ssh
+# [gpg "ssh"]
+#     defaultKeyCommand = ssh-add -L
+#     allowedSignersFile = ~/.ssh/allowed_signers
 
 [IncludeIF "gitdir:~/GIT/go/src/github.com/tektoncd*/"]
-	path = ~/.gitconfig.redhat
+    path = ~/.gitconfig.redhat
 
 [IncludeIF "gitdir/i:~/GIT/go/src/github.com/openshift*/"]
-	path = ~/.gitconfig.redhat
+    path = ~/.gitconfig.redhat
 
 [core]
     quotepath = false
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	autocrlf = input
-	excludesFile = ~/.gitexclude
+    autocrlf = input
+    excludesFile = ~/.gitexclude
 
 
 [diff]
-	mynemonicprefix = true
+    mynemonicprefix = true
 
 [merge]
-	tool = emerge
+    tool = emerge
 
 [push]
-	default = matching
+    default = matching
 
 [color]
-	ui = true
+    ui = true
 
 [grep]
-	lineNumbeR = true
+    lineNumbeR = true
 
 [commit]
-	verbose = true
+    verbose = true
 
 [alias]
-	#Aliases
+    #Aliases
     workon = git-workon
-	amend = commit --amend -v -s
-	ca = commit -as
-	clone1 = clone --depth=1
-	dlog = show --summary
-	sp = stash show -p
-	st = status -sb
+    amend = commit --amend -v -s
+    ca = commit -as
+    clone1 = clone --depth=1
+    dlog = show --summary
+    sp = stash show -p
+    st = status -sb
     bl = branch -l
     co = checkout
-	cp = cherry-pick
+    cp = cherry-pick
 
-	# GitHUB
-	ampf = "!git amend -a&& git push --force chmouel $(git rev-parse --abbrev-ref HEAD)"
-	#ppr =  "!git push chmouel -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
-	#pprorigin =  "!git push origin -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
+    # GitHUB
+    ampf = "!git amend -a&& git push --force chmouel $(git rev-parse --abbrev-ref HEAD)"
+    #ppr =  "!git push chmouel -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
+    #pprorigin =  "!git push origin -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
     pprupstream = "!git ppr upstream chmouel"
     pprorigin = "!git ppr origin chmouel"
     ppropenshift = "!git ppr openshift chmouel"
     prv = "!gh pr view -w"
-	cghissue = "!git commit -asm \"`github-issue-prefix -c`\""
+    cghissue = "!git commit -asm \"`github-issue-prefix -c`\""
 
     magit-show = "!f() { emacsclient -n -c -e '(magit-show-commit \"'$1'\")' ;}; f $@"
 
-	# Diffs
+    # Diffs
     ediff = difftool -y --tool=ediff
     elast = difftool -y --tool=ediff HEAD^..HEAD
     vdiff = difftool -y --tool=vimdiff2
     vlast = difftool -y --tool=vimdiff2 HEAD^..HEAD
 
-	# Misc
+    # Misc
     branch-date = "!git for-each-ref --sort=committerdate --format='%1B[32m%(committerdate:iso8601) %1B[34m%(committerdate:relative) %1B[0;m%(refname:short)' refs/heads/"
     log = log --no-merges --date=human
 
 [hub]
-	protocol = https
+    protocol = https
 
 [core]
     excludesfile = ~/.gitexclude
 
 [pull]
-	rebase = false
+    rebase = false
 
 [include]
     path = ~/.gitconfig.local
 
 [http]
-	sslVerify = true
+    sslVerify = true
 
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [include]
     path = ~/.gitconfig.local
 
 [pull]
-	rebase = false
+    rebase = false
 
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [init]
-	defaultBranch = main
-    
+    defaultBranch = main
+
 [include]
-	path = ~/.gitconfig.local
+    path = ~/.gitconfig.local
