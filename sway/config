@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-### Variables
+## Variables
 set $mod Mod4
 set $term kitty
 set $menu mounch -p
@@ -37,7 +37,7 @@ for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky en
 
 ## basic appearance
 set $default_gap 7
-set $default_font Source Code Pro 10
+set $default_font SF Pro 10
 smart_borders on
 smart_gaps off
 titlebar_border_thickness 0
@@ -229,6 +229,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+
 #
 # Status Bar:
 #
@@ -239,5 +240,6 @@ bar {
 
 exec eval $(gnome-keyring-daemon --start)
 exec export SSH_AUTH_SOCK
+exec mako
 
 include /etc/sway/config.d/*
