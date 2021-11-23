@@ -37,7 +37,7 @@ for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky en
 
 ## basic appearance
 set $default_gap 7
-set $default_font SF Pro 10
+set $default_font pango:Roboto Mono Light:12
 smart_borders on
 smart_gaps off
 titlebar_border_thickness 0
@@ -47,11 +47,7 @@ gaps inner $default_gap
 font $default_font
 popup_during_fullscreen smart
 
-exec --no-startup-id gnome-next-meeting-applet
-exec --no-startup-id nm-applet --indicator
-
 exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
-
 for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
 bindsym $mod+minus exec kitty -o background_opacity=0.8 --name dropdown
 
@@ -196,17 +192,6 @@ bindsym $mod+control+space focus mode_toggle
 bindsym $mod+c floating enable;resize set width 2110px
 bindsym $mod+shift+c floating disable
 
-font pango:Roboto Mono Light:12
-
-set $gnome-schema org.gnome.desktop.interface
- 
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Yaru-Pupule'
-    gsettings set $gnome-schema icon-theme 'candy-icons'
-    #gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
-    #gsettings set $gnome-schema font-name 'Your font name'
-}
-
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
@@ -238,8 +223,13 @@ bar {
      swaybar_command waybar
 }
 
-exec eval $(gnome-keyring-daemon --start)
-exec export SSH_AUTH_SOCK
-exec mako
+# exec eval $(gnome-keyring-daemon --start)
+# exec export SSH_AUTH_SOCK
+
+exec --no-startup-id mako
+exec_always --no-startup-id blueman-applet
+exec --no-startup-id gnome-next-meeting-applet
+exec --no-startup-id nm-applet --indicator
+
 
 include /etc/sway/config.d/*
