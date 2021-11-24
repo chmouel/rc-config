@@ -88,9 +88,8 @@ input type:touchpad {
 }
 
 # Mouse button, can't figure out how to do that on gnome 😍 
-bindsym --whole-window button6 workspace prev
-bindsym --whole-window button7 workspace next
-
+#bindsym --whole-window button6 workspace prev
+#bindsym --whole-window button7 workspace next
 
 # XF86Launch* are mouse gestures from mx master via logid
 bindsym $mod+Return exec swjapp kitty
