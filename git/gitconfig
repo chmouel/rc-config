@@ -55,8 +55,6 @@
 
     # GitHUB
     ampf = "!git amend -a&& git push --force chmouel $(git rev-parse --abbrev-ref HEAD)"
-    #ppr =  "!git push chmouel -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
-    #pprorigin =  "!git push origin -u $(git rev-parse --abbrev-ref HEAD) && hub pull-request"
     pprupstream = "!git ppr upstream chmouel"
     pprorigin = "!git ppr origin chmouel"
     ppropenshift = "!git ppr openshift chmouel"
