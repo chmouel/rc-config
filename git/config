@@ -14,13 +14,13 @@
     path = ~/.config/git/local.config.redhat
 
 [IncludeIF "gitdir/i:~/GIT/go/src/github.com/openshift*/"]
-    path = ~/.gitconfig.redhat
+    path = ~/.config/git/local.config.redhat
 
 [core]
     quotepath = false
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
     autocrlf = input
-    excludesFile = ~/.gitexclude
+    excludesFile = ~/.config/git/exclude
 
 [diff]
     mynemonicprefix = true
