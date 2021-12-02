@@ -226,8 +226,8 @@ bar {
 # exec export SSH_AUTH_SOCK
 
 exec --no-startup-id mako
-exec --no-startup-id blueman-applet
-exec --no-startup-id gnome-next-meeting-applet
+#exec --no-startup-id blueman-applet
+#exec --no-startup-id gnome-next-meeting-applet
 exec --no-startup-id nm-applet --indicator
 
 
