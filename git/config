@@ -79,7 +79,7 @@
     rebase = false
 
 [include]
-    path = ~/.gitconfig.local
+    path = ~/.config/git/local
 
 [http]
     sslVerify = true
