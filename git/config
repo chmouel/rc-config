@@ -11,10 +11,10 @@
 #     allowedSignersFile = ~/.ssh/allowed_signers
 
 [IncludeIF "gitdir:~/GIT/go/src/github.com/tektoncd*/"]
-    path = ~/.config/git/local.config.redhat
+    path = ~/.config/git/local.redhat
 
 [IncludeIF "gitdir/i:~/GIT/go/src/github.com/openshift*/"]
-    path = ~/.config/git/local.config.redhat
+    path = ~/.config/git/local.redhat
 
 [core]
     quotepath = false
