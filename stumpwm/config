@@ -5,10 +5,10 @@
 (run-shell-command "xrandr -q |grep -q \"HDMI-A-0 connected\" && xrandr --output eDP --off")
 (run-shell-command "xsettingsd &")
 (run-shell-command "xbindkeys")
-(run-shell-command "$HOME/.config/polybar/launch.sh")
-(run-shell-command "gnome-next-meeting-applet &")
+;(run-shell-command "$HOME/.config/polybar/launch.sh")
+;(run-shell-command "gnome-next-meeting-applet &")
 
-(define-key *top-map* (kbd "s-SPC") "exec mounch")
+;(define-key *top-map* (kbd "s-SPC") "exec mounch")
 
 (defcommand kitty () ()
   "Run or switch to kitty term."
@@ -83,22 +83,22 @@
 (define-key *root-map* (kbd "q") "jj-toggle-mode-line")
 
 ;;; Gaps
-(load-module "swm-gaps")
-(setf swm-gaps:*inner-gaps-size* 5
-      swm-gaps:*outer-gaps-size* 2
-      swm-gaps:*head-gaps-size* 2)
-(when *initializing*
-  (swm-gaps:toggle-gaps))
-(define-key *groups-map* (kbd "g") "toggle-gaps")
+;;(load-module "swm-gaps")
+; (setf swm-gaps:*inner-gaps-size* 5
+;       swm-gaps:*outer-gaps-size* 2
+;       swm-gaps:*head-gaps-size* 2)
+; (when *initializing*
+;   (swm-gaps:toggle-gaps))
+; (define-key *groups-map* (kbd "g") "toggle-gaps")
 
 ;;; Undo And Redo Functionality
-(load-module "winner-mode")
-(define-key *root-map* (kbd "u") "winner-undo")
-(define-key *root-map* (kbd "C-r") "winner-redo")
-(add-hook *post-command-hook*
-          (lambda (command)
-            (when (member command winner-mode:*default-commands*)
-              (winner-mode:dump-group-to-file))))
+; (load-module "winner-mode")
+; (define-key *root-map* (kbd "u") "winner-undo")
+; (define-key *root-map* (kbd "C-r") "winner-redo")
+; (add-hook *post-command-hook*
+;           (lambda (command)
+;             (when (member command winner-mode:*default-commands*)
+;               (winner-mode:dump-group-to-file))))
 
 
 ;;; Emacs integration
