@@ -17,7 +17,7 @@ set $wsmusic 5:5 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/wallpapers/wallpaper1.png fill
+output * bg ~/.local/share/backgrounds/1223125.jpg fill
 
 focus_on_window_activation focus
 title_align center
@@ -47,6 +47,7 @@ gaps inner $default_gap
 font $default_font
 popup_during_fullscreen smart
 
+exec --no-startup-id xsettingsd &
 exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
 for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
 bindsym $mod+minus exec kitty -o background_opacity=0.8 --name dropdown

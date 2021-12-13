@@ -1,0 +1,6 @@
+configuration {
+	modi: "run,drun,window";
+	terminal: "gnome-terminal";
+	ssh-client: "ssh";
+	ssh-command: "kitty -- kitty +kitten ssh {host}";
+}

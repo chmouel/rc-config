@@ -1,159 +1,46 @@
+;; Load quicklisp
+(let ((quicklisp-init (merge-pathnames ".local/share/quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+(setf *default-package* :stumpwm)
 (in-package :stumpwm)
-(set-prefix-key (kbd "s-`"))
+(set-module-dir "/usr/share/stupmwm/contrib/")
+(define-key *top-map* (kbd "s-SPC") "exec mounch")
 
-(run-shell-command "setxkbmap -option \"ctrl:nocaps\"")
-(run-shell-command "xrandr -q |grep -q \"HDMI-A-0 connected\" && xrandr --output eDP --off")
-(run-shell-command "xsettingsd &")
-(run-shell-command "xbindkeys")
-;(run-shell-command "$HOME/.config/polybar/launch.sh")
-;(run-shell-command "gnome-next-meeting-applet &")
+(set-prefix-key (kbd "F1"))
 
-;(define-key *top-map* (kbd "s-SPC") "exec mounch")
+(load "~/.config/stumpwm/keybinding.lisp")
+(load "~/.config/stumpwm/appearance.lisp")
+(load "~/.config/stumpwm/modules.lisp")
+(load "~/.config/stumpwm/functions.lisp")
 
-(defcommand kitty () ()
-  "Run or switch to kitty term."
-  (run-or-raise "kitty" '(:class "Kitty")))
-(define-key *top-map* (kbd "s-RET") "kitty")
+(run-shell-command "feh --bg-scale $HOME/.local/share/backgrounds/current.jpg")
 
-(set-normal-gravity :bottom)
-(setf *message-window-gravity* :center)
-(setf *input-window-gravity* :center)
-(set-font "-CTDB-Fira Sans-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
-(set-bg-color "#F0FFF0")
-(set-fg-color "#326B6B")
-(set-win-bg-color "#DCDAD5")
-(set-border-color "#555555")
+(setf stumpwm:*mouse-focus-policy* :click
+      *new-frame-action* :last-window)
 
-(define-key *top-map* (kbd "Scroll_Lock") "loadrc")
-(define-key *top-map* (kbd "s-;") "colon")
+(clear-window-placement-rules)
 
-(define-key *top-map* (kbd "s-f") "float-this")
-(define-key *top-map* (kbd "s-F") "unfloat-this")
-
-(define-key *top-map* (kbd "s-S-Left") "exchange-direction left")
-(define-key *top-map* (kbd "s-S-Down") "exchange-direction down")
-(define-key *top-map* (kbd "s-S-Up") "exchange-direction up")
-(define-key *top-map* (kbd "s-S-Right") "exchange-direction right")
-
-(define-key *top-map* (kbd "s-TAB")   "next-in-frame")
-(define-key *top-map* (kbd "s-ISO_Left_Tab") "prev-in-frame")
-
-(define-key *top-map* (kbd "s-1")           "gselect 1")
-(define-key *top-map* (kbd "s-2")           "gselect 2")
-(define-key *top-map* (kbd "s-3")           "gselect 3")
-(define-key *top-map* (kbd "s-4")           "gselect 4")
-
-(define-key *top-map* (kbd "s-!")           "gmove-and-follow 1")
-(define-key *top-map* (kbd "s-@")           "gmove-and-follow 2")
-(define-key *top-map* (kbd "s-#")           "gmove-and-follow 3")
-(define-key *top-map* (kbd "s-$")           "gmove-and-follow 4")
-
-
-(defvar color1 "#886666")
-(defvar color2 "#222222")
-(setf
- stumpwm:*mode-line-background-color* color2 
- stumpwm:*mode-line-foreground-color* color1
- stumpwm:*mode-line-border-color* "#555555"
- stumpwm:*screen-mode-line-format* (list "%g | %v ^>^7 %B | " '(:eval (get-latence)) "ms %d    ")
- stumpwm:*mode-line-border-width* 1
- stumpwm:*mode-line-pad-x* 6
- stumpwm:*mode-line-pad-y* 1
- stumpwm:*mode-line-timeout* 5
- stumpwm:*mouse-focus-policy* :click
- ;;stumpwm:*group-format* "%n·%t
- stumpwm:*group-format* "%n"
- stumpwm:*time-modeline-string* "%H:%M"
- stumpwm:*window-format* "^b^(:fg \"#7799AA\")<%25t>"
- stumpwm:*window-border-style* :tight
- stumpwm:*normal-border-width* 1
- )
-
-(stumpwm:set-focus-color "#7799CC")
 (stumpwm:grename "Browse")
 (stumpwm:gnewbg "Dev")
 (stumpwm:gnewbg "Slack")
-(stumpwm:gnewbg "Office")
-(if (probe-file (data-dir-file "desktop.lisp"))
-    (restore-from-file (data-dir-file "desktop.lisp")))
-
-(defcommand jj-toggle-mode-line () ()
-  "Toggle the mode line in StumpWM."
-  (toggle-mode-line (current-screen) (current-head)))
-(define-key *root-map* (kbd "q") "jj-toggle-mode-line")
-
-;;; Gaps
-;;(load-module "swm-gaps")
-; (setf swm-gaps:*inner-gaps-size* 5
-;       swm-gaps:*outer-gaps-size* 2
-;       swm-gaps:*head-gaps-size* 2)
-; (when *initializing*
-;   (swm-gaps:toggle-gaps))
-; (define-key *groups-map* (kbd "g") "toggle-gaps")
-
-;;; Undo And Redo Functionality
-; (load-module "winner-mode")
-; (define-key *root-map* (kbd "u") "winner-undo")
-; (define-key *root-map* (kbd "C-r") "winner-redo")
-; (add-hook *post-command-hook*
-;           (lambda (command)
-;             (when (member command winner-mode:*default-commands*)
-;               (winner-mode:dump-group-to-file))))
-
-
-;;; Emacs integration
-;; Treat emacs splits like Xorg windows
-(defun is-emacs-p (win)
-  "nil if the WIN"
-  (when win
-    (string-equal (window-class win) "Emacs")))
-
-(defun exec-el (expression)
-  "execute emacs lisp do not collect it's output"
-  (run-shell-command (concat "emacsclient -e '" (write-to-string
-                                                 expression) "'") nil))
-
-(defun eval-string-as-el (expression)
-  "evaluate a string as emacs lisp"
-  (run-shell-command (concat "emacsclient -e '" expression "'") t))
-
-(defun eval-el (expression)
-  "evaluate emacs lisp and collect it's output"
-  (eval-string-as-el (write-to-string expression)))
-
-(defun emacs-winmove (direction)
-  "executes the emacs function winmove-DIRECTION where DIRECTION is a string"
-  (eval-string-as-el (concat "(windmove-" direction ")")))
-
-(defun better-move-focus (ogdir)
-  "Similar to move-focus but also treats emacs windows as Xorg windows"
-  (let ((mv `(move-focus ,(intern (string ogdir) "KEYWORD"))))
-    (if (is-emacs-p (current-window))
-        (when
-            ;; There is not emacs window in that direction
-            (= (length (emacs-winmove
-                        (string-downcase (string ogdir))))
-               1)
-          (eval mv))
-        (eval mv))))
-
-(defcommand my-mv (dir) ((:direction "Enter direction: "))
-  (when dir
-    (better-move-focus (string-upcase dir))))
-(define-key *top-map* (kbd "s-Left") "my-mv left")
-(define-key *top-map* (kbd "s-Down") "my-mv down")
-(define-key *top-map* (kbd "s-Up") "my-mv up")
-(define-key *top-map* (kbd "s-Right") "my-mv right")
-
+(stumpwm:gnewbg "Spotify")
+(stumpwm:gnewbg-float "Others")
 ;;
-(clear-window-placement-rules)
+(define-frame-preference "Browse" (0 t t :class "firefox"))
+(define-frame-preference "Browse" (1 t t :class "Chromium"))
+(define-frame-preference "Dev" (0 t t :class "Emacs"))
+(define-frame-preference "Slack" (0 t t :class "Slack"))
+(define-frame-preference "Spotify" (0 t t :class "Spotify"))
+(define-frame-preference "Others" (0 t t :class "pavucontrol"))
 
-(define-frame-preference "Browse"
-  (0 t nil :class "Firefox"))
+(setf *startup-message* "StumpWM is ready!")
 
+(when *initializing*
+ (run-shell-command "~/.config/polybar/launch.sh"))
 
 ;; vim: ft=lisp
-
 ;; Local Variables:
 ;; mode: lisp
 ;; End:
