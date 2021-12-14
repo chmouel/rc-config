@@ -47,9 +47,8 @@
 (define-key *root-map* (kbd "f") "float-this")
 (define-key *root-map* (kbd "F") "unfloat-this")
 
-;; (define-key *top-map* (kbd "s-S-Left") "exchange-direction left")
-;; (define-key *top-map* (kbd "s-S-Right") "exchange-direction right")
-;; (define-key *top-map* (kbd "s-S-Down") "exchange-direction down")
+(define-key *top-map* (kbd "s-C-Left") "exchange-direction left")
+(define-key *top-map* (kbd "s-C-Right") "exchange-direction right")
 (define-key *top-map* (kbd "s-S-Up") "exchange-direction up")
 (define-key *top-map* (kbd "s-S-Left") "move-window left")
 (define-key *top-map* (kbd "s-S-Right") "move-window right")
@@ -71,9 +70,9 @@
 (define-key *top-map* (kbd "s-4") "gselect 4")
 (define-key *top-map* (kbd "s-5") "gselect 5")
 
-(define-key *top-map* (kbd "s-C-Left") "gprev")
-(define-key *top-map* (kbd "s-C-Right") "gnext")
-(define-key *top-map* (kbd "s-o") "only")
+(define-key *top-map* (kbd "s-M-Left") "gprev")
+(define-key *top-map* (kbd "s-M-Right") "gnext")
+;; (define-key *top-map* (kbd "s-o") "only")
 
 (define-key *top-map* (kbd "s-\\") "gselect")
 
