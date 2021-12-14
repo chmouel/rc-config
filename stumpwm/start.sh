@@ -1,16 +1,31 @@
 #!/usr/bin/env bash
+set -x
 
-xrandr -q |grep -q "HDMI-A-0 connected" && xrandr --output eDP --off
+HDMI=""
+xrandr -q |grep -q "HDMI.*connected" && HDMI="YES"
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      if [[ ${HDMI} == "YES" && ${m} != HDMI* ]];then
+          xrandr --output ${m} --off
+          continue
+      fi
+      export MONITOR=${m}
+      break
+  done
+fi
+
 setxkbmap -option "ctrl:nocaps"
 xinput set-prop 12 "libinput Tapping Enabled" 1
 xinput set-prop 12 "libinput Accel Speed" 0.5
 
 xsetroot -cursor_name left_ptr
 
-cd /tmp; nohup picom --no-fading-openclose  &
-cd /tmp; nohup nm-applet  &
-cd /tmp; nohup xsettingsd  &
-cd /tmp; nohup dunst &
+cd /tmp
+nohup picom --no-fading-openclose  &
+nohup nm-applet  &
+nohup xsettingsd  &
+/tmp; nohup dunst &
+cd $HOME
 
 # since we are already on a gnome vibe, lets use gnome-keyring as our
 # ssh-agent, as a bonus it will give to sensible applications access to ssh
@@ -20,8 +35,6 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
-
-cd $HOME
 
 # $HOME/.config/polybar/launch.sh
 #exec dbus-launch --exit-with-session stumpwm
