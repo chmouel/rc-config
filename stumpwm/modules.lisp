@@ -8,17 +8,15 @@
 (define-key *groups-map* (kbd "g") "toggle-gaps")
 
 (load-module "globalwindows")
+(define-key *top-map* (kbd "s-`") "global-windowlist")
+(define-key *top-map* (kbd "s-~") "global-pull-windowlist")
 
 (load-module "clipboard-history")
 (define-key *root-map* (kbd "C-y") "show-clipboard-history")
 (clipboard-history:start-clipboard-manager)
 
-(load-module "end-session")
-(define-key *top-map* (kbd "s-`") "global-windowlist")
-(define-key *top-map* (kbd "s-~") "global-pull-windowlist")
-
-(load-module "swm-golden-ratio")
-(swm-golden-ratio:toggle-golden-ratio)
+;; (load-module "swm-golden-ratio")
+;; (swm-golden-ratio:toggle-golden-ratio)
 
 (load-module "pass")
 
