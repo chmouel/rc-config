@@ -7,9 +7,9 @@
 ;; mouse button gesture + right
 (xbindkey '(release "XF86Launch5") "jumpapp slack")
 (xbindkey '(release "XF86Launch9") "jumpapp -f -i emacs -- emacs -c -a emacs")
-(xbindkey '(release "xf86launch8") "jumpapp kitty")
-(xbindkey '(release "xf86launch6") "jumpapp firefox")
-(xbindkey '(release "xf86launch7") "jumpapp chromium")
+(xbindkey '(release "XF86launch8") "jumpapp kitty")
+(xbindkey '(release "XF86launch6") "jumpapp firefox")
+(xbindkey '(release "XF86launch7") "jumpapp chromium")
 
 
 (xbindkey '(mod4 "s") "jumpapp slack")
