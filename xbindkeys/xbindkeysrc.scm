@@ -1,67 +1,23 @@
-;; (use-modules (srfi srfi-19))
-
-
-;; ;; This value is used for judge `clicking are continuously or not'
-;; (define click-separation-threshold-nanosec 250000000) 
-
-;; (define (time-to-nanosecond time)
-;;   (+ (* (time-second time)
-;;         (expt 10 9))
-;;      (time-nanosecond time)))
-
-;; (define (emit-command k commands)
-;;   (let ((cmd (assoc k commands)))
-;;     (if cmd
-;;         (eval (cdr cmd) (interaction-environment)))))
-
-;; (define (multi-click-key key commands-normal . commands-long)
-;;   (let ((time (current-time))
-;;         (count 0))
-;;     (unless (list? key)
-;;       (set! key (list key)))
-;;     (set! commands-long (if (null? commands-long)
-;;                             #f
-;;                             (begin
-;;                               (set! commands-long (car commands-long))
-;;                               (if (eq? #t commands-long)
-;;                                   commands-normal
-;;                                   commands-long))))
-;;     (xbindkey-function key (lambda ()
-;;                              (let ((prev-time time))
-;;                                (set! time (current-time))
-;;                                (if (> click-separation-threshold-nanosec (time-to-nanosecond (time-difference time prev-time)))
-;;                                    (set! count (+ count 1))
-;;                                    (set! count 1)))))
-;;     (xbindkey-function (cons 'release key) (lambda ()
-;;                                              (let ((diff-time (time-to-nanosecond (time-difference (current-time) time))))
-;;                                                (if (> click-separation-threshold-nanosec diff-time)
-;;                                                    (call-with-new-thread (let ((start-time-count count))
-;;                                                                            (lambda ()
-;;                                                                              (usleep (/ (- click-separation-threshold-nanosec diff-time) 1000))
-;;                                                                              (if (= count start-time-count)
-;;                                                                                  (emit-command start-time-count commands-normal)))))
-;;                                                    (when commands-long
-;;                                                      (emit-command count commands-long))))))))
-
-; mouse button gesture + single click and double click
-;; (multi-click-key 'b:27 '((1 . (run-command "jumpapp firefox"))
-;;                          (2 . (run-command "jumpapp /usr/local/emacs/bin/emacs28"))))
-                 
-
-; midle mouse button single click and double click
-;; (multi-click-key 'b:12 '((1 . (run-command "jumpapp slack"))
-;;                          (2 . (run-command "jumpapp kitty"))))
-
-
 ;; Thumb wheel
 (xbindkey '(release "b:6") "xte 'keydown Super_L' 'keydown Page_Up' 'keyup Page_Up' 'keyup Super_L' 'sleep 10'")
 (xbindkey '(release "b:7") "xte 'keydown Super_L' 'keydown Page_Down' 'keyup Page_Down' 'keyup Super_L' 'sleep 10'")
-(xbindkey '(release "b:7") "xte 'keydown Super_L' 'keydown Right' 'keyup Right' 'keyup Super_L' 'sleep 10'")
 
 ;; mouse button gesture + left
 ;; (xbindkey '(release "b:28") "jumpapp firefox")
 ;; mouse button gesture + right
-;; (xbindkey '(release "b:29") "jumpapp slack")
+(xbindkey '(release "XF86Launch5") "jumpapp slack")
+(xbindkey '(release "XF86Launch9") "jumpapp -f -i emacs -- emacs -c -a emacs")
+(xbindkey '(release "xf86launch8") "jumpapp kitty")
+(xbindkey '(release "xf86launch6") "jumpapp firefox")
+(xbindkey '(release "xf86launch7") "jumpapp chromium")
+
+
+(xbindkey '(mod4 "s") "jumpapp slack")
+(xbindkey '(mod4 "e") "jumpapp -f -i emacs -- emacsclient -c -a emacs")
+(xbindkey '(mod4 "Return") "jumpapp kitty")
+(xbindkey '(mod4 "f") "jumpapp firefox")
+(xbindkey '(mod4 "c") "jumpapp chromium")
+
 ;; mouse button gesture + Down
 ;; (xbindkey '(release "b:30") "jumpapp google-chrome")
 ;; mouse button gesture + UP
