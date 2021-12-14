@@ -57,7 +57,4 @@
 
 (ql:quickload :clx-truetype)
 (load-module "ttf-fonts")
-(clx-truetype:cache-fonts)
-(clx-truetype:get-font-families)
-(xft:cache-fonts)
 (set-font (make-instance 'xft:font :family "Roboto" :subfamily "Regular" :size 25.0))
