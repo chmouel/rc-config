@@ -26,7 +26,7 @@ cd /tmp
 nohup picom --no-fading-openclose  &
 nohup nm-applet  &
 nohup xsettingsd  &
-/tmp; nohup dunst &
+nohup dunst &
 cd $HOME
 
 # since we are already on a gnome vibe, lets use gnome-keyring as our
