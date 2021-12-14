@@ -63,8 +63,7 @@
 (define-key *top-map* (kbd "M-F2") "exec")
 (define-key *top-map* (kbd "M-F4") "kill")
 (define-key *top-map* (kbd "s-ISO_Left_Tab") "prev-in-frame")
-
-(define-key *top-map* (kbd "s-ISO_Left_Tab") "prev-in-frame")
+(define-key *top-map* (kbd "s-Tab") "next")
 
 (define-key *top-map* (kbd "s-1") "gselect 1")
 (define-key *top-map* (kbd "s-2") "gselect 2")
