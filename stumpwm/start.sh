@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+exec 19>/tmp/.start.stumpwm
+BASH_XTRACEFD=19
 set -x
 
 HDMI=""
