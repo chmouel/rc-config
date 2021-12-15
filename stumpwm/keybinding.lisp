@@ -26,7 +26,6 @@
 (define-key *top-map* (kbd "s-Left") "move-focus left")
 (define-key *top-map* (kbd "s-Down") "move-focus down")
 (define-key *top-map* (kbd "s-Up") "move-focus up")
-(define-key *top-map* (kbd "s-c") "restore-from-file onethird")
 (define-key *top-map* (kbd "s-Right") "move-focus right")
 
 (define-key *top-map* (kbd "M-TAB") "next-in-frame")
@@ -47,6 +46,8 @@
 (define-key *top-map* (kbd "s-Prior") "gprev")
 (define-key *top-map* (kbd "s-Next") "gnext")
 
+(define-key *top-map* (kbd "s-c") "restore-from-file onethird")
+(define-key *top-map* (kbd "s-C-c") "restore-from-file onethird2")
 (define-key *top-map* (kbd "s-C") "only")
 
 (define-key *top-map* (kbd "s-\\") "gselect")
