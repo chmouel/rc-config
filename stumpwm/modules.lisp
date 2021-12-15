@@ -1,10 +1,9 @@
 ;;; Gaps
 (load-module "swm-gaps")
-(setf swm-gaps:*inner-gaps-size* 1
-      swm-gaps:*outer-gaps-size* 5
-      swm-gaps:*head-gaps-size* 5)
-; (when *initializing*
-;   (swm-gaps:toggle-gaps))
+; ;; Inner gaps run along all the 4 borders of a window
+(setf swm-gaps:*inner-gaps-size* 2)
+(when *initializing*
+  (swm-gaps:toggle-gaps))
 (define-key *groups-map* (kbd "g") "toggle-gaps")
 
 (load-module "globalwindows")
