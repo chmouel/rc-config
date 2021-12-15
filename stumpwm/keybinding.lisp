@@ -44,6 +44,9 @@
 
 (define-key *top-map* (kbd "s-M-Left") "gprev")
 (define-key *top-map* (kbd "s-M-Right") "gnext")
+(define-key *top-map* (kbd "s-Prior") "gprev")
+(define-key *top-map* (kbd "s-Next") "gnext")
+
 (define-key *top-map* (kbd "s-C") "only")
 
 (define-key *top-map* (kbd "s-\\") "gselect")
