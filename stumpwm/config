@@ -26,7 +26,7 @@
 (stumpwm:gnewbg "Dev")
 (stumpwm:gnewbg "Slack")
 (stumpwm:gnewbg "Spotify")
-(stumpwm:gnewbg-float "Others")
+
 ;;
 (define-frame-preference "Browse" (0 t t :class "firefox"))
 (define-frame-preference "Browse" (1 t t :class "Chromium"))
