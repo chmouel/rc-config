@@ -16,7 +16,7 @@
 (xbindkey '(mod4 "e") "jumpapp -f -i emacs -- emacsclient -c -a emacs")
 (xbindkey '(mod4 "Return") "jumpapp kitty")
 (xbindkey '(mod4 "f") "jumpapp firefox")
-(xbindkey '(mod4 "c") "jumpapp chromium")
+(xbindkey '(mod4 "w") "jumpapp chromium")
 
 ;; mouse button gesture + Down
 ;; (xbindkey '(release "b:30") "jumpapp google-chrome")
@@ -24,19 +24,19 @@
 ;; (xbindkey '(release "b:31") "jumpapp evolution")
 
 
-; (xbindkey '(mod4 shift "Return") "jumpapp -f  -i  emacs -- emacsclient -c")
-; (xbindkey '(mod4 "Return") "jumpapp kitty")
-;
-; (xbindkey '(mod4 shift "h") "xdg-open ~/Downloads")
-; (xbindkey '(mod4 shift "e") "splatmoji type")
-;
-; (xbindkey '(mod4 "Down") "wmctrl-resize-and-center")
-; (xbindkey '(mod4 "Up") "wmctrl-resize-and-center rotate")
-;
-; (xbindkey '("Print") "flameshot gui")
-; (xbindkey '(shift "Print") "gnome-screenshot -i")
-; (xbindkey '("XF86Launch1") "mounch")
-;
+                                        ; (xbindkey '(mod4 shift "Return") "jumpapp -f  -i  emacs -- emacsclient -c")
+                                        ; (xbindkey '(mod4 "Return") "jumpapp kitty")
+                                        ;
+                                        ; (xbindkey '(mod4 shift "h") "xdg-open ~/Downloads")
+                                        ; (xbindkey '(mod4 shift "e") "splatmoji type")
+                                        ;
+                                        ; (xbindkey '(mod4 "Down") "wmctrl-resize-and-center")
+                                        ; (xbindkey '(mod4 "Up") "wmctrl-resize-and-center rotate")
+                                        ;
+                                        ; (xbindkey '("Print") "flameshot gui")
+                                        ; (xbindkey '(shift "Print") "gnome-screenshot -i")
+                                        ; (xbindkey '("XF86Launch1") "mounch")
+                                        ;
 
 ;; mouse button gesture + UP
 ;; (xbindkey '(release "b:31") "add-org-task")
