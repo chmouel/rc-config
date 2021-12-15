@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 [[ ${1} == yay ]] && {
-    cd /tmp
-    kitty --class=floater -- /bin/bash -c "yay;echo;read -p 'Press a Key to exit....'" &
-    exit
+    cd /tmp || exit
+    kitty-ctrl jump -t "Arch Updates" -- yay
 }
 n=$(yay -Qu | wc -l)
-[[ ${n} > 0 ]] && echo " ${n}"
+[[ ${n} -gt 0 ]] && echo " ${n}"
