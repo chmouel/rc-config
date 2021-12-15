@@ -37,18 +37,8 @@
 
 (setf *startup-message* "StumpWM is ready!")
 
-;; connexions
-(ql:quickload :swank)
 (when *initializing*
-  (defcommand start-server ()()
-    (require :swank)
-    (swank:create-server
-     :port 4004
-     :style swank:*communication-style*
-     :dont-close t)))
-
-(when *initializing*
- (run-shell-command "~/.config/polybar/launch.sh"))
+  (run-shell-command "~/.config/polybar/launch.sh"))
 
 ;; vim: ft=lisp
 ;; Local Variables:

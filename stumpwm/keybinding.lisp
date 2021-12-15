@@ -1,48 +1,19 @@
 
-(defcommand firefox () ()
-  "run firefox"
-  (run-or-raise "firefox" '(:class "firefox")))
-(define-key *top-map* (kbd "s-f") "firefox")
-
-(defcommand chromium () ()
-  "run chromium"
-  (run-or-raise "chromium" '(:class "Chromium")))
-(define-key *top-map* (kbd "s-c") "chromium")
-
-(defcommand spotify () ()
-  (run-or-raise "spotify" '(:class "Spotify")))
-(define-key *top-map* (kbd "s-m") "spotify")
-
-(defcommand kitty (&optional program) ()
-            (run-shell-command (if program
-                                   (format nil "kitty ~A" program)
-                                   "kitty")))
-(define-key *top-map* (kbd "s-S-RET") "kitty")
-
-(defcommand kittyfocus () ()
-  "Run or switch to kitty term."
-  (run-or-raise "kitty" '(:class "kitty")))
-(define-key *top-map* (kbd "s-RET") "kittyfocus")
-
-(defcommand kittypull () ()
-  "Pull kitty term here"
-  (run-or-pull "kitty" '(:class "kitty")))
-(define-key *top-map* (kbd "s-C-RET") "kittyfocus")
-
-(defcommand emacs () ()
-  (run-or-raise "emacs" '(:class "Emacs")))
-(define-key *top-map* (kbd "s-e") "emacs")
-
-(defcommand slack () ()
-  "Run or switch to kitty term."
-  (run-or-raise "slack" '(:class "Slack")))
-(define-key *top-map* (kbd "s-s") "slack")
+(define-key *top-map* (kbd "s-f") "run-shell-command jumpapp firefox")
+(define-key *top-map* (kbd "s-w") "run-shell-command jumpapp -c Chromium chromium")
+(define-key *top-map* (kbd "s-m") "run-shell-command jumpapp -c Spotify spotify")
+(define-key *top-map* (kbd "s-S-RET") "run-shell-command kitty")
+(define-key *top-map* (kbd "s-RET") "run-shell-command jumpapp kitty")
+(define-key *top-map* (kbd "s-e") "run-shell-command jumpapp -f -i emacs -- emacsclient -c -a emacs")
+(define-key *top-map* (kbd "s-E") "run-shell-command splatmoji type")
+(define-key *top-map* (kbd "s-s") "run-shell-command jumpapp -c Slack slack")
 
 (define-key *top-map* (kbd "s-;") "colon")
 
 (define-key *root-map* (kbd "R") "loadrc")
 (define-key *root-map* (kbd "r") "iresize")
 (define-key *root-map* (kbd "s") "hsplit")
+(define-key *top-map*  (kbd "s-C-s") "hsplit")
 (define-key *root-map* (kbd "S") "vsplit")
 (define-key *root-map* (kbd "f") "float-this")
 (define-key *root-map* (kbd "F") "unfloat-this")
@@ -54,7 +25,8 @@
 (define-key *top-map* (kbd "s-S-Right") "move-window right")
 (define-key *top-map* (kbd "s-Left") "move-focus left")
 (define-key *top-map* (kbd "s-Down") "move-focus down")
-(define-key *top-map* (kbd "s-Up") "restore-from-file onethird")
+(define-key *top-map* (kbd "s-Up") "move-focus up")
+(define-key *top-map* (kbd "s-c") "restore-from-file onethird")
 (define-key *top-map* (kbd "s-Right") "move-focus right")
 
 (define-key *top-map* (kbd "M-TAB") "next-in-frame")
@@ -72,7 +44,7 @@
 
 (define-key *top-map* (kbd "s-M-Left") "gprev")
 (define-key *top-map* (kbd "s-M-Right") "gnext")
-;; (define-key *top-map* (kbd "s-o") "only")
+(define-key *top-map* (kbd "s-C") "only")
 
 (define-key *top-map* (kbd "s-\\") "gselect")
 

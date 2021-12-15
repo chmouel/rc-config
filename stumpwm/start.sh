@@ -4,7 +4,7 @@ BASH_XTRACEFD=19
 set -x
 
 HDMI=""
-xrandr -q |grep -q "HDMI.*connected" && HDMI="YES"
+xrandr -q |grep -q "HDMI.* connected" && HDMI="YES"
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
       if [[ ${HDMI} == "YES" && ${m} != HDMI* ]];then
@@ -26,7 +26,7 @@ cd /tmp
 nohup picom --no-fading-openclose  &
 nohup nm-applet  &
 nohup xsettingsd  &
-/tmp; nohup dunst &
+nohup dunst &
 cd $HOME
 
 # since we are already on a gnome vibe, lets use gnome-keyring as our
@@ -37,6 +37,7 @@ export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
+
 
 # $HOME/.config/polybar/launch.sh
 #exec dbus-launch --exit-with-session stumpwm
