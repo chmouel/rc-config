@@ -33,8 +33,9 @@
 }
 
 #window {
+    location: center;
     background-color: @background;
-    border:           3;
+    border:           1;
     border-radius: 6;
     border-color: @bordercolor;
     padding:          5;
@@ -46,7 +47,7 @@
 }
 
 #message {
-    border:       1px dash 0px 0px ;
+    /* border:       1px dash 0px 0px ; */
     border-color: @separatorcolor;
     padding:      1px ;
 }
@@ -56,14 +57,14 @@
 
 #listview {
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
+    /* border:       2px dash 0px 0px ; */
     border-color: @bordercolor;
     spacing:      2px ;
     scrollbar:    false;
     padding:      2px 0px 0px ;
 }
 #element {
-    border:  1;
+    /* border:  1; */
     padding: 2px ;
 }
 
@@ -124,7 +125,7 @@
 #inputbar {
     spacing:    0;
     text-color: @foreground;
-    padding:    1px ;
+    padding:    2px ;
 }
 
 #case-indicator {
@@ -135,7 +136,7 @@
 #entry {
     spacing:    0;
     text-color: @drac-cya;
-    padding: 16px;
+    padding: 8px;
 }
 
 element-icon {
