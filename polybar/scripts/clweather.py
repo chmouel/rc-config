@@ -10,6 +10,11 @@
 #           This icons are included in most Nerd-Fonts as
 #           nf-weather group icons.
 #           See https://nerdfonts.com/#home for more infos.
+#
+# from: https://github.com/0vv1/clweather
+# added grabbing api key from pass automatically and some tweak to show
+# nicely in polybar.
+#
 # ----------------------------------------------------------
 import shutil
 import subprocess
