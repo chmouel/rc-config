@@ -27,7 +27,7 @@ nohup picom --no-fading-openclose  &
 nohup nm-applet  &
 nohup xsettingsd  &
 nohup dunst &
-nohup gnome-next-meeting-applet &
+#nohup gnome-next-meeting-applet &
 nohup bubblemaild &
 cd $HOME
 
