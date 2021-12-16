@@ -8,11 +8,11 @@
 set $mod Mod4
 set $term kitty
 set $menu mounch -p
-set $wsbrowse 1:1 
-set $wsterm 2:2 
-set $wscode 3:3 
-set $wschat 4:4 
-set $wsmusic 5:5 
+set $wsbrowse 1
+set $wsterm 2
+set $wscode 3
+set $wschat 4
+set $wsmusic 5
 
 ### Output configuration
 #
@@ -37,20 +37,19 @@ for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky en
 
 ## basic appearance
 set $default_gap 7
-set $default_font pango:Roboto Mono Light:12
-smart_borders on
+smart_borders off
 smart_gaps off
 titlebar_border_thickness 0
-titlebar_padding 2
-default_border pixel 0
+titlebar_padding 0
+default_border none
 gaps inner $default_gap
-font $default_font
-popup_during_fullscreen smart
+font pango:monospace 0
+titlebar_border_thickness 0
+workspace_layout tabbed
 
 exec --no-startup-id xsettingsd &
 exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
 for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
-bindsym $mod+minus exec kitty -o background_opacity=0.8 --name dropdown
 
 ### Idle configuration
 #
@@ -88,18 +87,14 @@ input type:touchpad {
     tap enabled
 }
 
-# Mouse button, can't figure out how to do that on gnome 😍 
-#bindsym --whole-window button6 workspace prev
-#bindsym --whole-window button7 workspace next
-
 # XF86Launch* are mouse gestures from mx master via logid
 bindsym $mod+Return exec swjapp kitty
 bindsym XF86Launch8 exec swjapp kitty
 bindsym $mod+Shift+Return exec kitty
 
-bindsym $mod+Backspace exec swjapp -c emacs -- emacsclient -c -n 
+bindsym $mod+e exec swjapp -c emacs -- emacsclient -c -n 
 bindsym XF86Launch9 exec swjapp -c emacs -- emacsclient -c -n 
-bindsym $mod+shift+Backspace exec emacsclient -c -n 
+bindsym $mod+shift+e exec emacsclient -c -n 
 
 bindsym $mod+s exec swjapp -c Slack slack
 bindsym XF86Launch5 exec swjapp -c Slack slack
@@ -117,7 +112,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
-bindsym $mod+Shift+e exec  wofi-emoji
+bindsym $mod+Shift+f12 exec  wofi-emoji
 
 for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 # set $launcher exec $term --class=launcher -e sway-launcher-desktop
@@ -156,6 +151,7 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+bindsym alt+Tab focus next
 
 # Switch to workspace
 bindsym $mod+1 workspace $wsbrowse
@@ -180,17 +176,16 @@ bindsym $mod+Shift+8 move container to workspace number 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace number 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace number 10; workspace $wsbrowse0
 
+bindsym $mod+f1 layout tabbed
+bindsym $mod+f2 layout toggle split
 bindsym $mod+f5 splith
 bindsym $mod+f6 splitv
-bindsym $mod+f1 layout stacking
-bindsym $mod+f2 layout tabbed
-bindsym $mod+f3 layout toggle split
 bindsym $mod+f11 fullscreen
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+control+space focus mode_toggle
 
-bindsym $mod+c floating enable;resize set width 2110px
-bindsym $mod+shift+c floating disable
+#bindsym $mod+c floating enable;resize set width 2110px
+#bindsym $mod+shift+c floating disable
 
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
