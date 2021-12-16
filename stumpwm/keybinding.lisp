@@ -30,7 +30,8 @@
 
 (define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji type" )
 
-(define-key *top-map* (kbd "M-TAB") "next-in-frame")
+;;; using alttab binary instead
+;; (define-key *top-map* (kbd "M-TAB") "next-in-frame")
 (define-key *root-map* (kbd "Q") "quit")
 (define-key *top-map* (kbd "M-F2") "exec")
 (define-key *top-map* (kbd "M-F4") "kill")
