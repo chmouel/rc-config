@@ -34,7 +34,7 @@ cd $HOME
 # since we are already on a gnome vibe, lets use gnome-keyring as our
 # ssh-agent, as a bonus it will give to sensible applications access to ssh
 # keys, password lists, etc
-eval $(/usr/bin/gnome-keyring-daemon --daemonize --login --components=gpg,pkcs11,secrets,ssh)
+eval $(/usr/bin/gnome-keyring-daemon --daemonize --login --start --components=gpg,pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
