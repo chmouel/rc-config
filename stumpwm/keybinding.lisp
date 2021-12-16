@@ -28,6 +28,8 @@
 (define-key *top-map* (kbd "s-Up") "move-focus up")
 (define-key *top-map* (kbd "s-Right") "move-focus right")
 
+(define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji type" )
+
 (define-key *top-map* (kbd "M-TAB") "next-in-frame")
 (define-key *root-map* (kbd "Q") "quit")
 (define-key *top-map* (kbd "M-F2") "exec")
