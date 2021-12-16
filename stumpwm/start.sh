@@ -23,12 +23,15 @@ xinput set-prop 12 "libinput Accel Speed" 0.5
 xsetroot -cursor_name left_ptr
 
 cd /tmp
-nohup picom --no-fading-openclose  &
-nohup nm-applet  &
-nohup xsettingsd  &
-nohup dunst &
-#nohup gnome-next-meeting-applet &
-nohup bubblemaild &
+
+
+[[ -n $(command -v picom) ]]  && nohup picom --no-fading-openclose  &
+[[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
+[[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
+[[ -n $(command -v dunst) ]] && nohup dunst &
+[[ -n $(command -v bubblemaild) ]] && nohup bubblemaild &
+[[ -n $(command -v alttab) ]] && nohup alttab -i 128x128 -t 128x128 -frame '#282a36' -bw 1 -bc '#bd93f9' &
+
 cd $HOME
 
 # since we are already on a gnome vibe, lets use gnome-keyring as our
