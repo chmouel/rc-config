@@ -49,9 +49,10 @@
 (define-key *top-map* (kbd "s-Prior") "gprev")
 (define-key *top-map* (kbd "s-Next") "gnext")
 
-(define-key *top-map* (kbd "s-c") "restore-from-file onethird")
-(define-key *top-map* (kbd "s-C-c") "restore-from-file onethird2")
-(define-key *top-map* (kbd "s-C") "only")
+(define-key *root-map* (kbd "1") "restore-from-file layout")
+(define-key *root-map* (kbd "2") "restore-from-file layout2")
+(define-key *root-map* (kbd "3") "restore-from-file layout3")
+(define-key *root-map* (kbd "0") "only")
 
 (define-key *top-map* (kbd "s-\\") "gselect")
 
