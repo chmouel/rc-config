@@ -30,7 +30,6 @@ cd /tmp
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
 [[ -n $(command -v bubblemaild) ]] && nohup bubblemaild &
-[[ -n $(command -v alttab) ]] && nohup alttab -i 128x128 -t 128x128 -frame '#282a36' -bw 1 -bc '#bd93f9' &
 
 cd $HOME
 
