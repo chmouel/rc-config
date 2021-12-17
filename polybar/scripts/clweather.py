@@ -66,14 +66,8 @@ url_locater = ('http://ip-api.com/json')
 def get_location_data():
     try:
         ld = requests.get(url_locater, timeout=9)
-    except requests.exceptions.Timeout:
-        sys.exit('Connection timed out.')
-    except requests.exceptions.TooManyRedirects:
-        sys.exit('Tried too many times.')
-    except requests.exceptions.HTTPError as herr:
-        sys.exit(herr)
-    except requests.exceptions.RequestException as reerr:
-        sys.exit(reerr)
+    except e:
+        sys.exit(1)
     return ld.json()
 
 location = get_location_data()

@@ -41,6 +41,9 @@
 (when *initializing*
   (run-shell-command "~/.config/polybar/launch.sh"))
 
+(when (and *initializing* (probe-file "/usr/bin/alttab"))
+  (run-shell-command "alttab -i 128x128 -t 128x128 -frame '#282a36' -bw 1 -bc '#bd93f9' &"))
+
 ;; vim: ft=lisp
 ;; Local Variables:
 ;; mode: lisp
