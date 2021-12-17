@@ -5,10 +5,9 @@
 (define-key *top-map* (kbd "s-S-RET") "run-shell-command kitty")
 (define-key *top-map* (kbd "s-RET") "run-shell-command jumpapp kitty")
 (define-key *top-map* (kbd "s-e") "run-shell-command jumpapp -f -i emacs -- emacsclient -c -a emacs")
+(define-key *top-map* (kbd "s-C-e") "run-shell-command emacsclient -c -a emacs")
 (define-key *top-map* (kbd "s-E") "run-shell-command splatmoji type")
 (define-key *top-map* (kbd "s-s") "run-shell-command jumpapp -c Slack slack")
-
-(define-key *top-map* (kbd "s-;") "colon")
 
 (define-key *root-map* (kbd "R") "loadrc")
 (define-key *root-map* (kbd "r") "iresize")
@@ -28,7 +27,8 @@
 (define-key *top-map* (kbd "s-Up") "move-focus up")
 (define-key *top-map* (kbd "s-Right") "move-focus right")
 
-(define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji type" )
+(if (probe-file "/usr/bin/splatmoji")
+    (define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji type"))
 
 ;;; using alttab binary instead
 ;; (define-key *top-map* (kbd "M-TAB") "next-in-frame")
@@ -54,8 +54,6 @@
 (define-key *root-map* (kbd "3") "restore-from-file layout3")
 (define-key *root-map* (kbd "0") "only")
 
-(define-key *top-map* (kbd "s-\\") "gselect")
-
 (define-key *root-map* (kbd "N") "exec dunstctl close-all")
 
 (define-key *top-map* (kbd "s-!") "gmove-and-follow 1")
@@ -63,6 +61,9 @@
 (define-key *top-map* (kbd "s-#") "gmove-and-follow 3")
 (define-key *top-map* (kbd "s-$") "gmove-and-follow 4")
 (define-key *top-map* (kbd "s-%") "gmove-and-follow 5")
+
+(if (probe-file "/usr/bin/flameshot")
+    (define-key *root-map* (kbd "F12") "run-shell-command flameshot gui"))
 
 (define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec pactl -- set-sink-volume 0 +5%")
 (define-key *top-map* (kbd "XF86AudioLowerVolume") "exec pactl -- set-sink-volume 0 -5%")
