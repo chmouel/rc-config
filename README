@@ -16,4 +16,5 @@ i have another repositoriy for not so secret stuff on my local network managed b
 
 all my secrets are actually managed by the excellent password store pass https://www.passwordstore.org/ as a rule if it's in clear it's  not commited
 
+if i use my nixos box, i tend to favour configuring things in home-manager but that's a tedious to follow when doing multiple laptop and not necessay want to install nix everywhere (disk space)
 
