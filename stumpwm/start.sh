@@ -26,7 +26,7 @@ cd /tmp
 
 
 [[ -n $(command -v picom) ]]  && nohup picom --no-fading-openclose  &
-[[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
+#[[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
 [[ -n $(command -v bubblemaild) ]] && nohup bubblemaild &
