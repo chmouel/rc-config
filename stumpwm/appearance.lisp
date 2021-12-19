@@ -42,10 +42,6 @@
 (setf stumpwm:*mode-line-border-color* phundrak-nord1
       stumpwm:*mode-line-border-width* 0)
 (stumpwm:set-focus-color "#7799CC")
-(defcommand jj-toggle-mode-line () ()
-            "Toggle the mode line in StumpWM."
-            (toggle-mode-line (current-screen) (current-head)))
-(define-key *root-map* (kbd "q") "jj-toggle-mode-line")
 
 (set-normal-gravity :bottom)
 (setf *message-window-gravity* :center)

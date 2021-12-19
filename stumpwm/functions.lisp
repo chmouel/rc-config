@@ -15,3 +15,8 @@
 
 (define-key *top-map* (kbd "s-]") "rotate-windows")
 
+
+(defcommand jj-toggle-mode-line () ()
+  "Toggle the mode line in StumpWM."
+  (toggle-mode-line (current-screen) (current-head)))
+(define-key *root-map* (kbd "F1") "jj-toggle-mode-line")

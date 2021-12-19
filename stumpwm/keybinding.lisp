@@ -72,6 +72,3 @@
 (define-key *top-map* (kbd "XF86AudioNext") "exec playerctl next")
 (define-key *top-map* (kbd "XF86AudioPrev") "exec playerctl previous")
 (define-key *top-map* (kbd "XF86AudioStop") "exec playerctl stop")
-
-;;
-(define-key *root-map* (kbd "Q") "quit")
