@@ -46,6 +46,11 @@ parser.add_argument(
     'when using this flag it will not load previous results from cache, it will however save new results to cache. You can use this flag to refresh all the cache forcefully'
 )
 parser.add_argument(
+    '--closest-event-url',
+    action='store_true',
+    default=False,
+    help='when using this flag it will get the meeting url of the last event')
+parser.add_argument(
     '--ids',
     '-i',
     type=str,
@@ -91,7 +96,7 @@ parser.add_argument(
     'only show events which has these emails (separated by comma) as attendee')
 
 
-class Event():
+class Event:
     def __init__(self, summary: str, is_allday: bool, unix_time: float,
                  end_time: float, location: str):
         self.is_allday = is_allday
@@ -124,6 +129,13 @@ def main():
         save_cache(events)
 
     closest = get_closest(events, args.hide_event_after)
+
+    if args.closest_event_url:
+        if not closest:
+            return
+        print(closest.location)
+        return
+
     if closest is None:
         print(args.no_event_text)
         return
@@ -148,6 +160,23 @@ def main():
         print(f"{event:Tomorrow at %H:%M} " + result)
     else:
         print(f"{event:%d/%m at %H:%M} " + result)
+
+
+def getEventLocation(event: dict) -> str:
+    if 'hangoutLink' in event and event['hangoutLink'].startswith("https"):
+        return event['hangoutLink']
+
+    if 'conferenceData' in event:
+        for ep in event["conferenceData"]:
+            if ep['entryPointType'] == "video" and ep["uri"].startswith(
+                    "https"):
+                return ep["uri"]
+    if 'location' in event and event["location"].startswith("https"):
+        return event["location"]
+    elif 'location' in event:
+        return event["location"]
+
+    return ""
 
 
 def getEvents(service,
@@ -208,14 +237,9 @@ def getEvents(service,
             start_time = event['start'].get('dateTime',
                                             event['start'].get('date'))
             unix_time = get_event_time(start_time)
-
-            location = None
-            if 'location' in event:
-                location = event['location']
-
             all.append(
                 Event(event['summary'], is_allday(start_time), unix_time,
-                      end_time, location))
+                      end_time, getEventLocation(event)))
 
     return all
 
