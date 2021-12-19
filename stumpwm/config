@@ -16,7 +16,7 @@
 (load "~/.config/stumpwm/functions.lisp")
 (load "~/.config/stumpwm/lock.lisp")
 
-(run-shell-command "feh --bg-scale $HOME/.local/share/backgrounds/current.jpg")
+(run-shell-command "~/.fehbg")
 
 (setf *mouse-focus-policy* :click
       *resize-increment* 25
