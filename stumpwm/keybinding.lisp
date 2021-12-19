@@ -51,6 +51,7 @@
 
 (define-key *root-map* (kbd "1") "restore-from-file layout")
 (define-key *root-map* (kbd "2") "restore-from-file layout2")
+(define-key *root-map* (kbd "F2") "restore-from-file layout")
 (define-key *root-map* (kbd "3") "restore-from-file layout3")
 (define-key *root-map* (kbd "0") "only")
 
@@ -72,3 +73,9 @@
 (define-key *top-map* (kbd "XF86AudioNext") "exec playerctl next")
 (define-key *top-map* (kbd "XF86AudioPrev") "exec playerctl previous")
 (define-key *top-map* (kbd "XF86AudioStop") "exec playerctl stop")
+
+;; vim: ft=lisp
+;; Local Variables:
+;; mode: lisp
+;; mode: stumpwm
+;; End:
