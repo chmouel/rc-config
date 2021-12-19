@@ -33,8 +33,8 @@
 (define-frame-preference "Browse" (0 t t :class "firefox"))
 (define-frame-preference "Browse" (1 t t :class "Chromium"))
 (define-frame-preference "Dev" (0 t t :class "Emacs"))
-(define-frame-preference "Slack" (0 t t :class "Slack"))
-(define-frame-preference "Spotify" (0 t t :class "Spotify"))
+(define-frame-preference "Chat" (0 t t :class "Slack"))
+(define-frame-preference "Music" (0 t t :class "Spotify"))
 (define-frame-preference "Others" (0 t t :class "pavucontrol"))
 
 (setf *startup-message* "StumpWM is ready!")
