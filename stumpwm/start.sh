@@ -30,6 +30,8 @@ cd /tmp
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
 [[ -n $(command -v bubblemaild) ]] && nohup bubblemaild &
+[[ -x /usr/lib/goa-daemon ]] && nohup /usr/lib/goa-daemon --replace &
+[[ -n $(command -v gnome-next-meeting-applet) ]] && nohup gnome-next-meeting-applet &
 
 cd $HOME
 
