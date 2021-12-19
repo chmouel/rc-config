@@ -48,4 +48,5 @@
 ;; vim: ft=lisp
 ;; Local Variables:
 ;; mode: lisp
+;; mode: stumpwm
 ;; End:
