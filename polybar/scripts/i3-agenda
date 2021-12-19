@@ -20,7 +20,10 @@ from googleapiclient.discovery import build, Resource
 CONF_DIR = pathlib.Path("~/.cache/i3-agenda").expanduser()
 TMP_TOKEN = CONF_DIR / "i3agenda_google_token.pickle"
 CACHE_PATH = CONF_DIR / "i3agenda_cache.txt"
-SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+SCOPES = [
+    'https://www.googleapis.com/auth/calendar.readonly',
+    'https://www.googleapis.com/auth/gmail.readonly'
+]
 DEFAULT_CAL_WEBPAGE = 'https://calendar.google.com/calendar/r/day'
 
 # i3blocks use this envvar to check the click
@@ -95,6 +98,11 @@ parser.add_argument(
     help=
     'only show events which has these emails (separated by comma) as attendee')
 
+parser.add_argument('--email-check',
+                    action='store_true',
+                    default=False,
+                    help='email check')
+
 
 class Event:
     def __init__(self, summary: str, is_allday: bool, unix_time: float,
@@ -119,11 +127,15 @@ def main():
 
     allowed_calendars_ids = args.ids
 
+    if args.email_check:
+        email_count(args.credentials)
+        return
+
     events = None
     if not args.update:
         events = load_cache(args.cachettl)
     if events == None:
-        service = connect(args.credentials)
+        service = calendar_connect(args.credentials)
         events = getEvents(service, allowed_calendars_ids, args.maxres,
                            args.today, args.only_if_email_is_attendee)
         save_cache(events)
@@ -314,7 +326,7 @@ def save_cache(events: List[Event]) -> None:
         f.write(EventEncoder().encode(events))
 
 
-def connect(credspath: str) -> Resource:
+def get_creds(credspath: str):
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -339,8 +351,21 @@ def connect(credspath: str) -> Resource:
         with open(TMP_TOKEN, 'wb') as token:
             pickle.dump(creds, token)
 
-    service = build('calendar', 'v3', credentials=creds)
-    return service
+    return creds
+
+
+def calendar_connect(credspath: str) -> Resource:
+    creds = get_creds(credspath)
+    return build('calendar', 'v3', credentials=creds)
+
+
+def email_count(credspath: str):
+    creds = get_creds(credspath)
+    gmail = build('gmail', 'v1', credentials=creds)
+    labels = gmail.users().labels().get(userId='me', id="INBOX").execute()
+    count = labels['messagesUnread']
+    if count > 0:
+        print(count)
 
 
 if __name__ == '__main__':
