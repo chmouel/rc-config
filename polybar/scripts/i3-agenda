@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-
-from __future__ import print_function
+import json
 
 import argparse
 import datetime
@@ -103,6 +102,9 @@ parser.add_argument('--email-check',
                     default=False,
                     help='email check')
 
+parser.add_argument('--credential-pass-key',
+                    type=str,
+                    help='credentials pass key')
 
 class Event:
     def __init__(self, summary: str, is_allday: bool, unix_time: float,
@@ -128,14 +130,14 @@ def main():
     allowed_calendars_ids = args.ids
 
     if args.email_check:
-        email_count(args.credentials)
+        email_count(args)
         return
 
     events = None
     if not args.update:
         events = load_cache(args.cachettl)
     if events == None:
-        service = calendar_connect(args.credentials)
+        service = calendar_connect(args)
         events = getEvents(service, allowed_calendars_ids, args.maxres,
                            args.today, args.only_if_email_is_attendee)
         save_cache(events)
@@ -326,13 +328,14 @@ def save_cache(events: List[Event]) -> None:
         f.write(EventEncoder().encode(events))
 
 
-def get_creds(credspath: str):
+def get_creds(args):
     creds = None
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
     CONF_DIR.mkdir(parents=True, exist_ok=True)
-    if TMP_TOKEN.exists():
+    if args.credential_pass_key:
+        creds = pickle.loads(subprocess.Popen(
+            ["pass", "show", args.credential_pass_key],
+            stdout=subprocess.PIPE).communicate()[0])
+    elif TMP_TOKEN.exists():
         with open(TMP_TOKEN, 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
@@ -347,6 +350,13 @@ def get_creds(credspath: str):
         else:
             flow = InstalledAppFlow.from_client_secrets_file(credspath, SCOPES)
             creds = flow.run_local_server(port=0)
+
+        if args.credential_pass_key:
+            return
+            # creds = subprocess.Popen(
+            #     ["pass", "insert", "-e", "-f", creds.credential_pass_key],
+            #     stdout=subprocess.PIPE).communicate()[0].decode().strip()            
+        
         # Save the credentials for the next run
         with open(TMP_TOKEN, 'wb') as token:
             pickle.dump(creds, token)
@@ -354,16 +364,19 @@ def get_creds(credspath: str):
     return creds
 
 
-def calendar_connect(credspath: str) -> Resource:
-    creds = get_creds(credspath)
+def calendar_connect(args) -> Resource:
+    creds = get_creds(args)
     return build('calendar', 'v3', credentials=creds)
 
 
-def email_count(credspath: str):
-    creds = get_creds(credspath)
+def email_count(args):
+    creds = get_creds(args)
     gmail = build('gmail', 'v1', credentials=creds)
     labels = gmail.users().labels().get(userId='me', id="INBOX").execute()
     count = labels['messagesUnread']
+    # labels = gmail.users().labels().list(userId='me').execute()
+    # for label in labels['labels']:
+    #     print(label['name'], label['id'])
     if count > 0:
         print(count)
 
