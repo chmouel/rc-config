@@ -28,6 +28,7 @@
 (stumpwm:gnewbg "Dev")
 (stumpwm:gnewbg "Chat")
 (stumpwm:gnewbg "Music")
+(stumpwm:gnewbg "Others")
 
 ;;
 (define-frame-preference "Browse" (0 t t :class "firefox"))
