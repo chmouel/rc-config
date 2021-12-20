@@ -22,13 +22,16 @@
 (define-key *top-map* (kbd "s-S-Up") "exchange-direction up")
 (define-key *top-map* (kbd "s-S-Left") "move-window left")
 (define-key *top-map* (kbd "s-S-Right") "move-window right")
+(define-key *top-map* (kbd "s-S-Up") "move-window up")
+(define-key *top-map* (kbd "s-S-Down") "move-window down")
+
 (define-key *top-map* (kbd "s-Left") "move-focus left")
 (define-key *top-map* (kbd "s-Down") "move-focus down")
 (define-key *top-map* (kbd "s-Up") "move-focus up")
 (define-key *top-map* (kbd "s-Right") "move-focus right")
 
 (if (probe-file "/usr/bin/splatmoji")
-    (define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji type"))
+    (define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji copy"))
 
 ;;; using alttab binary instead
 ;; (define-key *top-map* (kbd "M-TAB") "next-in-frame")
