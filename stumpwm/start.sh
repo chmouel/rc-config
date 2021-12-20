@@ -22,18 +22,17 @@ xinput set-prop 12 "libinput Accel Speed" 0.5
 
 xsetroot -cursor_name left_ptr
 
-cd /tmp
+cd /tmp || exit
 
 
 # [[ -n $(command -v picom) ]]  && nohup picom --no-fading-openclose  &
 #[[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
-[[ -n $(command -v bubblemaild) ]] && nohup bubblemaild &
 [[ -x /usr/lib/goa-daemon ]] && nohup /usr/lib/goa-daemon --replace &
 [[ -n $(command -v gnome-next-meeting-applet) ]] && nohup gnome-next-meeting-applet &
 
-cd $HOME
+cd $HOME || exit
 
 # since we are already on a gnome vibe, lets use gnome-keyring as our
 # ssh-agent, as a bonus it will give to sensible applications access to ssh
