@@ -6,3 +6,9 @@
   (run-shell-command "xset dpms 2000 2000 2000")
   (run-shell-command "xset s 1800 30")
   (run-shell-command (concatenate 'string "xss-lock -- " lock-command)))
+
+;; vim: ft=lisp
+;; Local Variables:
+;; mode: lisp
+;; mode: stumpwm
+;; End:
