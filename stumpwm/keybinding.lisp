@@ -6,7 +6,6 @@
 (define-key *top-map* (kbd "s-RET") "run-shell-command jumpapp kitty")
 (define-key *top-map* (kbd "s-e") "run-shell-command jumpapp -f -i emacs -- emacsclient -c -a emacs")
 (define-key *top-map* (kbd "s-C-e") "run-shell-command emacsclient -c -a emacs")
-(define-key *top-map* (kbd "s-E") "run-shell-command splatmoji type")
 (define-key *top-map* (kbd "s-s") "run-shell-command jumpapp -c Slack slack")
 
 (define-key *root-map* (kbd "R") "loadrc")
@@ -29,9 +28,6 @@
 (define-key *top-map* (kbd "s-Down") "move-focus down")
 (define-key *top-map* (kbd "s-Up") "move-focus up")
 (define-key *top-map* (kbd "s-Right") "move-focus right")
-
-(if (probe-file "/usr/bin/splatmoji")
-    (define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji copy"))
 
 ;;; using alttab binary instead
 ;; (define-key *top-map* (kbd "M-TAB") "next-in-frame")

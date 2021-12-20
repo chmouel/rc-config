@@ -18,6 +18,10 @@
 (xbindkey '(mod4 "f") "jumpapp firefox")
 (xbindkey '(mod4 "w") "jumpapp chromium")
 
+(xbindkey '(mod4 shift "space") "gpaste-client ui")
+(xbindkey '(mod4 shift "e") "splatmoji copy")
+
+
 ;; mouse button gesture + Down
 ;; (xbindkey '(release "b:30") "jumpapp google-chrome")
 ;; mouse button gesture + UP
