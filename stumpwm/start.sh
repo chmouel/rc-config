@@ -29,8 +29,8 @@ cd /tmp || exit
 #[[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
-[[ -x /usr/lib/goa-daemon ]] && nohup /usr/lib/goa-daemon --replace &
 [[ -x /usr/lib/gpaste/gpaste-daemon && -z $(pgrep gpaste-daemon) ]] && nohup /usr/lib/gpaste/gpaste-daemon &
+[[ -x /usr/lib/goa-daemon ]] && nohup /usr/lib/goa-daemon --replace &
 [[ -n $(command -v gnome-next-meeting-applet) ]] && nohup gnome-next-meeting-applet &
 
 cd $HOME || exit
