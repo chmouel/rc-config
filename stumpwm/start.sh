@@ -30,6 +30,7 @@ cd /tmp || exit
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
 [[ -x /usr/lib/goa-daemon ]] && nohup /usr/lib/goa-daemon --replace &
+[[ -x /usr/lib/gpaste/gpaste-daemon && -z $(pgrep gpaste-daemon) ]] && nohup /usr/lib/gpaste/gpaste-daemon &
 [[ -n $(command -v gnome-next-meeting-applet) ]] && nohup gnome-next-meeting-applet &
 
 cd $HOME || exit
