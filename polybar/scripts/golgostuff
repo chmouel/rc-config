@@ -341,7 +341,7 @@ def get_creds(args):
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
-        if not os.path.exists(credspath):
+        if not os.path.exists(args.credentials):
             print(
                 "You need to download your credentials json file from the Google API Console and pass its path to this script"
             )
@@ -349,7 +349,7 @@ def get_creds(args):
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(credspath, SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file(args.credentials, SCOPES)
             creds = flow.run_local_server(port=0)
 
         if args.credential_pass_key:
