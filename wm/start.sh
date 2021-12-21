@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exec 19>/tmp/.start.stumpwm
+exec 19>/tmp/.start.wmsession
 BASH_XTRACEFD=19
 set -x
 
