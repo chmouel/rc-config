@@ -34,6 +34,12 @@ cd /tmp || exit
 [[ -x /usr/lib/goa-daemon ]] && nohup /usr/lib/goa-daemon --replace &
 [[ -n $(command -v gnome-next-meeting-applet) ]] && nohup gnome-next-meeting-applet &
 
+
+if [[ -n $(command -v xss-lock) && $(command -v i3lock) ]];then
+    xset dpms 2000 2000 2000
+    xset s 300 120
+    xss-lock -- i3lock -c 000000 -f -e &
+fi
 cd $HOME || exit
 
 # since we are already on a gnome vibe, lets use gnome-keyring as our
