@@ -1,11 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# nmcli -t connect show --active|cut -d: -f4
 export DEFAULT_NETWORK_INTERFACE=$(ip route|sed -n '/^default/ { s/.*dev //;s/ .*//;p;}')
 
 HDMI=""
 xrandr -q |grep -q "HDMI.* connected" && HDMI="YES"
-if type "xrandr"; then
+if [[ -n $(command -v "xrandr") ]]; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
       if [[ ${HDMI} == "YES" && ${m} != HDMI* ]];then
           continue
@@ -15,10 +14,19 @@ if type "xrandr"; then
   done
 fi
 
-# Terminate already running bar instances
-killall -q polybar
+case $(hostnamectl hostname) in
+    pignon)
+        [[ $MONITOR != HDMI* ]] && export POLYBAR_FONT_SIZE=13
+        ;;
+esac
+
 # If all your bars have ipc enabled, you can also use 
 # polybar-msg cmd quit
+
+# Terminate already running bar instances
+killall -q polybar
+
+sleep 2
 
 # Launch Polybar, using default config location ~/.config/polybar/config
 polybar laptop 2>&1 | tee -a /tmp/polybar.log & disown
