@@ -29,6 +29,18 @@ bindsym $super+r exec rofi -p "Run command: " -show run -theme purple.rasi
 bindsym $super+Shift+h exec nautilus ~/Downloads
 bindsym $super+Shift+space exec gpaste-client ui
 
+bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl -- set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86MonBrightnessUp exec brightnessctl -q s +10
+bindsym XF86MonBrightnessDown exec brightnessctl -q s 10-
+bindsym Shift+XF86MonBrightnessUp exec brightnessctl -q s +1
+bindsym Shift+XF86MonBrightnessDown exec brightnessctl -q s 1-
+
 bindsym $super+space exec mounch
 
 bindsym $super+control+space floating toggle
