@@ -16,9 +16,10 @@
 (load "~/.config/stumpwm/functions.lisp")
 (load "~/.config/stumpwm/lock.lisp")
 
-(run-shell-command "feh --bg-scale $HOME/.local/share/backgrounds/current.jpg")
+(run-shell-command "~/.fehbg")
 
-(setf stumpwm:*mouse-focus-policy* :sloppy
+(setf *mouse-focus-policy* :click
+      *resize-increment* 25
       *new-frame-action* :last-window)
 
 (clear-window-placement-rules)
@@ -27,13 +28,14 @@
 (stumpwm:gnewbg "Dev")
 (stumpwm:gnewbg "Chat")
 (stumpwm:gnewbg "Music")
+(stumpwm:gnewbg "Others")
 
 ;;
 (define-frame-preference "Browse" (0 t t :class "firefox"))
 (define-frame-preference "Browse" (1 t t :class "Chromium"))
 (define-frame-preference "Dev" (0 t t :class "Emacs"))
-(define-frame-preference "Slack" (0 t t :class "Slack"))
-(define-frame-preference "Spotify" (0 t t :class "Spotify"))
+(define-frame-preference "Chat" (0 t t :class "Slack"))
+(define-frame-preference "Music" (0 t t :class "Spotify"))
 (define-frame-preference "Others" (0 t t :class "pavucontrol"))
 
 (setf *startup-message* "StumpWM is ready!")
@@ -47,4 +49,5 @@
 ;; vim: ft=lisp
 ;; Local Variables:
 ;; mode: lisp
+;; mode: stumpwm
 ;; End:

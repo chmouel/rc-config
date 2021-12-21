@@ -1,0 +1,89 @@
+<keymap version="1" name="Chmouel" parent="VSCode">
+  <action id="$SelectAll">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="a" />
+  </action>
+  <action id="Back">
+    <keyboard-shortcut first-keystroke="alt left" />
+    <mouse-shortcut keystroke="button4" />
+  </action>
+  <action id="Coverage">
+    <keyboard-shortcut first-keystroke="shift ctrl f6" />
+  </action>
+  <action id="Debug">
+    <keyboard-shortcut first-keystroke="f6" />
+  </action>
+  <action id="Editor SelectAll">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="a" />
+  </action>
+  <action id="EditorLineEnd">
+    <keyboard-shortcut first-keystroke="end" />
+    <keyboard-shortcut first-keystroke="ctrl e" />
+  </action>
+  <action id="EditorLineStart">
+    <keyboard-shortcut first-keystroke="home" />
+    <keyboard-shortcut first-keystroke="ctrl a" />
+  </action>
+  <action id="EditorSelectWord">
+    <keyboard-shortcut first-keystroke="ctrl w" />
+  </action>
+  <action id="EmacsStyleIndent">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="caps_lock" />
+  </action>
+  <action id="Forward">
+    <keyboard-shortcut first-keystroke="alt right" />
+    <mouse-shortcut keystroke="button5" />
+  </action>
+  <action id="GoToTab1">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="1" />
+  </action>
+  <action id="GoToTab2">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="2" />
+  </action>
+  <action id="GoToTab3">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="3" />
+  </action>
+  <action id="GoToTab4">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="4" />
+  </action>
+  <action id="GoToTab5">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="5" />
+  </action>
+  <action id="GoToTab6">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="6" />
+  </action>
+  <action id="GoToTab7">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="7" />
+  </action>
+  <action id="GoToTab8">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="8" />
+  </action>
+  <action id="GoToTab9">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="9" />
+  </action>
+  <action id="GotoTest">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="shift t" />
+  </action>
+  <action id="HideAllWindows">
+    <keyboard-shortcut first-keystroke="windows" second-keystroke="equals" />
+  </action>
+  <action id="NextTab">
+    <keyboard-shortcut first-keystroke="ctrl tab" />
+    <keyboard-shortcut first-keystroke="alt close_bracket" />
+  </action>
+  <action id="PreviousTab">
+    <keyboard-shortcut first-keystroke="shift ctrl tab" />
+    <keyboard-shortcut first-keystroke="alt open_bracket" />
+  </action>
+  <action id="Rerun">
+    <keyboard-shortcut first-keystroke="shift alt r" />
+  </action>
+  <action id="Run">
+    <keyboard-shortcut first-keystroke="f5" />
+  </action>
+  <action id="RunClass">
+    <keyboard-shortcut first-keystroke="shift ctrl r" />
+  </action>
+  <action id="SelectInProjectView">
+    <keyboard-shortcut first-keystroke="ctrl alt e" />
+  </action>
+</keymap>

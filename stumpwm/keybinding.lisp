@@ -6,7 +6,6 @@
 (define-key *top-map* (kbd "s-RET") "run-shell-command jumpapp kitty")
 (define-key *top-map* (kbd "s-e") "run-shell-command jumpapp -f -i emacs -- emacsclient -c -a emacs")
 (define-key *top-map* (kbd "s-C-e") "run-shell-command emacsclient -c -a emacs")
-(define-key *top-map* (kbd "s-E") "run-shell-command splatmoji type")
 (define-key *top-map* (kbd "s-s") "run-shell-command jumpapp -c Slack slack")
 
 (define-key *root-map* (kbd "R") "loadrc")
@@ -22,13 +21,13 @@
 (define-key *top-map* (kbd "s-S-Up") "exchange-direction up")
 (define-key *top-map* (kbd "s-S-Left") "move-window left")
 (define-key *top-map* (kbd "s-S-Right") "move-window right")
+(define-key *top-map* (kbd "s-S-Up") "move-window up")
+(define-key *top-map* (kbd "s-S-Down") "move-window down")
+
 (define-key *top-map* (kbd "s-Left") "move-focus left")
 (define-key *top-map* (kbd "s-Down") "move-focus down")
 (define-key *top-map* (kbd "s-Up") "move-focus up")
 (define-key *top-map* (kbd "s-Right") "move-focus right")
-
-(if (probe-file "/usr/bin/splatmoji")
-    (define-key *top-map* (kbd "s-C-space") "run-shell-command splatmoji type"))
 
 ;;; using alttab binary instead
 ;; (define-key *top-map* (kbd "M-TAB") "next-in-frame")
@@ -51,6 +50,7 @@
 
 (define-key *root-map* (kbd "1") "restore-from-file layout")
 (define-key *root-map* (kbd "2") "restore-from-file layout2")
+(define-key *root-map* (kbd "F2") "restore-from-file layout")
 (define-key *root-map* (kbd "3") "restore-from-file layout3")
 (define-key *root-map* (kbd "0") "only")
 
@@ -72,3 +72,9 @@
 (define-key *top-map* (kbd "XF86AudioNext") "exec playerctl next")
 (define-key *top-map* (kbd "XF86AudioPrev") "exec playerctl previous")
 (define-key *top-map* (kbd "XF86AudioStop") "exec playerctl stop")
+
+;; vim: ft=lisp
+;; Local Variables:
+;; mode: lisp
+;; mode: stumpwm
+;; End:

@@ -4,5 +4,11 @@
   (setq lock-command "i3lock -c 000000 -f -e")
   (define-key *top-map* (kbd "s-l") (concatenate 'string "run-shell-command " lock-command))
   (run-shell-command "xset dpms 2000 2000 2000")
-  (run-shell-command "xset s 1800 30")
+  (run-shell-command "xset s 300 120")
   (run-shell-command (concatenate 'string "xss-lock -- " lock-command)))
+
+;; vim: ft=lisp
+;; Local Variables:
+;; mode: lisp
+;; mode: stumpwm
+;; End:

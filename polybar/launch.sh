@@ -1,6 +1,7 @@
 #!/bin/bash
 
-DEFAULT_NETWORK_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1)
+# nmcli -t connect show --active|cut -d: -f4
+export DEFAULT_NETWORK_INTERFACE=$(ip route|sed -n '/^default/ { s/.*dev //;s/ .*//;p;}')
 
 HDMI=""
 xrandr -q |grep -q "HDMI.* connected" && HDMI="YES"

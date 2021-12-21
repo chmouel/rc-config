@@ -40,13 +40,16 @@
 (setf stumpwm:*mode-line-background-color* phundrak-nord1
       stumpwm:*mode-line-foreground-color* phundrak-nord14)
 (setf stumpwm:*mode-line-border-color* phundrak-nord1
+      stumpwm:*window-border-style* :thin
+      stumpwm:*maxsize-border-width* 2
+      stumpwm:*normal-border-width* 1
       stumpwm:*mode-line-border-width* 0)
-(stumpwm:set-focus-color "#7799CC")
+(stumpwm:set-focus-color "#c79af4")
 
 (set-normal-gravity :bottom)
-(setf *message-window-gravity* :center)
-(setf *input-window-gravity*  :center)
-(setf *message-window-padding* 15)
+(setf stumpwm:*message-window-gravity* :center)
+(setf stumpwm:*input-window-gravity*  :center)
+(setf stumpwm:*message-window-padding* 15)
 
 (set-win-bg-color "#DCDAD5")
 (set-border-color "#555555")
@@ -54,3 +57,9 @@
 (ql:quickload :clx-truetype)
 (load-module "ttf-fonts")
 (set-font (make-instance 'xft:font :family "Roboto" :subfamily "Regular" :size 25.0))
+
+;; vim: ft=lisp
+;; Local Variables:
+;; mode: lisp
+;; mode: stumpwm
+;; End:
