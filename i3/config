@@ -2,17 +2,8 @@
 set $super Mod4
 set $alt Mod1
 
-# set font
 workspace_layout tabbed
-
-# Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
-
-# Make the currently focused window a scratchpad
-bindsym $super+Shift+0 move scratchpad
-
-# Show the first scratchpad window
-bindsym $super+0 scratchpad show
 
 #autostart
 # exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
@@ -26,6 +17,8 @@ exec_always --no-startup-id alttab -i 128x128 -t 128x128 -frame '#282a36' -bw 1 
 # start a terminal
 bindsym $super+Shift+Return exec kitty
 bindsym $super+r exec rofi -p "Run command: " -show run -theme purple.rasi
+bindsym Print exec flameshot gui
+bindsym $super+F12 exec flameshot gui
 bindsym $super+Shift+h exec nautilus ~/Downloads
 bindsym $super+Shift+space exec gpaste-client ui
 
@@ -40,10 +33,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl -q s +10
 bindsym XF86MonBrightnessDown exec brightnessctl -q s 10-
 bindsym Shift+XF86MonBrightnessUp exec brightnessctl -q s +1
 bindsym Shift+XF86MonBrightnessDown exec brightnessctl -q s 1-
-
 bindsym $super+space exec mounch
-
-bindsym $super+9 floating toggle
+bindsym XF86Launch1 exec mounch
 
 # switch to workspace
 bindsym $super+1 workspace Browse
@@ -87,9 +78,14 @@ mode "resize" {
         bindsym Return mode "default"
 }
 bindsym $super+F7 mode "resize"
+bindsym $super+9 floating toggle
+
+# Make the currently focused window a scratchpad
+bindsym $super+Shift+0 move scratchpad
+bindsym $super+0 scratchpad show
 
 # window rules, you can find the window class using xprop
-font pango:DejaVu Sans Mono 0
+font pango:RobotoMono Nerd Font 0
 for_window [class=".*"] border pixel 0
 #assign [class=kitty] 2
 assign [class=Emacs] Dev
@@ -98,13 +94,12 @@ assign [class=Chromium] Browse
 assign [class=Slack] Chat
 assign [class=Spotify] Music
 #assign [class=Thunar|File-roller|Slack] 5 
-#for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-#for_window [class=URxvt|Gnome-terminal|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity|Emacs] focus
-#
+for_window [class=Nm-connection-editor] floating enable
+for_window [class=Nm-connection-editor] focus
 #client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 #client.background           #2f343f
 
-client.focused #9400d3 #9400d3 #3c3b37 #ffcfaf
+client.focused #ff00ff #ff00ff #dcdccc #ffcfaf
 # client.focused_inactive #3c3b37 #3c3b37 #7f9f7f #3c3b37
 # client.unfocused #3c3b37 #3c3b37 #dcdccc #3c3b37
 # client.urgent #dca3a3 #dca3a3 #dcdccc #3c3b37
