@@ -29,6 +29,6 @@ killall -q polybar
 sleep 2
 
 # Launch Polybar, using default config location ~/.config/polybar/config
-polybar laptop 2>&1 | tee -a /tmp/polybar.log & disown
+polybar --reload laptop 2>&1 | tee -a /tmp/polybar.log & disown
 
 echo "Polybar launched..."
