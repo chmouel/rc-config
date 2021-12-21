@@ -3,10 +3,12 @@ set $super Mod4
 set $alt Mod1
 
 # Setings
-font pango:RobotoMono Nerd Font 0 # tiny tiny title
+font pango:RobotoMono Nerd Font 4 # tiny tiny title
 workspace_layout tabbed
 workspace_auto_back_and_forth yes
 floating_modifier $super
+
+#bindsym $super+t border pixel 3
 
 # startups
 exec_always --no-startup-id ~/.fehbg
@@ -20,15 +22,16 @@ assign [class=Emacs] Dev
 assign [class=Firefox] Browse
 assign [class=Chromium] Browse
 assign [class=Slack] Chat
-assign [class=Spotify] Music
 
+for_window [all] title_window_icon padding 3px
 for_window [class=".*"] border pixel 0
 for_window [class=(Nm-connection-editor|Org.gnome.Weather)] floating enable
 for_window [class=(Nm-connection-editor|Org.gnome.Weather)] focus
+for_window [class="^Spotify"] move --no-auto-back-and-forth to workspace Music
 
 #client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 #client.background           #2f343f
-client.focused #ff00ff #ff00ff #dcdccc #ffcfaf
+client.focused #BA45A3 #BA45A3 #fff5ee #ffcfaf
 # client.focused_inactive #3c3b37 #3c3b37 #7f9f7f #3c3b37
 # client.unfocused #3c3b37 #3c3b37 #dcdccc #3c3b37
 # client.urgent #dca3a3 #dca3a3 #dcdccc #3c3b37
