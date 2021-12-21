@@ -69,6 +69,8 @@ bindsym $super+F3 layout splitv
 bindsym $alt+F4 kill 
 bindsym $super+Shift+F4 exec "i3-msg exit"
 
+bindsym $super+c floating enable;exec wmctrl-resize-and-center.sh rotate
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym Left resize shrink width 10 px or 10 ppt
