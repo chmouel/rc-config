@@ -3,6 +3,8 @@ exec 19>/tmp/.start.stumpwm
 BASH_XTRACEFD=19
 set -x
 
+export WMSESSION="i3"
+
 function disable_laptop_screen() {
     local hdmi_monitor=""
     xrandr -q |grep -q "hdmi_monitor.* connected" && hdmi_monitor="YES"
@@ -51,4 +53,4 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
-exec i3
+exec ${WMSESSION}
