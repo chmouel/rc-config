@@ -43,7 +43,7 @@ bindsym Shift+XF86MonBrightnessDown exec brightnessctl -q s 1-
 
 bindsym $super+space exec mounch
 
-bindsym $super+control+space floating toggle
+bindsym $super+9 floating toggle
 
 # switch to workspace
 bindsym $super+1 workspace Browse
@@ -80,10 +80,10 @@ bindsym $super+Shift+F4 exec "i3-msg exit"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
         bindsym Return mode "default"
 }
 bindsym $super+F7 mode "resize"
