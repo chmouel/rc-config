@@ -33,7 +33,7 @@ bindsym XF86Launch1 exec mounch
 
 # switch to workspace
 bindsym $super+1 workspace Browse
-bindsym $super+2 workspace Dev;
+bindsym $super+2 workspace Dev
 bindsym $super+3 workspace Chat
 bindsym $super+4 workspace Music
 bindsym $super+5 workspace Others
@@ -42,7 +42,7 @@ bindsym $super+5 workspace Others
 bindsym $super+Shift+1 move container to workspace Browse;workspace Browse
 bindsym $super+Shift+2 move container to workspace Dev;workspace Dev
 bindsym $super+Shift+3 move container to workspace Chat;workspace Chat
-bindsym $super+Shift+4 move container to workspace Music;workspace music
+bindsym $super+Shift+4 move container to workspace Music;workspace Music
 bindsym $super+Shift+5 move container to workspace Others;workspace Others
 bindsym $super+backslash workspace back_and_forth
 
@@ -74,7 +74,7 @@ mode "resize" {
         bindsym Right resize grow width 10 px or 10 ppt
         bindsym Return mode "default"
 }
-bindsym $super+F7 mode "resize"
+bindsym $super+8 mode "resize"
 bindsym $super+9 floating toggle
 
 # Make the currently focused window a scratchpad
