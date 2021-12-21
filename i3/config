@@ -3,7 +3,7 @@ set $super Mod4
 set $alt Mod1
 
 # Setings
-font pango:RobotoMono Nerd Font 0
+font pango:RobotoMono Nerd Font 0 # tiny tiny title
 workspace_layout tabbed
 workspace_auto_back_and_forth yes
 floating_modifier $super
