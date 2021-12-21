@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=chmousession
+Comment=stump dynamic tiling window manager
+Exec=/home/chmouel/.local/share/rc/wm/start.sh
+Type=Application

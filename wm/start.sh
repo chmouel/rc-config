@@ -3,18 +3,20 @@ exec 19>/tmp/.start.stumpwm
 BASH_XTRACEFD=19
 set -x
 
-HDMI=""
-xrandr -q |grep -q "HDMI.* connected" && HDMI="YES"
-if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-      if [[ ${HDMI} == "YES" && ${m} != HDMI* ]];then
-          xrandr --output ${m} --off
-          continue
-      fi
-      export MONITOR=${m}
-      break
-  done
-fi
+function disable_laptop_screen() {
+    local hdmi_monitor=""
+    xrandr -q |grep -q "hdmi_monitor.* connected" && hdmi_monitor="YES"
+    if [[ -z $(command -v xrandr) ]]; then
+        return
+    fi
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        if [[ ${hdmi_monitor} == "YES" && ${m} != HDMI* ]];then
+            xrandr --output ${m} --off
+            continue
+        fi
+    done
+}
+disable_laptop_screen
 
 setxkbmap -option "ctrl:nocaps"
 xinput set-prop 12 "libinput Tapping Enabled" 1
@@ -24,9 +26,8 @@ xsetroot -cursor_name left_ptr
 
 cd /tmp || exit
 
-
 # [[ -n $(command -v picom) ]]  && nohup picom --no-fading-openclose  &
-#[[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
+[[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
 [[ -x /usr/lib/gpaste/gpaste-daemon && -z $(pgrep gpaste-daemon) ]] && nohup /usr/lib/gpaste/gpaste-daemon &
@@ -44,6 +45,4 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
-#$HOME/.config/polybar/launch.sh
-#exec dbus-launch --exit-with-session stumpwm
-exec stumpwm
+exec i3
