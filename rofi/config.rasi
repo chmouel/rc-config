@@ -3,4 +3,5 @@ configuration {
 	terminal: "gnome-terminal";
 	ssh-client: "ssh";
 	ssh-command: "kitty -- kitty +kitten ssh {host}";
+    font: "Sans 16";
 }
