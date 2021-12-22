@@ -18,6 +18,9 @@ case $(hostnamectl hostname) in
     pignon)
         [[ $MONITOR != HDMI* ]] && export POLYBAR_FONT_SIZE=13
         ;;
+    domac)
+        export POLYBAR_FONT_SIZE=20
+        ;;
 esac
 
 # If all your bars have ipc enabled, you can also use 
