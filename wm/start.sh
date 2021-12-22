@@ -5,20 +5,7 @@ set -x
 
 export WMSESSION="i3"
 
-function disable_laptop_screen() {
-    local hdmi_monitor=""
-    xrandr -q |grep -q "hdmi_monitor.* connected" && hdmi_monitor="YES"
-    if [[ -z $(command -v xrandr) ]]; then
-        return
-    fi
-    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        if [[ ${hdmi_monitor} == "YES" && ${m} != HDMI* ]];then
-            xrandr --output ${m} --off
-            continue
-        fi
-    done
-}
-disable_laptop_screen
+autorandr --change
 
 setxkbmap -option "ctrl:nocaps"
 xinput set-prop 12 "libinput Tapping Enabled" 1
