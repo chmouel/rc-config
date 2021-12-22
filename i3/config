@@ -31,7 +31,7 @@ for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt
 
 #client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 #client.background           #2f343f
-client.focused #BA45A3 #BA45A3 #fff5ee #ffcfaf
+client.focused #000000 #000000 #bd93f9 #ffcfaf
 # client.focused_inactive #3c3b37 #3c3b37 #7f9f7f #3c3b37
 # client.unfocused #3c3b37 #3c3b37 #dcdccc #3c3b37
 # client.urgent #dca3a3 #dca3a3 #dcdccc #3c3b37
