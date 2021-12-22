@@ -10,6 +10,12 @@ floating_modifier $super
 focus_on_window_activation focus
 focus_follows_mouse no
 
+# Smart Gaps
+smart_gaps on
+hide_edge_borders smart_no_gaps
+gaps inner 2
+gaps outer 2
+
 # startups
 exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
