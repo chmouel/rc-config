@@ -7,8 +7,7 @@ font pango:RobotoMono Nerd Font 4 # tiny tiny title
 workspace_layout tabbed
 workspace_auto_back_and_forth yes
 floating_modifier $super
-
-#bindsym $super+t border pixel 3
+focus_on_window_activation focus
 
 # startups
 exec_always --no-startup-id ~/.fehbg
@@ -28,6 +27,7 @@ for_window [class=".*"] border pixel 0
 for_window [class=(Nm-connection-editor|Org.gnome.Weather)] floating enable
 for_window [class=(Nm-connection-editor|Org.gnome.Weather)] focus
 for_window [class="^Spotify"] move --no-auto-back-and-forth to workspace Music
+for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 3
 
 #client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 #client.background           #2f343f
