@@ -5,7 +5,7 @@ set $alt Mod1
 # Setings
 font pango:RobotoMono Nerd Font 4 # tiny tiny title
 workspace_layout tabbed
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no
 floating_modifier $super
 focus_on_window_activation focus
 
