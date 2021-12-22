@@ -4,14 +4,16 @@ exec 19>/tmp/.start.wmsession
 BASH_XTRACEFD=19
 set -x
 
-export WMSESSION="i3"
+export WMSESSION=${WMSESSION:="i3"}
 
-autorandr --change
-setxkbmap -option "ctrl:nocaps"
-xmodmap -e "keycode 134 = Multi_key" -e "clear Lock"
-xinput set-prop 12 "libinput Tapping Enabled" 1 || true
-xinput set-prop 12 "libinput Accel Speed" 0.5 || true
-xsetroot -cursor_name left_ptr
+[[ -n $(command -v autorandr) ]] && autorandr --change
+[[ -n $(command -v setxkbmap) ]] && setxkbmap -option "ctrl:nocaps"
+[[ -n $(command -v xmodmap) ]] && xmodmap -e "keycode 134 = Multi_key" -e "clear Lock"
+[[ -n $(command -v xinput) ]] && {
+    xinput set-prop 12 "libinput Tapping Enabled" 1 || true
+    xinput set-prop 12 "libinput Accel Speed" 0.5 || true
+}
+[[ -n $(command -v xsetroot) ]] && xsetroot -cursor_name left_ptr
 
 cd /tmp || exit
 
@@ -33,7 +35,7 @@ cd $HOME || exit
 # since we are already on a gnome vibe, lets use gnome-keyring as our
 # ssh-agent, as a bonus it will give to sensible applications access to ssh
 # keys, password lists, etc
-if [[ -z $(pgrep -f gnome-keyring-daemon) ]];then
+if [[ -n $(command -v gnome-keyring-daemon) && $(pgrep -f gnome-keyring-daemon) ]];then
     eval $(/usr/bin/gnome-keyring-daemon --daemonize --login --start --components=gpg,pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK
     export GPG_AGENT_INFO
@@ -41,4 +43,10 @@ if [[ -z $(pgrep -f gnome-keyring-daemon) ]];then
     export GNOME_KEYRING_PID
 fi 
 
-[[ ${1:-""} != norun ]] && exec ${WMSESSION}
+[[ ${1:-""} == norun ]] && exit
+
+if [[ -n $(command -v ${WMSESSION}) ]];then
+    exec ${WMSESSION}
+fi
+
+exec kitty
