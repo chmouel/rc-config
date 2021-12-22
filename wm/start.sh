@@ -28,7 +28,7 @@ xsetroot -cursor_name left_ptr
 
 cd /tmp || exit
 
-# [[ -n $(command -v picom) ]]  && nohup picom --no-fading-openclose  &
+[[ -n $(command -v picom) ]]  && nohup picom --no-fading-openclose  &
 [[ -n $(command -v nm-applet) ]]  && nohup nm-applet  &
 [[ -n $(command -v xsettingsd) ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) ]] && nohup dunst &
