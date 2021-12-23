@@ -13,9 +13,16 @@
         "clock"
     ],
     "modules-right": [
+        "custom/vpn",
         "pulseaudio",
         "battery"
     ],
+    "custom/vpn": {
+        "format": " {} ",
+        "interval": 30,
+        "exec": "$HOME/.config/polybar/scripts/vpn.sh",
+        "on-click": "$HOME/.config/polybar/scripts/vpn.sh click",
+    },
     "custom/github_notifications": {
         "format": " {} ",
         "interval": 120,
