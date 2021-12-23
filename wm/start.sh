@@ -17,7 +17,7 @@ export WMSESSION=${WMSESSION:="i3"}
 
 cd /tmp || exit
 
-[[ -n $(command -v picom) && -z $(pgrep -x picom) ]]  && nohup picom --no-fading-openclose  &
+[[ -n $(command -v picom) && -z $(pgrep -x picom) ]]  && nohup picom --no-fading-openclose  --experimental-backend &
 [[ -n $(command -v nm-applet) && -z $(pgrep -x nm-applet)  ]]  && nohup nm-applet  &
 [[ -n $(command -v xsettingsd) && -z $(pgrep -x xsettingsd)  ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) && -z $(pgrep -x dunst) ]] && nohup dunst &
@@ -26,16 +26,18 @@ cd /tmp || exit
 [[ -n $(command -v gnome-next-meeting-applet) && -z $(pgrep -f gnome-next-meeting) ]] && nohup gnome-next-meeting-applet &
 
 if [[ -n $(command -v xss-lock) && $(command -v i3lock) ]];then
+    _locker="i3lock -c 000000 -f -e"
+    [[ -n  $(command -v i3lock-fancy) ]] && _locker="i3lock-fancy"
     xset dpms 2000 2000 2000
     xset s 300 120
-    [[ -z $(pgrep -x xss-lock) ]] && nohup xss-lock -- i3lock -c 000000 -f -e &
+    [[ -z $(pgrep -x xss-lock) ]] && nohup xss-lock -- ${_locker} &
 fi
 cd $HOME || exit
 
 # since we are already on a gnome vibe, lets use gnome-keyring as our
 # ssh-agent, as a bonus it will give to sensible applications access to ssh
 # keys, password lists, etc
-if [[ -n $(command -v gnome-keyring-daemon) && $(pgrep -f gnome-keyring-daemon) ]];then
+if [[ -n $(command -v gnome-keyring-daemon) ]];then
     eval $(/usr/bin/gnome-keyring-daemon --daemonize --login --start --components=gpg,pkcs11,secrets,ssh)
     export SSH_AUTH_SOCK
     export GPG_AGENT_INFO
