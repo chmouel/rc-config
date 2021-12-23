@@ -5,3 +5,5 @@ configuration {
 	ssh-command: "kitty -- kitty +kitten ssh {host}";
     font: "Sans 16";
 }
+
+@theme "purple"
