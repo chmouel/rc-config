@@ -5,12 +5,11 @@
 ;; mouse button gesture + left
 ;; (xbindkey '(release "b:28") "jumpapp firefox")
 ;; mouse button gesture + right
-(xbindkey '(release "XF86Launch5") "jumpapp slack")
-(xbindkey '(release "XF86Launch9") "jumpapp -f -i emacs -- emacs -c -a emacs")
-(xbindkey '(release "XF86launch8") "jumpapp kitty")
-(xbindkey '(release "XF86launch6") "jumpapp firefox")
-(xbindkey '(release "XF86launch7") "jumpapp chromium")
-
+(xbindkey '("XF86Launch5") "jumpapp slack")
+(xbindkey '("XF86Launch9") "jumpapp -f -i emacs -- emacs -c -a emacs")
+(xbindkey '("XF86launch8") "jumpapp kitty")
+(xbindkey '("XF86launch6") "jumpapp firefox")
+(xbindkey '("XF86launch7") "jumpapp chromium")
 
 (xbindkey '(mod4 "s") "jumpapp slack")
 (xbindkey '(mod4 "e") "jumpapp -f -i emacs -- emacsclient -c -a emacs")
