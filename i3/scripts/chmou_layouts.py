@@ -7,8 +7,8 @@
 # 3 windows -> left/right window half of a third, center window 2 third
 # >3 windows is up to you and manual resize :-D
 #
-# it's currently bounded to a key, maybe we can use a hook instead but that may
-# be too annoying
+# it's currently bounded to a key (super+c for me), maybe we can use a hook
+# instead but that may be too annoying
 
 import click
 import i3ipc
