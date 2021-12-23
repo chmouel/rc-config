@@ -27,7 +27,7 @@ cd /tmp || exit
 
 if [[ -n $(command -v xss-lock) && $(command -v i3lock) ]];then
     _locker="i3lock -c 000000 -f -e"
-    [[ -n  $(command -v i3lock-fancy) ]] && _locker="i3lock-fancy"
+    [[ -n  $(command -v i3lock-fancy-rapid) ]] && _locker="i3lock-fancy-rapid 3 7"
     xset dpms 2000 2000 2000
     xset s 300 120
     [[ -z $(pgrep -x xss-lock) ]] && nohup xss-lock -- ${_locker} &
