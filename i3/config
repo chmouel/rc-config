@@ -20,7 +20,7 @@ exec_always --no-startup-id ~/.fehbg
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id alttab -i 128x128 -t 128x128 -frame '#282a36' -bw 1 -bc '#bd93f9' &
 # bureau mean i have my large hdmi screen attached
-exec_always --no-startup-id [[ -n $(command -v autorandr) && $(autorandr --detected) == bureau ]] && i3-msg "gaps inner all set 20" 
+exec_always --no-startup-id [[ -n $(command -v autorandr) && $(autorandr --detected) == bureau ]] && i3-msg "gaps inner all set 20" || i3-msg "workspace_layout tabbed"
 
 include keybindings.conf
 
