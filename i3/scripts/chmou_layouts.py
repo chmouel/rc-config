@@ -1,10 +1,19 @@
 #!/usr/bin/env python
+# Chmouel Boudjnah <chmouel@chouel.com>
+# My custom layouts  :
+#
+# 1 windows -> float and center it, resize it as 2 third (for the apps in RESIZE_CLASSES)
+# 2 windows -> left window is 1 third, right window is 2 third
+# 3 windows -> left/right window half of a third, center window 2 third
+# >3 windows is up to you and manual resize :-D
+#
+# it's currently bounded to a key, maybe we can use a hook instead but that may
+# be too annoying
+
 import click
 import i3ipc
 
-# always try to center the master windows the other are on the side
-# supports up to 3 windows cause I don't usually use more
-
+RESIZE_CLASSES = ["kitty", "emacs", "firefox", "chromium", "slack"]
 
 def disable_floating(windows):
     [w.command("floating disable") for w in windows]
@@ -33,10 +42,11 @@ def gw():
         right_window.command(f"resize set {right_window_width}")
     elif len(windows) == 1:
         window = windows[0]
-        windows_size = screen_w - (screen_w / 4)
-        window.command(f"resize set {windows_size}")
-        window.command("floating enable;move position center")
-
+        windows_size = round(screen_w - (screen_w / 4))
+        window.command("floating enable")
+        if window.window_class.lower() in RESIZE_CLASSES:
+            window.command(f"resize set width {windows_size}px")
+        window.command("move position center")
 
 if __name__ == '__main__':
     gw()
