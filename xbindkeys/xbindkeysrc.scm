@@ -19,7 +19,8 @@
 (xbindkey '(mod4 "m") "jumpapp spotify")
 
 (xbindkey '(mod4 shift "space") "gpaste-client ui")
-(xbindkey '(mod4 shift "e") "splatmoji copy")
+(xbindkey '(mod4 control "e") "splatmoji copy")
+(xbindkey '(mod4 shift "e") "emacsclient -c -n -a emacs")
 
 
 ;; mouse button gesture + Down
