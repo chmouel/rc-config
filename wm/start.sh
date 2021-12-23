@@ -18,7 +18,7 @@ export WMSESSION=${WMSESSION:="i3"}
 cd /tmp || exit
 
 [[ -n $(command -v picom) && -z $(pgrep -x picom) ]]  && nohup picom --no-fading-openclose  --experimental-backend &
-[[ -n $(command -v nm-applet) && -z $(pgrep -x nm-applet)  ]]  && nohup nm-applet  &
+#[[ -n $(command -v nm-applet) && -z $(pgrep -x nm-applet)  ]]  && nohup nm-applet  &
 [[ -n $(command -v xsettingsd) && -z $(pgrep -x xsettingsd)  ]] && nohup xsettingsd  &
 [[ -n $(command -v dunst) && -z $(pgrep -x dunst) ]] && nohup dunst &
 [[ -x /usr/lib/gpaste/gpaste-daemon && -z $(pgrep -x gpaste-daemon) ]] && nohup /usr/lib/gpaste/gpaste-daemon &
