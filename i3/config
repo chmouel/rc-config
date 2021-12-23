@@ -2,111 +2,42 @@
 set $super Mod4
 set $alt Mod1
 
-# set font
-workspace_layout tabbed
-
-# Use Mouse+$super to drag floating windows to their wanted position
+# Setings
+font pango:RobotoMono Nerd Font 4 # tiny tiny title
+workspace_auto_back_and_forth no
 floating_modifier $super
+focus_on_window_activation focus
+focus_follows_mouse no
 
-# Make the currently focused window a scratchpad
-bindsym $super+Shift+0 move scratchpad
+# Smart Gaps
+smart_gaps on
+hide_edge_borders smart_no_gaps
+gaps inner 2
+gaps outer 2
 
-# Show the first scratchpad window
-bindsym $super+0 scratchpad show
+# startups
+exec_always --no-startup-id ~/.fehbg
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec_always --no-startup-id alttab -i 128x128 -t 128x128 -frame '#282a36' -bw 1 -bc '#bd93f9' &
 
-#autostart
-exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
-exec --no-startup-id xsettingsd &
-# exec --no-startup-id picom -b
-exec --no-startup-id xbindkeys
-exec --no-startup-id xrandr -q |grep -q "HDMI-A-0 connected" && xrandr --output eDP --off
-
-# start a terminal
-bindsym $super+Return exec kitty
-
-# start mounch
-bindsym $super+space exec mounch
-bindsym $super+q kill 
-bindsym $super+control+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $super+Shift+space focus mode_toggle
-
-# switch to workspace
-bindsym $super+1 workspace 1
-bindsym $super+2 workspace 2
-bindsym $super+3 workspace 3
-bindsym $super+4 workspace 4
-bindsym $super+5 workspace 5
-
-# move focused container to workspace
-bindsym $super+Shift+1 move container to workspace 1
-bindsym $super+Shift+2 move container to workspace 2
-bindsym $super+Shift+3 move container to workspace 3
-bindsym $super+Shift+4 move container to workspace 4
-bindsym $super+Shift+5 move container to workspace 5
-bindsym $super+backslash workspace back_and_forth
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $super+Shift+r restart
-
-bindsym $super+Left focus left
-bindsym $super+Down focus down
-bindsym $super+Up focus up
-bindsym $super+Right focus right
-
-
-bindsym $super+shift+Left move left
-bindsym $super+shift+Right move right
-bindsym $super+shift+Up move up
-bindsym $super+shift+Down move down
-
-
-# exit i3
-bindsym $super+F4 exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
-        bindsym Return mode "default"
-}
-bindsym $super+r mode "resize"
-
-# panel
-bar {
-    position top
-	tray_output primary
-	workspace_buttons      yes
-    colors {
-		background #2f343f
-		statusline #2f343f
-		separator #4b5262
-		# colour of border, background, and text
-		focused_workspace       #2f343f #bf616a #d8dee8
-		active_workspace        #2f343f #2f343f #d8dee8
-		inactive_workspace      #2f343f #2f343f #d8dee8
-		#urgent_workspacei       #2f343f #ebcb8b #2f343f
-	}
-
-    status_command i3status
-}
+include keybindings.conf
 
 # window rules, you can find the window class using xprop
-font pango:DejaVu Sans Mono 0
+assign [class=Emacs] Dev
+assign [class=Firefox] Browse
+assign [class=Chromium] Browse
+assign [class=Slack] Chat
+
+for_window [all] title_window_icon padding 3px
 for_window [class=".*"] border pixel 0
-#assign [class=kitty] 2
-#assign [class=Emacs] 3
-#assign [class=Firefox] 1
-#assign [class=Thunar|File-roller|Slack] 5 
-#for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-#for_window [class=URxvt|Gnome-terminal|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity|Emacs] focus
-#
+for_window [class=(Nm-connection-editor|Org.gnome.Weather)] floating enable
+for_window [class=(Nm-connection-editor|Org.gnome.Weather)] focus
+for_window [class="^Spotify"] move --no-auto-back-and-forth to workspace Music
+for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 3
+
 #client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 #client.background           #2f343f
-#client.focused #dcdccc #dcdccc #3c3b37 #ffcfaf
-#client.focused_inactive #3c3b37 #3c3b37 #7f9f7f #3c3b37
-#client.unfocused #3c3b37 #3c3b37 #dcdccc #3c3b37
-#client.urgent #dca3a3 #dca3a3 #dcdccc #3c3b37
+client.focused #000000 #000000 #bd93f9 #ffcfaf
+# client.focused_inactive #3c3b37 #3c3b37 #7f9f7f #3c3b37
+# client.unfocused #3c3b37 #3c3b37 #dcdccc #3c3b37
+# client.urgent #dca3a3 #dca3a3 #dcdccc #3c3b37

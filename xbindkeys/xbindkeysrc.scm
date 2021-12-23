@@ -1,6 +1,6 @@
 ;; Thumb wheel
-(xbindkey '(release "b:6") "xte 'keydown Super_L' 'keydown Page_Up' 'keyup Page_Up' 'keyup Super_L' 'sleep 10'")
-(xbindkey '(release "b:7") "xte 'keydown Super_L' 'keydown Page_Down' 'keyup Page_Down' 'keyup Super_L' 'sleep 10'")
+(xbindkey '(release "b:6") "xte 'keydown Alt_L' 'keydown Left' 'keyup Left' 'keyup Alt_L' 'sleep 10'")
+(xbindkey '(release "b:7") "xte 'keydown Alt_L' 'keydown Right' 'keyup Right' 'keyup Alt_L' 'sleep 10'")
 
 ;; mouse button gesture + left
 ;; (xbindkey '(release "b:28") "jumpapp firefox")
@@ -17,6 +17,7 @@
 (xbindkey '(mod4 "Return") "jumpapp kitty")
 (xbindkey '(mod4 "f") "jumpapp firefox")
 (xbindkey '(mod4 "w") "jumpapp chromium")
+(xbindkey '(mod4 "m") "jumpapp spotify")
 
 (xbindkey '(mod4 shift "space") "gpaste-client ui")
 (xbindkey '(mod4 shift "e") "splatmoji copy")
