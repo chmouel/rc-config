@@ -2,110 +2,52 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-        "sway/workspaces",
-        "custom/right-arrow-dark",
         "tray",
-        "custom/right-arrow-dark",
-        "custom/right-arrow-light",
+        "sway/workspaces",
+        "sway/mode",
+        "custom/space",
         "custom/github_notifications",
-        "custom/right-arrow-dark",
-        "custom/right-arrow-light",
         "custom/arch_updates",
-        "custom/right-arrow-dark"
     ],
     "modules-center": [
-        "custom/left-arrow-dark",
-        "clock#1",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "clock#2",
-        "custom/right-arrow-dark",
-        "custom/right-arrow-light",
-        "clock#3",
-        "custom/right-arrow-dark"
+        "clock"
     ],
     "modules-right": [
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
         "pulseaudio",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "memory",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "cpu",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "battery",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark",
-        "disk",
-        "custom/left-arrow-light",
-        "custom/left-arrow-dark"
+        "battery"
     ],
     "custom/github_notifications": {
-        "format": " {}",
+        "format": " {} ",
         "interval": 120,
         "exec": "gh api -X GET /notifications --cache=1m -f per_page='30' -f participating='true' --jq '.|length'",
         "exec_if": "which gh",
         "on-click": "xdg-open https://github.com/notifications?query=reason%3Aparticipating+is%3Aunread++"
     },
     "custom/arch_updates": {
-        "format": " {}",
+        "format": " {} ",
         "interval": 600,
-        "exec": "yay -Qu | wc -l",
+        "exec": "$HOME/.config/polybar/scripts/arch-updates.sh",
         "exec_if": "which gh",
         "on-click": "kitty --class=floater -- /bin/bash -c \"yay;echo;read -p'Press a Key to exit....'\""
-    },
-    "custom/left-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/left-arrow-light": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-dark": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/right-arrow-light": {
-        "format": "",
-        "tooltip": false
     },
     "sway/workspaces": {
         "disable-scroll": false,
         "all-outputs": true,
-        "format": "{icon} |",
+        "format": "{icon}",
         "format-icons": {
             "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": ""
-        },
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": ""
         }
     },
-    "clock#1": {
-        "format": "{:%a}",
-        "tooltip": false
-    },
-    "clock#2": {
-        "format": "{:%H:%M}",
-        "tooltip": false
-    },
-    "clock#3": {
-        "format": "{:%d %b}",
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
         "tooltip": false
     },
     "pulseaudio": {
-        "format": "{icon} {volume:2}%",
+        "format": "{icon} {volume:2}% ",
         "format-bluetooth": "{icon}  {volume}%",
         "format-muted": "MUTE",
         "format-icons": {
@@ -121,11 +63,11 @@
     },
     "memory": {
         "interval": 5,
-        "format": "Mem {}%"
+        "format": "Memory: {}% "
     },
     "cpu": {
         "interval": 5,
-        "format": "CPU {usage:2}%"
+        "format": "CPU: {usage:2}% "
     },
     "battery": {
         "states": {
@@ -133,7 +75,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}  {capacity}% ",
         "format-icons": [
             "",
             "",
@@ -142,17 +84,16 @@
             ""
         ]
     },
-    "disk": {
-        "interval": 5,
-        "format": "Disk {percentage_used:2}%",
-        "path": "/"
-    },
     "tray": {
         "icon-size": 20,
         "spacing": 12
     },
+    "custom/space": {
+        "format": "  ",
+        "tooltip": false
+    },
     "sway/mode": {
         "format": " {}",
         "max-length": 50
-    }
+    },
 }
