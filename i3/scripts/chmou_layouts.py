@@ -43,9 +43,9 @@ def chmoulayout(verbose=False):
         left_window_width = round(screen_w / 3.5)
         log(f"Left windows width: {left_window_width}")
         right_window_width = screen_w - left_window_width
-        log(f"Right windows width: {right_window_width}")
+        log(f"Right windows width: {right_window_width}px")
         disable_floating(windows)
-        left_window.command(f"resize set {left_window_width}")
+        left_window.command(f"resize set {left_window_width}px")
     elif len(windows) == 3:
         log("Using three windows mode")
         left_window = windows[0]
@@ -55,8 +55,8 @@ def chmoulayout(verbose=False):
         right_window_width = round(screen_w / 6)
         log(f"Right windows width: {right_window_width}")
         disable_floating(windows)
-        left_window.command(f"resize set {left_window_width}")
-        right_window.command(f"resize set {right_window_width}")
+        left_window.command(f"resize set {left_window_width}px")
+        right_window.command(f"resize set {right_window_width}px")
     elif len(windows) == 1:
         log("Using single window mode")
         window = windows[0]
