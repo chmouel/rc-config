@@ -1,8 +1,8 @@
-font="monospace 11"
-format=<b>%a ⏵</b> %s\n%b
+font="RobotoMono Nerd Font 15"
+format=<b>%a </b> %s\n%b
 sort=-time
 layer=overlay
-anchor=top-center
+anchor=top-right
 background-color=#2f383e
 border-color=#7fbbb3
 default-timeout=10000
