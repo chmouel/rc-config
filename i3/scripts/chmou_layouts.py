@@ -24,7 +24,7 @@ def disable_floating(windows):
 
 @click.command()
 @click.option("--verbose", "-v", is_flag=True)
-def gw(verbose=False):
+def chmoulayout(verbose=False):
     global VERBOSE
     if verbose:
         VERBOSE=True
@@ -68,6 +68,4 @@ def gw(verbose=False):
         window.command("move position center")
 
 if __name__ == '__main__':
-    gw()
-
-# gw(reverse=True)
+    chmoulayout()
