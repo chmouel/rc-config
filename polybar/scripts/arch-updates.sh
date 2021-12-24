@@ -5,10 +5,10 @@
     # kitty-ctrl jump -t "Arch Updates" /bin/sh -c "yay;read"
 }
 if [[ -n $(command -v checkupdates) ]];then 
-    checkupdates 
+    n=$(checkupdates|wc -l)
 else
     sudo pacman -Fy >/dev/null
+    n=$(yay -Qu | wc -l)
 fi
 
-n=$(yay -Qu | wc -l)
 [[ ${n} -gt 0 ]] && echo "${n}"
