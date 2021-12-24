@@ -35,7 +35,7 @@
         "exec-if": "pgrep -f gnome-next-meeting-applet",
         "max-length": 50,
         "min-length": 1,
-        "on-click-right": "xdg-open https://calendar.google.com/a/redhat.com",
+        "on-click": "xdg-open https://calendar.google.com/a/redhat.com",
     },
     "custom/email-personal": {
         "format": "﫮 {} ",
