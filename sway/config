@@ -64,6 +64,7 @@ for_window [class="^firefox"] move container to workspace $wsbrowse
 for_window [app_id="firefox"] move container to workspace $wsbrowse
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable; sticky enable
+for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="^Google-chrome"] move container to workspace $wsbrowse
 for_window [class="^Chromium"] move container to workspace $wsbrowse
 for_window [app_id="^emacs"] move container to workspace $wsterm
@@ -86,6 +87,7 @@ exec --no-startup-id nm-applet --indicator &
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh" 
 exec --no-startup-id gnome-next-meeting-applet &
+exec --no-startup-id gammastep -l 48.8566:2.3522 &
 
 set $locker swaylock \
     -f \
@@ -104,6 +106,7 @@ set $locker swaylock \
 	--grace 2 \
 	--fade-in 0.2
 exec --no-startup-id swayidle -w timeout 60 "$locker" timeout 90 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$locker" lock "$locker" &
+
 
 include keybindings.conf
 include /etc/sway/config.d/*
