@@ -22,7 +22,6 @@ title_align left
 focus_on_window_activation focus
 smart_gaps off
 font pango:monospace 0
-workspace_layout tabbed
 floating_modifier $super normal
 # titlebar_border_thickness 0
 # titlebar_padding 0
@@ -61,19 +60,19 @@ bar {
 for_window [class=".*"] title_window_icon padding 3px
 for_window [class=".*"] border pixel 0
 for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
-for_window [class="^firefox"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
-for_window [app_id="firefox"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
-for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
-for_window [class="^Chromium"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
+for_window [class="^firefox"] move container to workspace $wsbrowse;workspace $wsbrowse
+for_window [app_id="firefox"] move container to workspace $wsbrowse;workspace $wsbrowse
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable; sticky enable
+for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse
+for_window [class="^Chromium"] move container to workspace $wsbrowse;workspace $wsbrowse
 for_window [app_id="^emacs"] move container to workspace $wsterm;workspace $wsterm
 for_window [class="Code"] move container to workspace $wscode;workspace $wscode
 for_window [class="jetbrains-goland"] move container to workspace $wscode;workspace $wscode
 for_window [class="^Slack"] move container to workspace $wschat;workspace $wschat
 for_window [class="^Spotify"] move container to workspace $wsmusic;workspace $wsmusic
-for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
 for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
-for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable; sticky enable
 for_window [app_id="pavucontrol"] floating enable
 
 
@@ -85,6 +84,7 @@ exec --no-startup-id mako &
 exec --no-startup-id nm-applet --indicator &
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh" 
+exec --no-startup-id gnome-next-meeting-applet &
 
 set $locker swaylock \
     -f \
