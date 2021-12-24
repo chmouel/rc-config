@@ -61,8 +61,9 @@ for_window [class=".*"] title_window_icon padding 3px
 for_window [class=".*"] border pixel 0
 for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 for_window [class="^firefox"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
+for_window [app_id="firefox"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
 for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
-for_window [class="^Google-chrome"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
+for_window [class="^Chromium"] move container to workspace $wsbrowse;workspace $wsbrowse;layout tabbed
 for_window [app_id="^emacs"] move container to workspace $wsterm;workspace $wsterm
 for_window [class="Code"] move container to workspace $wscode;workspace $wscode
 for_window [class="jetbrains-goland"] move container to workspace $wscode;workspace $wscode
@@ -72,6 +73,7 @@ for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; stic
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
 for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable; sticky enable
+for_window [app_id="pavucontrol"] floating enable
 
 
 exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
