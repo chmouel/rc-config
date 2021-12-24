@@ -1,31 +1,41 @@
 {
     "layer": "top",
     "position": "top",
+    "margin-left": 10,
+    "margin-right": 10,
     "modules-left": [
-        "custom/space",
         "sway/workspaces",
         "custom/space",
         "tray",
         "custom/space",
-        "custom/github_notifications",
-        "custom/arch_updates"
+        "custom/gnma",
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
+        "custom/github_notifications",
+        "custom/arch_updates",
         "custom/email-work",
         "custom/email-personal",
         "custom/vpn",
         "pulseaudio",
         "battery",
         "custom/power",
-        "custom/space"
     ],
     "custom/power": {
         "format": " ",
         "on-click": "wlogout",
         "tooltip": false
+    },
+    "custom/gnma": {
+        "format": " {} ",
+        "interval": 5,
+        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet --get-last-status plain",
+        "exec-if": "pgrep -f gnome-next-meeting-applet",
+        "max-length": 50,
+        "min-length": 1,
+        "on-click-right": "xdg-open https://calendar.google.com/a/redhat.com",
     },
     "custom/email-personal": {
         "format": "﫮 {} ",
@@ -48,15 +58,14 @@
     "custom/github_notifications": {
         "format": " {} ",
         "interval": 120,
-        "exec": "gh api -X GET /notifications --cache=1m -f per_page='30' -f participating='true' --jq '.|length'",
-        "exec_if": "which gh",
+        "exec": "$HOME/.config/polybar/scripts/gh.sh",
+        "exec_if": "ping -c1 github.com",
         "on-click": "xdg-open https://github.com/notifications?query=reason%3Aparticipating+is%3Aunread++"
     },
     "custom/arch_updates": {
         "format": " {} ",
         "interval": 600,
         "exec": "$HOME/.config/polybar/scripts/arch-updates.sh",
-        "exec_if": "which gh",
         "on-click": "kitty --class=floater -- /bin/bash -c \"yay;echo;read -p'Press a Key to exit....'\""
     },
     "sway/workspaces": {
