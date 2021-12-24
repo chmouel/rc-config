@@ -2,26 +2,48 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-        "tray",
+        "custom/space",
         "sway/workspaces",
-        "sway/mode",
+        "custom/space",
+        "tray",
         "custom/space",
         "custom/github_notifications",
-        "custom/arch_updates",
+        "custom/arch_updates"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
+        "custom/email-work",
+        "custom/email-personal",
         "custom/vpn",
         "pulseaudio",
-        "battery"
+        "battery",
+        "custom/power",
+        "custom/space"
     ],
+    "custom/power": {
+        "format": " ",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+    "custom/email-personal": {
+        "format": "﫮 {} ",
+        "interval": 15,
+        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/mongars;poetry run mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
+        "on-click": "xdg-open https://mail.google.com"
+    },
+    "custom/email-work": {
+        "format": "﫮 {} ",
+        "interval": 15,
+        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/mongars;poetry run mongars cboudjna@redhat.com --no-mail-no-zero --no-icon",
+        "on-click": "xdg-open https://mail.google.com/a/redhat.com"
+    },
     "custom/vpn": {
         "format": " {} ",
         "interval": 30,
         "exec": "$HOME/.config/polybar/scripts/vpn.sh",
-        "on-click": "$HOME/.config/polybar/scripts/vpn.sh click",
+        "on-click": "$HOME/.config/polybar/scripts/vpn.sh click"
     },
     "custom/github_notifications": {
         "format": " {} ",
@@ -44,7 +66,7 @@
         "format-icons": {
             "1": "",
             "2": "",
-            "3": "",
+            "3": "",
             "4": "",
             "5": ""
         }
@@ -98,9 +120,5 @@
     "custom/space": {
         "format": "  ",
         "tooltip": false
-    },
-    "sway/mode": {
-        "format": " {}",
-        "max-length": 50
-    },
+    }
 }

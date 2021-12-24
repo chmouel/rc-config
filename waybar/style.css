@@ -1,5 +1,5 @@
 * {
-	font-size: 20px;
+	font-size: 18px;
 	font-family: RobotoMono Nerd Font;
     border: none;
     border-radius: 0;
@@ -10,6 +10,13 @@ window#waybar {
     background: transparent;
     color: white;
 }
+
+#workspaces  {
+    padding-left: 1px;
+    padding-right: 1px;
+    border-bottom: 1px solid;
+}
+
 
 #workspaces button.focused {
     background-color: #c79af4;
@@ -22,8 +29,15 @@ window#waybar {
     color: #fff;
 }
 
-/* #custom-space { */
-/* 	color: #292b2e; */
-/* 	background: #1a1a1a; */
-/* } */
+#custom-vpn {
+	color: #ff69b4;
+}
+
+#custom-email-personal {
+	color: #87ceeb;
+}
+
+#custom-email-work {
+	color: #b22222;
+}
 
