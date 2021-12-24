@@ -71,11 +71,34 @@ for_window [class="^Spotify"] move container to workspace $wsmusic;workspace $ws
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
 for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable; sticky enable
+
 
 exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
+exec --no-startup-id /usr/lib/gpaste/gpaste-daemon &
+exec --no-startup-id /usr/lib/goa-daemon --replace &
 exec --no-startup-id xsettingsd &
-exec --no-startup-id mako
-exec --no-startup-id nm-applet --indicator
+exec --no-startup-id mako &
+exec --no-startup-id nm-applet --indicator &
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+set $locker swaylock \
+    -f \
+	--screenshots \
+	--clock \
+	--indicator \
+	--indicator-radius 100 \
+	--indicator-thickness 7 \
+	--effect-blur 7x5 \
+	--effect-vignette 0.5:0.5 \
+	--ring-color bb00cc \
+	--key-hl-color 880033 \
+	--line-color 00000000 \
+	--inside-color 00000088 \
+	--separator-color 00000000 \
+	--grace 2 \
+	--fade-in 0.2
+exec --no-startup-id swayidle -w timeout 60 "$locker" timeout 90 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$locker" lock "$locker" &
 
 include keybindings.conf
-include /etc/sway/config.d/*
+#include /etc/sway/config.d/*
