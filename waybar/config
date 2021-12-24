@@ -29,7 +29,7 @@
         "tooltip": false
     },
     "custom/gnma": {
-        "format": " {} ",
+        "format": "{} ",
         "interval": 5,
         "exec": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet --get-last-status plain",
         "exec-if": "pgrep -f gnome-next-meeting-applet",
