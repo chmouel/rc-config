@@ -13,28 +13,34 @@
 import click
 import i3ipc
 
-RESIZE_CLASSES = ["kitty", "emacs", "firefox", "chromium", "slack"]
 VERBOSE = False
+
+
 def log(msg):
     if VERBOSE:
         print(msg)
 
+
 def disable_floating(windows):
     [w.command("floating disable") for w in windows]
 
+
 @click.command()
 @click.option("--verbose", "-v", is_flag=True)
-def chmoulayout(verbose=False):
+@click.option("--one-no-resize", is_flag=True)
+def chmoulayout(verbose=False, one_no_resize=False):
     global VERBOSE
     if verbose:
-        VERBOSE=True
-    
+        VERBOSE = True
+
     i3 = i3ipc.Connection()
     current_workspace = i3.get_tree().find_focused().workspace()
     windows = [x for x in current_workspace if x.name]
     log(f"Number of windows on screen {len(windows)}")
     screen_w = current_workspace.ipc_data['rect']['width']
-    log(f"Screen width {screen_w}")
+    screen_h = current_workspace.ipc_data['rect']['height']
+    log(f"Screen width <> {screen_w}")
+    log(f"Screen height ^ {screen_h}")
     current_workspace.command("layout splith")
 
     if len(windows) == 2:
@@ -62,10 +68,12 @@ def chmoulayout(verbose=False):
         window = windows[0]
         window_size = round(screen_w - (screen_w / 4))
         window.command("floating enable")
-        if window.window_class.lower() in RESIZE_CLASSES:
-            log(f"Resize window to : {window_size}")
+        log(f"Resize window to : {window_size}")
+        if not one_no_resize:
             window.command(f"resize set width {window_size}px")
+            window.command(f"resize set height {screen_h - 10}px")
         window.command("move position center")
+
 
 if __name__ == '__main__':
     chmoulayout()
