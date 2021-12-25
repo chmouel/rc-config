@@ -11,10 +11,10 @@ set $alt Mod1
 set $term kitty
 set $menu mounch -p
 set $wsbrowse 1
-set $wsterm 2
-set $wscode 3
-set $wschat 4
-set $wsmusic 5
+set $wscode 2
+set $wschat 3
+set $wsmusic 4
+set $wsother 5
 
 # settings
 output * bg ~/.local/share/backgrounds/sway.jpg fill
@@ -67,7 +67,7 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating ena
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="^Google-chrome"] move container to workspace $wsbrowse
 for_window [class="^Chromium"] move container to workspace $wsbrowse
-for_window [app_id="^emacs"] move container to workspace $wsterm
+for_window [app_id="^emacs"] move container to workspace $wscode
 for_window [class="Code"] move container to workspace $wscode
 for_window [class="jetbrains-goland"] move container to workspace $wscode
 for_window [class="^Slack"] move container to workspace $wschat
