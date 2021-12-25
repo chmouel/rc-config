@@ -79,8 +79,7 @@ for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt
 for_window [app_id="^SpotifyClient"] floating enable, move scratchpad, border pixel 3, scratchpad show
 
 exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
-exec --no-startup-id /usr/lib/gpaste/gpaste-daemon &
-exec --no-startup-id /usr/lib/goa-daemon --replace &
+exec --no-startup-id wl-paste -t text --watch clipman store
 exec --no-startup-id xsettingsd &
 exec --no-startup-id mako &
 exec --no-startup-id nm-applet --indicator &
