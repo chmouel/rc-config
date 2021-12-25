@@ -3,15 +3,17 @@
     "position": "top",
     "margin-left": 10,
     "margin-right": 10,
+    "spacing": 4,
     "modules-left": [
         "sway/workspaces",
         "custom/space",
         "tray",
         "custom/space",
-        "custom/gnma",
+        "custom/gnma"
     ],
     "modules-center": [
-        "clock"
+        "clock",
+        "sway/mode"
     ],
     "modules-right": [
         "custom/github_notifications",
@@ -21,7 +23,7 @@
         "custom/vpn",
         "pulseaudio",
         "battery",
-        "custom/power",
+        "custom/power"
     ],
     "custom/power": {
         "format": " ",
@@ -82,22 +84,27 @@
     },
     "clock": {
         "format": "{:%a %d %b %H:%M}",
-        "tooltip": false
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
     },
     "pulseaudio": {
         "format": "{icon} {volume:2}% ",
-        "format-bluetooth": "{icon}  {volume}%",
-        "format-muted": "MUTE",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-muted": "  ",
         "format-icons": {
-            "headphones": "",
-            "default": [
-                "",
-                ""
-            ]
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", ""]
         },
-        "scroll-step": 5,
+        "scroll-step": 10,
+        "on-click-right": "pavucontrol",
         "on-click": "pamixer -t",
-        "on-click-right": "pavucontrol"
+    },
+    "backlight": {
+        "format": "{icon} {percent}% ",
+        "format-icons": [
+            "",
+            ""
+        ]
     },
     "memory": {
         "interval": 5,
@@ -129,5 +136,8 @@
     "custom/space": {
         "format": "  ",
         "tooltip": false
+    },
+    "sway/mode": {
+        "format": "  {} "
     }
 }
