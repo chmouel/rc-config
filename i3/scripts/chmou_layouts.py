@@ -37,8 +37,8 @@ def chmoulayout(verbose=False, one_no_resize=False):
     current_workspace = i3.get_tree().find_focused().workspace()
     windows = [x for x in current_workspace if x.name]
     log(f"Number of windows on screen {len(windows)}")
-    screen_w = current_workspace.ipc_data['rect']['width']
-    screen_h = current_workspace.ipc_data['rect']['height']
+    screen_w = current_workspace.rect.width
+    screen_h = current_workspace.rect.height
     log(f"Screen width <> {screen_w}")
     log(f"Screen height ^ {screen_h}")
     current_workspace.command("layout splith")
