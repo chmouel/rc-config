@@ -31,11 +31,11 @@
     "custom/gnma": {
         "format": "{} ",
         "interval": 5,
-        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet --get-last-status plain",
+        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus get_event",
         "exec-if": "pgrep -f gnome-next-meeting-applet",
         "max-length": 50,
         "min-length": 1,
-        "on-click": "xdg-open https://calendar.google.com/a/redhat.com",
+        "on-click": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus open_event_url",
     },
     "custom/email-personal": {
         "format": "﫮 {} ",
