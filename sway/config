@@ -24,7 +24,7 @@ smart_gaps off
 font pango:monospace 0
 floating_modifier $super normal
 # titlebar_border_thickness 0
-# titlebar_padding 0
+titlebar_padding 2
 default_border none
 hide_edge_borders smart_no_gaps
 gaps inner 5
@@ -43,9 +43,9 @@ input type:touchpad {
 client.focused #bd93f9 #bd93f9  #bd93f9 #ffcfaf
 
 # client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-# client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 # client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-# client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+# client.focused_inactive           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 # client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 # client.background       #F8F8F2 
 
@@ -57,8 +57,6 @@ bar {
      swaybar_command waybar
 }
 
-for_window [class=".*"] title_window_icon padding 3px
-for_window [class=".*"] border pixel 0
 for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 for_window [class="^firefox"] move container to workspace $wsbrowse
 for_window [app_id="firefox"] move container to workspace $wsbrowse
@@ -67,7 +65,7 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating ena
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="^Google-chrome"] move container to workspace $wsbrowse
 for_window [class="^Chromium"] move container to workspace $wsbrowse
-for_window [app_id="^emacs"] move container to workspace $wscode
+for_window [app_id="^emacs"] move container to workspace $wscode;workspace $wscode
 for_window [class="Code"] move container to workspace $wscode
 for_window [class="jetbrains-goland"] move container to workspace $wscode
 for_window [class="^Slack"] move container to workspace $wschat
