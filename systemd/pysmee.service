@@ -1,0 +1,9 @@
+[Unit]
+Description=Pysmee Forward
+
+[Service]
+ExecStart=%h/.local/bin/pysmee forward --save /tmp/s.json https://smee.io/hhCIb4CaXdb5PEk https://kind.pipelines.devcluster.openshift.com
+
+
+[Install]
+WantedBy=default.target
