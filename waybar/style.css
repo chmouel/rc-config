@@ -12,8 +12,8 @@ window#waybar {
 }
 
 #workspaces  {
-    padding-left: 1px;
-    padding-right: 1px;
+    /* padding-left: 1px; */
+    /* padding-right: 1px; */
     /* border-bottom: 1px solid; */
 }
 

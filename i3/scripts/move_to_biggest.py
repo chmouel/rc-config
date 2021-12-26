@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # Promotes the focused window by swapping it with the largest window.
-# https://aduros.com/blog/hacking-i3-window-promoting/
+# adapted from https://aduros.com/blog/hacking-i3-window-promoting/
 
 import click
 import i3ipc

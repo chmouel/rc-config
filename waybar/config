@@ -13,7 +13,6 @@
     ],
     "modules-center": [
         "clock",
-        "custom/weather",
         "sway/mode"
     ],
     "modules-right": [
@@ -22,6 +21,7 @@
         "custom/email-work",
         "custom/email-personal",
         "custom/vpn",
+        "custom/weather",
         "memory",
         "pulseaudio",
         "battery",
