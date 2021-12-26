@@ -20,15 +20,15 @@ set $wsother 5
 output * bg ~/.local/share/backgrounds/sway.jpg fill
 title_align left
 focus_on_window_activation focus
-smart_gaps off
 font pango:monospace 0
 floating_modifier $super normal
 # titlebar_border_thickness 0
 titlebar_padding 2
 default_border none
-hide_edge_borders smart_no_gaps
-gaps inner 5
-gaps outer 5
+
+smart_gaps off
+gaps inner 3
+gaps outer 1 
 
 input type:keyboard {
     xkb_layout us
@@ -57,7 +57,7 @@ bar {
      swaybar_command waybar
 }
 
-for_window [class="^floater$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+for_window [app_id="^floater$"] floating enable, sticky enable, border pixel 10
 for_window [class="^firefox"] move container to workspace $wsbrowse
 for_window [app_id="firefox"] move container to workspace $wsbrowse
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
