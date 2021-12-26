@@ -50,7 +50,7 @@
     "custom/email-personal": {
         "format": "﫮 {} ",
         "interval": 15,
-        "exec": "cd $GOPATH/src/chmouel/mongars;poetry run mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
+        "exec": "cd $GOPATH/src/github.com/chmouel/mongars;poetry run mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
         "on-click": "xdg-open https://mail.google.com"
     },
     "custom/email-work": {
