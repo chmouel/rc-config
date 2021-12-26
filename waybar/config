@@ -13,6 +13,7 @@
     ],
     "modules-center": [
         "clock",
+        "custom/weather",
         "sway/mode"
     ],
     "modules-right": [
@@ -21,8 +22,10 @@
         "custom/email-work",
         "custom/email-personal",
         "custom/vpn",
+        "memory",
         "pulseaudio",
         "battery",
+        "custom/space",
         "custom/power"
     ],
     "custom/power": {
@@ -57,6 +60,13 @@
         "exec": "$HOME/.config/polybar/scripts/vpn.sh",
         "on-click": "$HOME/.config/polybar/scripts/vpn.sh click"
     },
+    "custom/weather": {
+        "format": " {} ",
+        "interval": 120,
+        "exec": "$HOME/.config/polybar/scripts/clweather.py",
+        "exec_if": "ping -c1 openweathermap.com",
+        "on-click": "gnome-weather"
+    },
     "custom/github_notifications": {
         "format": " {} ",
         "interval": 120,
@@ -88,9 +98,9 @@
         "on-click": "~/.config/polybar/scripts/clockclik.sh"
     },
     "pulseaudio": {
-        "format": "{icon} {volume:2}% ",
+        "format": "{volume:2}% {icon} ",
         "format-bluetooth": "{icon} {volume}% ",
-        "format-muted": "  ",
+        "format-muted": " ",
         "format-icons": {
             "phone": [" ", " ", " ", " "],
             "default": ["", "", ""]
@@ -108,7 +118,7 @@
     },
     "memory": {
         "interval": 5,
-        "format": "Memory: {}% "
+        "format": " {}% "
     },
     "cpu": {
         "interval": 5,
@@ -120,7 +130,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  {capacity}% ",
+        "format": "{capacity}% {icon} ",
         "format-icons": [
             "",
             "",
