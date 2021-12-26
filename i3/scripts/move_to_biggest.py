@@ -3,7 +3,8 @@
 # Promotes the focused window by swapping it with the largest window.
 # https://aduros.com/blog/hacking-i3-window-promoting/
 
-from i3ipc import Connection
+import click
+import i3ipc
 
 
 def find_biggest_window(container):
@@ -18,10 +19,18 @@ def find_biggest_window(container):
     return max_leaf
 
 
-i3 = Connection()
+@click.command()
+@click.option("--no-focus", "-n", is_flag=True)
+def move_to_biggest(no_focus: bool = True):
+    i3 = i3ipc.Connection()
+    for reply in i3.get_workspaces():
+        if reply.focused:
+            workspace = i3.get_tree().find_by_id(reply.ipc_data["id"])
+            master = find_biggest_window(workspace)
+            i3.command("swap container with con_id %s" % master.id)
+            if not no_focus:
+                master.command("focus")
 
-for reply in i3.get_workspaces():
-    if reply.focused:
-        workspace = i3.get_tree().find_by_id(reply.ipc_data["id"])
-        master = find_biggest_window(workspace)
-        i3.command("swap container with con_id %s" % master.id)
+
+if __name__ == '__main__':
+    move_to_biggest()
