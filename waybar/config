@@ -22,9 +22,12 @@
         "custom/email-personal",
         "custom/vpn",
         "custom/weather",
+        "custom/space",
         "memory",
         "pulseaudio",
         "battery",
+        "custom/space",
+        "custom/mynetwork",
         "custom/space",
         "custom/power"
     ],
@@ -34,13 +37,15 @@
         "tooltip": false
     },
     "custom/gnma": {
-        "format": "{} ",
+        "format": "{}",
+        "format-timeto": "{timeto}",
         "interval": 5,
-        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus get_event|grep -v '[0-9]* day'",
+        "tooltip": true,
+        "return-type": "json",
+        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus get_event_json",
         "exec-if": "pgrep -f gnome-next-meeting-applet",
-        "max-length": 50,
-        "min-length": 1,
-        "on-click": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus open_event_url",
+        "tooltip": "{tooltip}",
+        "on-click": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus open_event_url"
     },
     "custom/email-personal": {
         "format": "﫮 {} ",
@@ -102,8 +107,17 @@
         "format-bluetooth": "{icon} {volume}% ",
         "format-muted": " ",
         "format-icons": {
-            "phone": [" ", " ", " ", " "],
-            "default": ["", "", ""]
+            "phone": [
+                " ",
+                " ",
+                " ",
+                " "
+            ],
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "scroll-step": 10,
         "on-click-right": "pavucontrol",
@@ -149,5 +163,18 @@
     },
     "sway/mode": {
         "format": "  {} "
+    },
+    "custom/mynetwork": {
+        "format": "{}",
+        "format-wifi": " {ssid}",
+        "format-ipaddr": "{ipaddr}",
+        "format-ssid": "xx{ssid}xx",
+        "format-alt": "{alt}:{}",
+        "exec": "~/.config/polybar/scripts/get_ip",
+        "return-type": "json",
+        "interval": 60,
+        "on-click-right": "sway-wifi",
+        "tooltip-format": "{ssid}",
+        "tooltip": "true"
     }
 }
