@@ -42,21 +42,21 @@
         "interval": 5,
         "tooltip": true,
         "return-type": "json",
-        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus get_event_json",
+        "exec": "cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus get_event_json",
         "exec-if": "pgrep -f gnome-next-meeting-applet",
         "tooltip": "{tooltip}",
-        "on-click": "cd $HOME/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus open_event_url"
+        "on-click": "cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus open_event_url"
     },
     "custom/email-personal": {
         "format": "﫮 {} ",
         "interval": 15,
-        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/mongars;poetry run mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
+        "exec": "cd $GOPATH/src/chmouel/mongars;poetry run mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
         "on-click": "xdg-open https://mail.google.com"
     },
     "custom/email-work": {
         "format": "﫮 {} ",
         "interval": 15,
-        "exec": "cd $HOME/GIT/go/src/github.com/chmouel/mongars;poetry run mongars cboudjna@redhat.com --no-mail-no-zero --no-icon",
+        "exec": "cd $GOPATH/src/github.com/chmouel/mongars;poetry run mongars cboudjna@redhat.com --no-mail-no-zero --no-icon",
         "on-click": "xdg-open https://mail.google.com/a/redhat.com"
     },
     "custom/vpn": {
