@@ -2,7 +2,7 @@
 [[ ${1} == yay ]] && {
     cd /tmp || exit
     #kitty --title "Arch Updates" --class floater /bin/sh -c "yay;read"
-    kitty-ctrl jump -t "Arch Updates" /bin/sh -c "yay;read"
+    kitty-ctrl jump -t "Arch Updates" /usr/bin/env bash -c "yay;read"
 }
 if [[ -n $(command -v checkupdates) ]];then 
     n=$(checkupdates|wc -l)
