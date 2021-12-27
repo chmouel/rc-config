@@ -18,12 +18,12 @@ set $wsother 5
 
 # settings
 output * bg ~/.local/share/backgrounds/sway.jpg fill
-title_align left
 focus_on_window_activation focus
-font pango:monospace 0
+font pango: RobotoMono Nerd Font Regular 12
 floating_modifier $super normal
-# titlebar_border_thickness 0
+titlebar_border_thickness 1
 titlebar_padding 2
+title_align left
 default_border none
 
 smart_gaps off
@@ -40,7 +40,7 @@ input type:touchpad {
     tap enabled
 }
 
-client.focused #bd93f9 #bd93f9  #bd93f9 #ffcfaf
+client.focused #bd93f9 #bd93f9  #000000 #ffcfaf
 
 # client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
