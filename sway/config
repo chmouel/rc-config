@@ -19,11 +19,11 @@ set $wsother 5
 # settings
 output * bg ~/.local/share/backgrounds/sway.jpg fill
 focus_on_window_activation focus
-font pango: RobotoMono Nerd Font Regular 12
+font pango: RobotoMono Nerd Font Regular 0
 floating_modifier $super normal
 titlebar_border_thickness 1
 titlebar_padding 2
-title_align left
+title_align center
 default_border none
 
 smart_gaps off
