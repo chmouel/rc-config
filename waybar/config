@@ -104,7 +104,7 @@
     },
     "pulseaudio": {
         "format": "{icon}{volume:2}% ",
-        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth": "{icon}  {volume}% ",
         "format-muted": " ",
         "format-icons": {
             "phone": [
