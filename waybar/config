@@ -45,19 +45,19 @@
         "exec": "cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus get_event_json",
         "exec-if": "pgrep -f gnome-next-meeting-applet",
         "tooltip": "{tooltip}",
-        "on-click": "cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus open_event_url"
+        "on-click": "cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet dbus open_event_url;jumpapp chromium"
     },
     "custom/email-personal": {
         "format": "﫮 {} ",
         "interval": 15,
         "exec": "cd $GOPATH/src/github.com/chmouel/mongars;poetry run mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
-        "on-click": "xdg-open https://mail.google.com"
+        "on-click": "xdg-open https://mail.google.com;jumpapp firefox"
     },
     "custom/email-work": {
         "format": "﫮 {} ",
         "interval": 15,
         "exec": "cd $GOPATH/src/github.com/chmouel/mongars;poetry run mongars cboudjna@redhat.com --no-mail-no-zero --no-icon",
-        "on-click": "xdg-open https://mail.google.com/a/redhat.com"
+        "on-click": "xdg-open https://mail.google.com/a/redhat.com;jumpapp chromium"
     },
     "custom/vpn": {
         "format": " {} ",
@@ -77,13 +77,13 @@
         "interval": 120,
         "exec": "$HOME/.config/polybar/scripts/gh.sh",
         "exec_if": "ping -c1 github.com",
-        "on-click": "xdg-open https://github.com/notifications?query=reason%3Aparticipating+is%3Aunread++"
+        "on-click": "xdg-open https://github.com/notifications?query=reason%3Aparticipating+is%3Aunread++;sleep 1;jumpapp firefox"
     },
     "custom/arch_updates": {
         "format": " {} ",
         "interval": 600,
         "exec": "$HOME/.config/polybar/scripts/arch-updates.sh",
-        "on-click": "$HOME/.config/polybar/scripts/arch-updates.sh yay"
+        "on-click": "$HOME/.config/polybar/scripts/arch-updates.sh yay;jumpapp kitty"
     },
     "sway/workspaces": {
         "disable-scroll": false,
@@ -100,7 +100,7 @@
     "clock": {
         "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-click": "~/.config/polybar/scripts/clockclik.sh"
+        "on-click": "~/.config/polybar/scripts/clockclik.sh;jumapp kitty"
     },
     "pulseaudio": {
         "format": "{icon}{volume:2}% ",
@@ -175,7 +175,7 @@
         "exec": "~/.config/polybar/scripts/get_ip",
         "return-type": "json",
         "interval": 60,
-        "on-click-right": "sway-wifi",
+        "on-click-right": "kitty-ctrl nmtui-connect;jumpapp kitty",
         "tooltip-format": "{ssid}",
         "tooltip": "true"
     }
