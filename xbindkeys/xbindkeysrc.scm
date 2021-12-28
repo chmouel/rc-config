@@ -16,7 +16,7 @@
 (xbindkey '(mod4 "Return") "jumpapp kitty")
 (xbindkey '(mod4 "f") "jumpapp firefox")
 (xbindkey '(mod4 "w") "jumpapp chromium")
-(xbindkey '(mod4 "m") "jumpapp spotify")
+(xbindkey '(mod4 shift "m") "jumpapp spotify")
 
 (xbindkey '(mod4 shift "space") "gpaste-client ui")
 (xbindkey '(mod4 control "e") "splatmoji copy")
