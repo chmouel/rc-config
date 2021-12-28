@@ -103,7 +103,7 @@
         "on-click": "~/.config/polybar/scripts/clockclik.sh"
     },
     "pulseaudio": {
-        "format": "{icon} {volume:2}% ",
+        "format": "{icon}{volume:2}% ",
         "format-bluetooth": "{icon} {volume}% ",
         "format-muted": " ",
         "format-icons": {
@@ -145,7 +145,7 @@
             "critical": 15
         },
         "format-charging": " {capacity}% ",
-        "format-good": "",
+        "format-good": "{icon} {capacity}%",
         "format": "{icon} {capacity}% ",
         "format-icons": [
             "",
