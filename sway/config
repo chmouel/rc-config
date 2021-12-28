@@ -27,7 +27,7 @@ title_align center
 default_border none
 
 smart_gaps off
-gaps inner 3
+gaps inner 5
 gaps outer 1 
 
 input type:keyboard {
