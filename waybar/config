@@ -80,7 +80,7 @@
         "on-click": "xdg-open https://github.com/notifications?query=reason%3Aparticipating+is%3Aunread++;sleep 1;jumpapp firefox"
     },
     "custom/arch_updates": {
-        "format": " {} ",
+        "format": " {} ",
         "interval": 600,
         "exec": "$HOME/.config/polybar/scripts/arch-updates.sh",
         "on-click": "$HOME/.config/polybar/scripts/arch-updates.sh yay;jumpapp kitty"
@@ -103,7 +103,7 @@
         "on-click": "~/.config/polybar/scripts/clockclik.sh;jumapp kitty"
     },
     "pulseaudio": {
-        "format": "{icon}{volume:2}% ",
+        "format": "{icon} {volume:2}% ",
         "format-bluetooth": "{icon}  {volume}% ",
         "format-muted": " ",
         "format-icons": {
