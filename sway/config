@@ -24,7 +24,7 @@ floating_modifier $super normal
 titlebar_border_thickness 1
 titlebar_padding 2
 title_align center
-default_border none
+default_border pixel 2px
 
 smart_gaps off
 gaps inner 5
@@ -88,7 +88,7 @@ exec --no-startup-id systemctl --user restart libinput-gestures.service
 # exec --no-startup-id nm-applet --indicator &
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY GDMSESSION XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh" 
-exec --no-startup-id gnome-next-meeting-applet &
+exec --no-startup-id cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet &
 exec --no-startup-id gammastep -l 48.8566:2.3522 &
 
 set $locker swaylock \
