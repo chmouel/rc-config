@@ -5,6 +5,18 @@
     "keybind" : "l"
 }
 {
+    "label" : "hibernate",
+    "action" : "systemctl hybrid-sleep",
+    "text" : "Hybrid",
+    "keybind" : "y"
+}
+{
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+{
     "label" : "suspend",
     "action" : "systemctl suspend",
     "text" : "Suspend",
@@ -21,12 +33,6 @@
     "action" : "systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
-}
-{
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
 }
 {
     "label" : "logout",
