@@ -80,18 +80,18 @@ for_window [app_id=(nm-connection-editor|org.gnome.Weather)] floating enable
 for_window [app_id=(nm-connection-editor|org.gnome.Weather)] focus
 
 #exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
-exec --no-startup-id kanshi &
-exec --no-startup-id /usr/lib/goa-daemon --replace
-exec --no-startup-id wl-paste -t text --watch clipman store --max-items=100
-exec --no-startup-id xsettingsd &
-exec --no-startup-id mako &
-exec --no-startup-id systemctl --user restart libinput-gestures.service 
+exec kanshi &
+exec /usr/lib/goa-daemon --replace
+exec wl-paste -t text --watch clipman store --max-items=100
+exec xsettingsd &
+exec mako &
+exec systemctl --user restart libinput-gestures.service 
 
-# exec --no-startup-id nm-applet --indicator &
-exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY GDMSESSION XDG_CURRENT_DESKTOP=sway
-exec --no-startup-id gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh" 
-exec --no-startup-id cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet &
-exec --no-startup-id gammastep -l 48.8566:2.3522 &
+# exec nm-applet --indicator &
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY GDMSESSION XDG_CURRENT_DESKTOP=sway
+exec gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh" 
+exec cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet &
+exec gammastep -l 48.8566:2.3522 &
 
 set $locker swaylock \
     -f \
@@ -109,7 +109,7 @@ set $locker swaylock \
 	--separator-color 00000000 \
 	--grace 2 \
 	--fade-in 0.2
-exec --no-startup-id swayidle -w timeout 60 "$locker" timeout 90 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$locker" lock "$locker" &
+exec swayidle -w timeout 60 "$locker" timeout 90 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$locker" lock "$locker" &
 
 
 include keybindings.conf
