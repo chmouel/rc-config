@@ -79,7 +79,8 @@ for_window [app_id="^SpotifyClient"] floating enable, move scratchpad, border pi
 for_window [app_id=(nm-connection-editor|org.gnome.Weather)] floating enable
 for_window [app_id=(nm-connection-editor|org.gnome.Weather)] focus
 
-exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
+#exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
+exec --no-startup-id kanshi &
 exec --no-startup-id /usr/lib/goa-daemon --replace
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=100
 exec --no-startup-id xsettingsd &
