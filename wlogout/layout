@@ -4,30 +4,30 @@
     "text" : "Lock",
     "keybind" : "l"
 }
-{
-    "label" : "hibernate",
-    "action" : "systemctl hybrid-sleep",
-    "text" : "Hybrid",
-    "keybind" : "y"
-}
-{
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
-}
-{
-    "label" : "suspend",
-    "action" : "systemctl suspend",
-    "text" : "Suspend",
-    "keybind" : "u"
-}
+
 {
     "label" : "reboot",
     "action" : "systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
+
+{
+    "label" : "hibernate",
+    "action" : "systemctl suspend-then-hibernate",
+    "text" : "Hybrid",
+    "keybind" : "h"
+}
+
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "p"
+}
+
+
+
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
