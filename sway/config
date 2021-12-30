@@ -25,6 +25,7 @@ titlebar_border_thickness 1
 titlebar_padding 2
 title_align center
 default_border pixel 2px
+smart_borders on
 
 smart_gaps off
 gaps inner 5
