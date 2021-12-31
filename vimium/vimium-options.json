@@ -23,17 +23,29 @@
     },
     {
       "pattern": "https?://twitter.com/*",
-      "passKeys": "jkg"
+      "passKeys": "jkgl"
     },
     {
       "pattern": "https?://www.youtube.com/watch*",
       "passKeys": "f1578"
+    },
+    {
+      "pattern": "https?://gitlab.com/*",
+      "passKeys": "t"
+    },
+    {
+      "pattern": "https?://gitlab.gnome.org/*",
+      "passKeys": "t"
+    },
+    {
+      "pattern": "https?://drive.google.com/*",
+      "passKeys": "+-"
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\nmap ] nextTab\nmap [ previousTab\nmap J scrollDown\nmap K scrollUp\nmap - goBack\nmap = goForward",
+  "keyMappings": "# Insert your preferred key mappings here.\nmap = nextTab\nmap - previousTab\nmap J scrollDown\nmap K scrollUp\nmap [ goBack\nmap ] goForward",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
