@@ -1,0 +1,8 @@
+allow_images=true
+width=600
+height=600
+show=drun
+colors=colors
+filter_rate=100
+allow_markup=true
+lines=15
