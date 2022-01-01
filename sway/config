@@ -38,6 +38,7 @@ input type:keyboard {
 }
 
 input type:touchpad {
+    middle_emulation enabled
     tap enabled
 }
 
