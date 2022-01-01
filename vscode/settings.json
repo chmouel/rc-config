@@ -109,7 +109,8 @@
     "settingsSync.ignoredExtensions": [
         "github.vscode-pull-request-github",
         "panicbit.cargo",
-        "matklad.rust-analyzer"
+        "matklad.rust-analyzer",
+        "vscodevim.vim"
     ],
     "editor.fontSize": 22,
     "settingsSync.keybindingsPerPlatform": false,
