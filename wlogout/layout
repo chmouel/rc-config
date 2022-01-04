@@ -5,18 +5,26 @@
     "keybind" : "l"
 }
 
-{
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot",
-    "keybind" : "r"
-}
 
 {
     "label" : "hibernate",
     "action" : "systemctl suspend-then-hibernate",
     "text" : "Hybrid",
+    "keybind" : "y"
+}
+
+{
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Hybernate",
     "keybind" : "h"
+}
+
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
 }
 
 {
@@ -26,17 +34,10 @@
     "keybind" : "p"
 }
 
-
-
 {
     "label" : "shutdown",
     "action" : "systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
-{
-    "label" : "logout",
-    "action" : "loginctl terminate-user $USER",
-    "text" : "Logout",
-    "keybind" : "e"
-}
+
