@@ -26,10 +26,11 @@ titlebar_padding 2
 title_align center
 default_border pixel 2px
 smart_borders on
+focus_follows_mouse no
 
 smart_gaps off
 gaps inner 5
-gaps outer 1 
+gaps outer 1
 
 input type:keyboard {
     xkb_layout us
@@ -49,7 +50,7 @@ client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 # client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 # client.focused_inactive           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 # client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-# client.background       #F8F8F2 
+# client.background       #F8F8F2
 
 #
 # Status Bar:
@@ -80,18 +81,20 @@ for_window [app_id="^SpotifyClient"] floating enable, move scratchpad, border pi
 for_window [app_id=(nm-connection-editor|org.gnome.Weather)] floating enable
 for_window [app_id=(nm-connection-editor|org.gnome.Weather)] focus
 
-#exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
+exec_always swaymsg -t get_outputs | jq -r .[].name|grep -q HDMI-A-1 && swaymsg "output eDP-1 disable"
 exec kanshi &
 exec /usr/lib/goa-daemon --replace
 exec wl-paste -t text --watch clipman store --max-items=100
 exec xsettingsd &
 exec mako &
-exec systemctl --user restart libinput-gestures.service 
+exec systemctl --user restart libinput-gestures.service
 
 # exec nm-applet --indicator &
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY GDMSESSION XDG_CURRENT_DESKTOP=sway
-exec gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh" 
-exec cd $GOPATH/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet &
+exec dbus-update-activation-environment --systemd SWAYSOCK=$SWAYSOCK
+exec gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh"
+exec /bin/sh -c 'cd /home/chmouel/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet'
+#exec "flatpak run com.chmouel.gnomeNextMeetingApplet"
 exec gammastep -l 48.8566:2.3522 &
 
 set $locker swaylock \
@@ -110,7 +113,7 @@ set $locker swaylock \
 	--separator-color 00000000 \
 	--grace 2 \
 	--fade-in 0.2
-exec swayidle -w timeout 60 "$locker" timeout 90 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$locker" lock "$locker" &
+exec swayidle -w timeout 300 "$locker" timeout 150 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep "$locker" lock "$locker" &
 
 
 include keybindings.conf
