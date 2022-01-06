@@ -34,7 +34,7 @@ gaps outer 1
 
 input type:keyboard {
     xkb_layout us
-    xkb_options ctrl:nocaps
+    xkb_options ctrl:nocaps,compose:menu
     xkb_numlock enable
 }
 
