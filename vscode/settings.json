@@ -122,4 +122,15 @@
     "editor.guides.bracketPairsHorizontal": false,
     "window.autoDetectColorScheme": true,
     "workbench.colorTheme": "GitHub Dark Default",
+    "cSpell.userWords": [
+        "chmouel",
+        "codecov",
+        "configmap",
+        "kubectl",
+        "popd",
+        "pushd",
+        "ratelimited",
+        "releaseyaml",
+        "walkthought"
+    ],
 }
