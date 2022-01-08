@@ -8,7 +8,7 @@
 (xbindkey '("XF86Launch5") "jumpapp slack")
 (xbindkey '("XF86Launch9") "jumpapp -f -i emacs -- emacs -c -a emacs")
 (xbindkey '("XF86launch8") "jumpapp kitty")
-(xbindkey '("XF86launch6") "jumpapp firefox")
+(xbindkey '("XF86Launch6") "jumpapp firefox")
 (xbindkey '("XF86launch7") "jumpapp chromium")
 
 (xbindkey '(mod4 "s") "jumpapp slack")
@@ -21,7 +21,7 @@
 (xbindkey '(mod4 shift "space") "gpaste-client ui")
 (xbindkey '(mod4 control "e") "splatmoji copy")
 (xbindkey '(mod4 shift "e") "emacsclient -c -n -a emacs")
-
+(xbindkey '("Print") "flameshot gui")
 
 ;; mouse button gesture + Down
 ;; (xbindkey '(release "b:30") "jumpapp google-chrome")
@@ -29,19 +29,18 @@
 ;; (xbindkey '(release "b:31") "jumpapp evolution")
 
 
-                                        ; (xbindkey '(mod4 shift "Return") "jumpapp -f  -i  emacs -- emacsclient -c")
-                                        ; (xbindkey '(mod4 "Return") "jumpapp kitty")
-                                        ;
-                                        ; (xbindkey '(mod4 shift "h") "xdg-open ~/Downloads")
-                                        ; (xbindkey '(mod4 shift "e") "splatmoji type")
-                                        ;
-                                        ; (xbindkey '(mod4 "Down") "wmctrl-resize-and-center")
-                                        ; (xbindkey '(mod4 "Up") "wmctrl-resize-and-center rotate")
-                                        ;
-                                        ; (xbindkey '("Print") "flameshot gui")
-                                        ; (xbindkey '(shift "Print") "gnome-screenshot -i")
-                                        ; (xbindkey '("XF86Launch1") "mounch")
-                                        ;
+;; (xbindkey '(mod4 shift "Return") "jumpapp -f  -i  emacs -- emacsclient -c")
+;; (xbindkey '(mod4 "Return") "jumpapp kitty")
+;;
+;; (xbindkey '(mod4 shift "h") "xdg-open ~/Downloads")
+;; (xbindkey '(mod4 shift "e") "splatmoji type")
+;;
+;; (xbindkey '(mod4 "Down") "wmctrl-resize-and-center")
+;; (xbindkey '(mod4 "Up") "wmctrl-resize-and-center rotate")
+;;
+;; (xbindkey '("Print") "flameshot gui")
+;; (xbindkey '(shift "Print") "gnome-screenshot -i")
+;; (xbindkey '("XF86Launch1") "mounch")
 
 ;; mouse button gesture + UP
 ;; (xbindkey '(release "b:31") "add-org-task")
