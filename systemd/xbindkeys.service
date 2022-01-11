@@ -5,7 +5,7 @@ After=environment.target
 [Service]
 ExecStart=/usr/bin/xbindkeys -n -v
 KillMode=process
-ExecCondition=sh -c '[[  -z ${DISPLAY} && "$XDG_SESSION_TYPE" == "wayland" ]] && exit -1 || exit 0'
+ExecCondition=bash -c '[[ -n ${DISPLAY:=""} && -z ${WAYLAND_DISPLAY:-""} ]] && exit 0 || exit -1'
 Restart=always
 RestartSec=3
 
