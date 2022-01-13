@@ -1,6 +1,6 @@
 ;; Thumb wheel
-(xbindkey '(release "b:6") "xte 'keydown Alt_L' 'keydown Left' 'keyup Left' 'keyup Alt_L' 'sleep 10'")
-(xbindkey '(release "b:7") "xte 'keydown Alt_L' 'keydown Right' 'keyup Right' 'keyup Alt_L' 'sleep 10'")
+; (xbindkey '(release "b:6") "xte 'keydown Super_L 'keydown Prior' 'keyup Prior' 'keyup Super_L' 'sleep 10'")
+; (xbindkey '(release "b:7") "xte 'keydown Super_L' 'keydown Next' 'keyup Next' 'keyup Super_L' 'sleep 10'")
 
 ;; mouse button gesture + left
 ;; (xbindkey '(release "b:28") "jumpapp firefox")
