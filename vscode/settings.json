@@ -3,6 +3,7 @@
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.acceptSuggestionOnEnter": "smart",
     "editor.cursorSurroundingLinesStyle": "all",
+    "workbench.tree.indent": 20,
     "editor.dragAndDrop": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
