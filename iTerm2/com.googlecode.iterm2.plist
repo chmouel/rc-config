@@ -907,6 +907,17 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x46-0x120000-0x3</key>
+		<dict>
+			<key>Action</key>
+			<integer>36</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -925,17 +936,32 @@
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
-		<key>0xf700-0x300000</key>
+		<key>0xd-0x120000-0x24</key>
 		<dict>
 			<key>Action</key>
-			<integer>7</integer>
+			<integer>28</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string>0FC98568-335B-4559-94A4-E3E793ABC8BB</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<key>0xf700-0x300000-0x0</key>
+		<dict>
+			<key>Action</key>
+			<integer>20</integer>
+			<key>Label</key>
+			<string></string>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>0</integer>
 		</dict>
 		<key>0xf700-0x320000-0x7e</key>
 		<dict>
 			<key>Action</key>
-			<integer>52</integer>
+			<integer>55</integer>
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
@@ -943,17 +969,32 @@
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
-		<key>0xf701-0x300000</key>
+		<key>0xf701-0x220000-0x7d</key>
 		<dict>
 			<key>Action</key>
-			<integer>6</integer>
+			<integer>21</integer>
+			<key>Label</key>
+			<string></string>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<key>0xf701-0x300000-0x0</key>
+		<dict>
+			<key>Action</key>
+			<integer>21</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>0</integer>
 		</dict>
 		<key>0xf701-0x320000-0x7d</key>
 		<dict>
 			<key>Action</key>
-			<integer>51</integer>
+			<integer>56</integer>
 			<key>Label</key>
 			<string></string>
 			<key>Text</key>
@@ -968,12 +1009,34 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0xf702-0x320000-0x7b</key>
+		<dict>
+			<key>Action</key>
+			<integer>53</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0xf703-0x300000</key>
 		<dict>
 			<key>Action</key>
 			<integer>19</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0xf703-0x320000-0x7c</key>
+		<dict>
+			<key>Action</key>
+			<integer>54</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
 		</dict>
 		<key>0xf729-0x100000</key>
 		<dict>
@@ -8030,7 +8093,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
@@ -8089,7 +8152,7 @@
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findMode_iTerm</key>
-	<integer>0</integer>
+	<integer>3</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>kCPKSelectionViewPreferredModeKey</key>
