@@ -167,15 +167,15 @@
         "format": "  {} "
     },
     "custom/mynetwork": {
-        "format": "{}",
-        "format-wifi": " {ssid}",
+        "format": "{} ",
+        "format-wifi": "",
         "format-ipaddr": "{ipaddr}",
         "format-ssid": "xx{ssid}xx",
         "format-alt": "{alt}:{}",
         "exec": "~/.config/polybar/scripts/get_ip",
         "return-type": "json",
         "interval": 60,
-        "on-click-right": "kitty-ctrl nmtui-connect;jumpapp kitty",
+        "on-click": "kitty-ctrl nmtui-connect;jumpapp kitty",
         "tooltip-format": "{ssid}",
         "tooltip": "true"
     }
