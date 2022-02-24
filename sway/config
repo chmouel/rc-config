@@ -43,6 +43,11 @@ input type:touchpad {
     tap enabled
 }
 
+input type:pointer {
+      accel_profile "adaptive"
+      pointer_accel "-0.9"
+}
+
 client.focused #bd93f9 #bd93f9  #000000 #ffcfaf
 
 # client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
@@ -93,7 +98,7 @@ exec systemctl --user restart libinput-gestures.service
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY GDMSESSION XDG_CURRENT_DESKTOP=sway
 exec dbus-update-activation-environment --systemd SWAYSOCK=$SWAYSOCK
 exec gnome-keyring-daemon --daemonize --login --start "--components=gpg,pkcs11,secrets,ssh"
-exec /bin/sh -c 'cd /home/chmouel/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet'
+#exec /bin/sh -c 'cd /home/chmouel/GIT/go/src/github.com/chmouel/gnome-next-meeting-applet;poetry run gnome-next-meeting-applet'
 #exec "flatpak run com.chmouel.gnomeNextMeetingApplet"
 exec gammastep -l 48.8566:2.3522 &
 
