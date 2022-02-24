@@ -8,9 +8,9 @@ lip=$(ip -j address | jq -r '.[] | select (.ifname=='\"$ifname\"').addr_info[] |
 lip="$([ -z "$lip" ] && echo -n "Offline" || echo -n "$lip")"
 ssid="$(nmcli -t connect show --active|awk -F: '{ if ($3 ~ ".*wireless") print $1; }')"
 jq --unbuffered --compact-output -n \
-   --arg text " $ssid" \
-   --arg alt "$ifname:🌎$pubip,🔌$lip" \
-   --arg tooltip "$ifname:🌎$pubip,🔌$lip" \
+   --arg text "" \
+   --arg alt "$ssid:$ifname" \
+   --arg tooltip "$ssid - $ifname - 🌎$pubip - 🔌$lip" \
    --arg class "" \
    --arg percentage "1" \
    --arg ifname "$ifname" \
