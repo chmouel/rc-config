@@ -10,10 +10,10 @@ set $alt Mod1
 
 set $term kitty
 set $menu mounch -p
-set $wsbrowse 1
+set $wsfirefox 1
 set $wscode 2
 set $wschat 3
-set $wsmusic 4
+set $wschrome 4
 set $wsother 5
 
 # settings
@@ -45,7 +45,7 @@ input type:touchpad {
 
 input type:pointer {
       accel_profile "adaptive"
-      pointer_accel "-0.9"
+      pointer_accel "0"
 }
 
 client.focused #bd93f9 #bd93f9  #000000 #ffcfaf
@@ -66,18 +66,17 @@ bar {
 }
 
 for_window [app_id="^floater$"] floating enable, sticky enable, border pixel 10
-for_window [class="^firefox"] move container to workspace $wsbrowse
-for_window [app_id="firefox"] move container to workspace $wsbrowse
+for_window [class="^firefox"] move container to workspace $wsfirefox
+for_window [app_id="firefox"] move container to workspace $wsfirefox
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable; sticky enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] floating enable; sticky enable
 for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [class="^Google-chrome"] move container to workspace $wsbrowse
-for_window [class="^Chromium"] move container to workspace $wsbrowse
+for_window [class="^Google-chrome"] move container to workspace $wschrome
+for_window [app_id="^chromium"] move container to workspace $wschrome
 for_window [app_id="^emacs"] move container to workspace $wscode;workspace $wscode
 for_window [class="Code"] move container to workspace $wscode
 for_window [class="jetbrains-goland"] move container to workspace $wscode
 for_window [class="^Slack"] move container to workspace $wschat
-for_window [class="^Spotify"] move container to workspace $wsmusic
 for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
 for_window [instance="dropdown"] floating enable, border none, resize set height 1170px, move absolute position center
 for_window [app_id="pavucontrol"] floating enable
