@@ -123,6 +123,8 @@
     "editor.guides.bracketPairsHorizontal": false,
     "window.autoDetectColorScheme": true,
     "workbench.colorTheme": "GitHub Dark Default",
+    "cSpell.diagnosticLevel": "Hint",
+    "cSpell.enabled": false,
     "cSpell.userWords": [
         "chmouel",
         "codecov",
