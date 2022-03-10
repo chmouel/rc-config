@@ -101,11 +101,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+w",
-        "command": "workbench.action.closeActiveEditor",
-        "when": "editorTextFocus"
-    },
-    {
         "key": "shift+alt+down",
         "command": "editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
@@ -171,7 +166,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+w",
+        "key": "ctrl+k w",
         "command": "workbench.action.closeActiveEditor"
     },
     {
@@ -181,5 +176,13 @@
     {
         "key": "ctrl+shift+f3",
         "command": "go.debug.previous"
+    },
+    {
+        "key": "ctrl+k w",
+        "command": "-workbench.action.closeEditorsInGroup"
+    },
+    {
+        "key": "ctrl+k shift+w",
+        "command": "workbench.action.closeOtherEditors"
     }
 ]
