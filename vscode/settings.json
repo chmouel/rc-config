@@ -101,7 +101,7 @@
         "plaintext": true,
         "markdown": true,
         "jsonc": true,
-        "rust": false
+        "rust": true
     },
     "html.autoClosingTags": false,
     "editor.bracketPairColorization.enabled": true,
