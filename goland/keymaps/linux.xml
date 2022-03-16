@@ -90,11 +90,4 @@
   <action id="SwitcherIterateItems" />
   <action id="SwitcherRecentEditedChangedToggleCheckBox" />
   <action id="ToggleBookmark6" />
-  <action id="Vcs.QuickListPopupAction">
-    <keyboard-shortcut first-keystroke="alt back_quote" />
-    <keyboard-shortcut first-keystroke="shift back_quote" />
-  </action>
-  <action id="Vcs.ShowMessageHistory">
-    <keyboard-shortcut first-keystroke="ctrl m" />
-  </action>
 </keymap>
