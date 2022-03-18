@@ -75,6 +75,9 @@
     <keyboard-shortcut first-keystroke="ctrl page_up" />
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
   </action>
+  <action id="QuickJavaDoc">
+    <keyboard-shortcut first-keystroke="f1" />
+  </action>
   <action id="ScrollPane-scrollDown">
     <keyboard-shortcut first-keystroke="shift page_down" />
     <keyboard-shortcut first-keystroke="shift ctrl down" />
@@ -82,6 +85,9 @@
   <action id="ScrollPane-scrollUp">
     <keyboard-shortcut first-keystroke="shift page_up" />
     <keyboard-shortcut first-keystroke="shift ctrl up" />
+  </action>
+  <action id="SearchEverywhere">
+    <keyboard-shortcut first-keystroke="shift ctrl a" />
   </action>
   <action id="SelectInProjectView">
     <keyboard-shortcut first-keystroke="shift ctrl e" />
