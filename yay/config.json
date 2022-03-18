@@ -34,10 +34,10 @@
 	"pgpfetch": true,
 	"upgrademenu": true,
 	"cleanmenu": false,
-	"diffmenu": false,
+	"diffmenu": true,
 	"editmenu": false,
 	"combinedupgrade": false,
-	"useask": false,
+	"useask": true,
 	"batchinstall": false,
 	"singlelineresults": false
 }
