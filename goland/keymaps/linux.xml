@@ -1,4 +1,7 @@
 <keymap version="1" name="Chmou2" parent="VSCode">
+  <action id="$LRU">
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl o" />
+  </action>
   <action id="$SelectAll">
     <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl a" />
   </action>
@@ -21,6 +24,9 @@
   </action>
   <action id="Diff.FocusOppositePane" />
   <action id="DuplicatesForm.SendToLeft" />
+  <action id="Editor LRU">
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl o" />
+  </action>
   <action id="Editor SelectAll">
     <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl a" />
   </action>
@@ -70,6 +76,9 @@
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="ctrl page_down" />
     <keyboard-shortcut first-keystroke="ctrl tab" />
+  </action>
+  <action id="OpenProjectWindows">
+    <keyboard-shortcut first-keystroke="ctrl k" second-keystroke="ctrl o" />
   </action>
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="ctrl page_up" />
