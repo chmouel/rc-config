@@ -1,8 +1,12 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
     {
         "key": "ctrl+k ctrl+e",
         "command": "deleteAllRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+k cmd+k",
+        "command": "workbench.action.focusNextGroup",
         "when": "editorTextFocus"
     },
     {
@@ -55,12 +59,12 @@
     {
         "key": "f3",
         "command": "go.test.previous",
-        "when": "editorLangId == go && editorTextFocus",
+        "when": "editorLangId == go && editorTextFocus"
     },
     {
         "key": "ctrl+f3",
         "command": "go.test.cursor",
-        "when": "editorLangId == go && editorTextFocus",
+        "when": "editorLangId == go && editorTextFocus"
     },
     {
         "key": "shift+f3",
@@ -101,6 +105,11 @@
         "when": "editorTextFocus"
     },
     {
+        "key": "meta+w",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "shift+alt+down",
         "command": "editor.action.copyLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
@@ -109,11 +118,6 @@
         "key": "ctrl+cmd+space",
         "command": "editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
-    },
-    {
-        "key": "cmd+'",
-        "command": "editor.action.revealDefinition",
-        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
     },
     {
         "key": "ctrl+k shift+1",
@@ -166,7 +170,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+k w",
+        "key": "meta+w",
         "command": "workbench.action.closeActiveEditor"
     },
     {
@@ -174,12 +178,12 @@
         "command": "-workbench.action.closeActiveEditor"
     },
     {
-        "key": "ctrl+shift+f3",
-        "command": "go.debug.previous"
+        "key": "ctrl+\\",
+        "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
     },
     {
-        "key": "ctrl+k w",
-        "command": "-workbench.action.closeEditorsInGroup"
+        "key": "ctrl+shift+f3",
+        "command": "go.debug.previous"
     },
     {
         "key": "ctrl+k shift+w",
