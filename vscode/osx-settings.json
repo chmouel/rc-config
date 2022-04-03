@@ -89,7 +89,6 @@
     "timeline.excludeSources": [
         "git-history"
     ],
-    "editor.wordWrap": "on",
     "editor.wrappingStrategy": "advanced",
     "redhat.telemetry.enabled": false,
     "editor.inlineSuggest.enabled": true,
@@ -129,5 +128,10 @@
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Dracula",
     "workbench.editor.focusRecentEditorAfterClose": false,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "files.associations": {
+        "*.sh": "shellscript"
+    },
+    "editor.renderLineHighlight": "none",
+    "editor.cursorStyle": "block",
 }

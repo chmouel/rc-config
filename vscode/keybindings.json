@@ -90,11 +90,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+a",
-        "command": "smartBeginningOfLine",
-        "when": "editorTextFocus"
-    },
-    {
         "key": "ctrl+e",
         "command": "cursorEnd",
         "when": "editorTextFocus"
@@ -188,5 +183,10 @@
     {
         "key": "ctrl+k shift+w",
         "command": "workbench.action.closeOtherEditors"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "cursorHome",
+        "when": "textInputFocus"
     }
 ]
