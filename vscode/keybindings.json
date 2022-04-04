@@ -165,7 +165,7 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "meta+w",
+        "key": "ctrl+w",
         "command": "workbench.action.closeActiveEditor"
     },
     {
@@ -188,5 +188,14 @@
         "key": "ctrl+a",
         "command": "cursorHome",
         "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-expand_region",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "-workbench.action.closeWindow"
     }
 ]
