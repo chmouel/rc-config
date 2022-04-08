@@ -134,4 +134,5 @@
     },
     "editor.renderLineHighlight": "none",
     "editor.cursorStyle": "block",
+    "vale.core.useCLI": true,
 }
