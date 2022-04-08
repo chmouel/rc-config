@@ -1,5 +1,20 @@
 [
     {
+        "key": "alt+b",
+        "command": "cursorWordEndLeft",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+f",
+        "command": "cursorWordEndRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+d",
+        "command": "deleteWordRight",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "ctrl+k ctrl+e",
         "command": "deleteAllRight",
         "when": "editorTextFocus"
