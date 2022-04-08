@@ -23,7 +23,6 @@
 
 [diff]
     mynemonicprefix = true
-    external = difft
 
 [merge]
     tool = emerge
