@@ -135,4 +135,7 @@
     "editor.renderLineHighlight": "none",
     "editor.cursorStyle": "block",
     "vale.core.useCLI": true,
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
 }
