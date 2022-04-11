@@ -1,19 +1,9 @@
 skip_non_accepted: true
 my_emails:
   - cboudjna@redhat.com
-event_organizers_icon:
-  "(pbhattac|gurose|nkakkar|rbehera|vdemeest|kbaig|pchandra|ssadeghi|hshinde|nikthoma|pthangad|yhontyk|varadhya|pgarg|pradkuma|sashture|sthaha|gmontero|ppitonak)@redhat.com": "🐈"
-title_match_icon:
-  ".*Tekton.*Working Group.*": "😼"
-  "^Tekton.*Office Hours.*": "😼"
-  "^Tekton.*OpenShift.*Pipelines.*Grooming": "👷"
-  "^Tekton Workflows/PipelineAsCode WG": "💡"
-  ".*Sprint Review.*": "🦂"
-  "^WHOTT.*": "🤩"
 restrict_to_calendar:
   - Work
   - Personal
-default_icon: "↪"
 title_max_char: 30
 change_icon_minutes: 5
 refresh_interval: 60
