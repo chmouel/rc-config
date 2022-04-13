@@ -51,6 +51,7 @@
     bl = branch -l
     co = checkout
     cp = cherry-pick
+    delta = "!f() { GIT_PAGER=\"delta --navigate\" git diff --no-ext-diff $@ ;}; f $@"
 
     # GitHUB
     ampf = "!git amend -a&& git push --force chmouel $(git rev-parse --abbrev-ref HEAD)"
