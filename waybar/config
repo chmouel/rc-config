@@ -9,7 +9,7 @@
         "custom/space",
         "tray",
         "custom/space",
-        "custom/gnma"
+        "custom/agenda"
     ],
     "modules-center": [
         "clock",
@@ -50,13 +50,13 @@
     "custom/email-personal": {
         "format": "﫮 {} ",
         "interval": 15,
-        "exec": "cd $GOPATH/src/github.com/chmouel/mongars;poetry run mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
+        "exec": "mongars chmouel@gmail.com --no-mail-no-zero --no-icon",
         "on-click": "xdg-open https://mail.google.com;jumpapp firefox"
     },
     "custom/email-work": {
         "format": "﫮 {} ",
         "interval": 15,
-        "exec": "cd $GOPATH/src/github.com/chmouel/mongars;poetry run mongars cboudjna@redhat.com --no-mail-no-zero --no-icon",
+        "exec": "mongars cboudjna@redhat.com --no-mail-no-zero --no-icon",
         "on-click": "xdg-open https://mail.google.com/a/redhat.com;jumpapp chromium"
     },
     "custom/vpn": {
@@ -165,6 +165,13 @@
     },
     "sway/mode": {
         "format": "  {} "
+    },
+    "custom/agenda": {
+        "format": "{}",
+        "exec": "gcalcli agenda --nostarted --nodeclined --default-calendar=Lyc --default-calendar=Work --tsv|head -1|cut -f4,5-|sed 's/\t/ /'",
+        "on-click": "v=$(gcalcli agenda --nostarted --nodeclined --default-calendar=Lyc --default-calendar=Work --details conference --details=calendar --color-now-marker=green --tsv|head -1|cut -f6);[[ ${v} == https://* ]] && xdg-open ${v}",
+        "on-click-right": "~/.config/polybar/scripts/clockclik.sh;jumapp kitty",
+        "interval": 59
     },
     "custom/mynetwork": {
         "format": "{} ",
