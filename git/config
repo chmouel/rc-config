@@ -43,23 +43,18 @@
     #Aliases
     workon = git-workon
     amend = commit --amend -v -s
-    ca = commit -as
     clone1 = clone --depth=1
-    dlog = show --summary
     sp = stash show -p
     st = status -sb
     bl = branch -l
     co = checkout
     cp = cherry-pick
-    delta = "!f() { GIT_PAGER=\"delta --navigate\" git diff --no-ext-diff $@ ;}; f $@"
 
     # GitHUB
     ampf = "!git amend -a&& git push --force chmouel $(git rev-parse --abbrev-ref HEAD)"
     pprupstream = "!git ppr upstream chmouel"
     pprorigin = "!git ppr origin chmouel"
     ppropenshift = "!git ppr openshift chmouel"
-    prv = "!gh pr view -w"
-    cghissue = "!git commit -asm \"`github-issue-prefix -c`\""
 
     magit-show = "!f() { emacsclient -n -c -e '(magit-show-commit \"'$1'\")' ;}; f $@"
 
@@ -74,6 +69,7 @@
     log = log --no-merges --date=human
     showe = show --ext-diff
     diffn = diff --no-ext-diff
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
 [hub]
     protocol = https
