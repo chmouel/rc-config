@@ -26,6 +26,7 @@
 
 [merge]
     tool = emerge
+	conflictStyle = diff3
 
 [push]
     default = matching
