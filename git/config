@@ -75,7 +75,6 @@
     protocol = https
 
 [pull]
-    rebase = false
 
 [include]
     path = ~/.config/git/local
@@ -96,7 +95,7 @@
     path = ~/.gitconfig.local
 
 [pull]
-    rebase = false
+	rebase = true
 
 [diff]
     tool = nvimdiff
