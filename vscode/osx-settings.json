@@ -128,7 +128,6 @@
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Dracula",
     "workbench.editor.focusRecentEditorAfterClose": false,
-    "window.zoomLevel": 1,
     "files.associations": {
         "*.sh": "shellscript"
     },
