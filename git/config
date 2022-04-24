@@ -80,15 +80,6 @@
 [include]
     path = ~/.config/git/local
 
-[http]
-    sslVerify = true
-
-[filter "lfs"]
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
-
 [init]
     defaultBranch = main
 
@@ -97,9 +88,6 @@
 
 [pull]
 	rebase = true
-
-[diff]
-    tool = nvimdiff
 
 [difftool]
     prompt = false
