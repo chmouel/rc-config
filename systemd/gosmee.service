@@ -1,9 +1,8 @@
 [Unit]
-Description=Pysmee Forward
+Description=Gosmee Forwarding service
 
 [Service]
-ExecStart=%h/.local/bin/pysmee forward --save /tmp/s.json https://smee.io/hhCIb4CaXdb5PEk http://kind.pipelines.devcluster.openshift.com
-
+ExecStart=gosmee -I check_suite --saveDir /tmp/replay https://smee.io/hhCIb4CaXdb5PEk http://controller.paac-127-0-0-1.nip.io
 
 [Install]
 WantedBy=default.target
