@@ -212,5 +212,13 @@
     {
         "key": "ctrl+shift+w",
         "command": "-workbench.action.closeWindow"
+    },
+    {
+        "key": "cmd+k l",
+        "command": "testing.reRunLastRun"
+    },
+    {
+        "key": "cmd+; l",
+        "command": "-testing.reRunLastRun"
     }
 ]
