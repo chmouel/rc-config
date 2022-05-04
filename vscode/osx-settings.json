@@ -136,4 +136,10 @@
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
+    "rust-client.engine": "rust-analyzer",
+    "rust.all_features": true,
+    "rust.clippy_preference": "on",
+    "rust-analyzer.inlayHints.typeHints": false,
+    "rust-analyzer.inlayHints.reborrowHints": true,
+    "rust-analyzer.checkOnSave.command": "clippy",
 }
