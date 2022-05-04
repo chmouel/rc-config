@@ -2,6 +2,7 @@
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.acceptSuggestionOnEnter": "smart",
     "editor.cursorSurroundingLinesStyle": "all",
+    "workbench.tree.indent": 20,
     "editor.dragAndDrop": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
@@ -40,8 +41,10 @@
     "go.useCodeSnippetsOnFunctionSuggest": true,
     "go.useLanguageServer": true,
     "go.testFlags": [
-        "-v"
+        "-v",
     ],
+    "trailing-spaces.trimOnSave": true,
+    "trailing-spaces.deleteModifiedLinesOnly": true,
     "[go]": {
         "editor.insertSpaces": false,
         "editor.formatOnSave": true,
@@ -50,7 +53,7 @@
         }
     },
     "gopls": {
-        "formatting.gofumpt": true
+        "formatting.gofumpt": true,
     },
     "magit.display-buffer-function": "same-column",
     "magit.forge-enabled": true,
@@ -69,13 +72,14 @@
         "editor.fontWeight",
         "terminal.integrated.fontFamily",
         "terminal.integrated.fontSize",
-        "pylint.path"
+        "pylint.path",
+        "debug.console.fontSize",
+        "debug.console.fontFamily"
     ],
     "terminal.integrated.allowChords": false,
     "terminal.integrated.cursorBlinking": false,
     "terminal.integrated.env.osx": {},
     "window.titleBarStyle": "native",
-    "workbench.activityBar.visible": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.productIconTheme": "fluent-icons",
@@ -83,7 +87,7 @@
     "workbench.colorCustomizations": {
         "terminal.foreground": "#fff",
         "terminal.background": "#0000",
-        "terminal.selectionBackground": "#595c5b"
+        "terminal.selectionBackground": "#595c5b",
     },
     "yaml.format.enable": true,
     "timeline.excludeSources": [
@@ -110,7 +114,9 @@
     "settingsSync.ignoredExtensions": [
         "github.vscode-pull-request-github",
         "panicbit.cargo",
-        "matklad.rust-analyzer"
+        "matklad.rust-analyzer",
+        "vscodevim.vim",
+        "pylint.path"
     ],
     "editor.fontSize": 16,
     "settingsSync.keybindingsPerPlatform": false,
@@ -120,13 +126,24 @@
     "explorer.confirmDelete": false,
     "editor.guides.bracketPairs": "active",
     "editor.guides.bracketPairsHorizontal": false,
-    "window.autoDetectColorScheme": true,
-    "window.menuBarVisibility": "toggle",
     "terminal.integrated.fontSize": 16,
     "workbench.reduceMotion": "on",
     "editor.fontLigatures": true,
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Dracula",
+    "cSpell.diagnosticLevel": "Hint",
+    "cSpell.enabled": false,
+    "cSpell.userWords": [
+        "chmouel",
+        "codecov",
+        "configmap",
+        "kubectl",
+        "popd",
+        "pushd",
+        "ratelimited",
+        "releaseyaml",
+        "walkthought"
+    ],
     "workbench.editor.focusRecentEditorAfterClose": false,
     "files.associations": {
         "*.sh": "shellscript"
@@ -140,6 +157,10 @@
     "rust.all_features": true,
     "rust.clippy_preference": "on",
     "rust-analyzer.inlayHints.typeHints": false,
-    "rust-analyzer.inlayHints.reborrowHints": true,
     "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.inlayHints.renderColons": false,
+    "rust-analyzer.inlayHints.parameterHints": false,
+    "debug.console.fontFamily": "Roboto Mono",
+    "debug.console.fontSize": 20
 }
