@@ -1,5 +1,4 @@
 {
-    "breadcrumbs.enabled": true,
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.acceptSuggestionOnEnter": "smart",
     "editor.cursorSurroundingLinesStyle": "all",
@@ -72,14 +71,16 @@
         "editor.fontFamily",
         "editor.fontWeight",
         "terminal.integrated.fontFamily",
-        "terminal.integrated.fontSize"
+        "terminal.integrated.fontSize",
+        "pylint.path",
+        "debug.console.fontSize",
+        "debug.console.fontFamily"
     ],
     "terminal.integrated.allowChords": false,
     "terminal.integrated.cursorBlinking": false,
     "terminal.integrated.fontFamily": "Roboto Mono",
     "terminal.integrated.env.osx": {},
     "window.titleBarStyle": "native",
-    "workbench.activityBar.visible": true,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.productIconTheme": "fluent-icons",
@@ -93,7 +94,6 @@
     "timeline.excludeSources": [
         "git-history"
     ],
-    "editor.wordWrap": "on",
     "editor.wrappingStrategy": "advanced",
     "redhat.telemetry.enabled": false,
     "editor.inlineSuggest.enabled": true,
@@ -105,6 +105,9 @@
         "jsonc": true,
         "rust": true
     },
+    "[markdown]": {
+        "editor.quickSuggestions": true
+    },
     "html.autoClosingTags": false,
     "editor.bracketPairColorization.enabled": true,
     "python.analysis.completeFunctionParens": true,
@@ -113,18 +116,21 @@
         "github.vscode-pull-request-github",
         "panicbit.cargo",
         "matklad.rust-analyzer",
-        "vscodevim.vim"
+        "vscodevim.vim",
+        "pylint.path"
     ],
     "editor.fontSize": 22,
     "settingsSync.keybindingsPerPlatform": false,
-    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontFamily": "Roboto Mono",
     "window.nativeTabs": true,
     "zenMode.hideTabs": false,
     "explorer.confirmDelete": false,
     "editor.guides.bracketPairs": "active",
     "editor.guides.bracketPairsHorizontal": false,
-    "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.reduceMotion": "on",
+    "editor.fontLigatures": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "GitHub Light Default",
     "cSpell.diagnosticLevel": "Hint",
     "cSpell.enabled": false,
     "cSpell.userWords": [
@@ -138,4 +144,24 @@
         "releaseyaml",
         "walkthought"
     ],
+    "workbench.editor.focusRecentEditorAfterClose": false,
+    "files.associations": {
+        "*.sh": "shellscript"
+    },
+    "editor.renderLineHighlight": "none",
+    "vale.core.useCLI": true,
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "rust-client.engine": "rust-analyzer",
+    "rust.all_features": true,
+    "rust.clippy_preference": "on",
+    "rust-analyzer.inlayHints.typeHints": false,
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.inlayHints.renderColons": false,
+    "rust-analyzer.inlayHints.parameterHints": false,
+    "debug.console.fontFamily": "Roboto Mono",
+    "debug.console.fontSize": 22,
+    "terminal.integrated.fontSize": 20
 }
