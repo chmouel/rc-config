@@ -162,5 +162,8 @@
     "rust-analyzer.inlayHints.renderColons": false,
     "rust-analyzer.inlayHints.parameterHints": false,
     "debug.console.fontFamily": "Roboto Mono",
-    "debug.console.fontSize": 20
+    "debug.console.fontSize": 20,
+    "explorer.fileNesting.enabled": true,
+    "editor.inlayHints.enabled": false,
+    "window.zoomLevel": 1
 }

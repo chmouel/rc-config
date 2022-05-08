@@ -220,5 +220,23 @@
     {
         "key": "cmd+; l",
         "command": "-testing.reRunLastRun"
+    },
+    {
+        "key": "cmd+k cmd+r",
+        "command": "workbench.action.tasks.reRunTask"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-extension.incrementalSearch.backward",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-extension.incrementalSearch.backward",
+        "when": "incrementalSearch"
+    },
+    {
+        "key": "ctrl+=",
+        "command": "extension.aceJump"
     }
 ]
