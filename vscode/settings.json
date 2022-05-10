@@ -156,12 +156,10 @@
     "rust-client.engine": "rust-analyzer",
     "rust.all_features": true,
     "rust.clippy_preference": "on",
-    "rust-analyzer.inlayHints.typeHints": false,
     "rust-analyzer.checkOnSave.command": "clippy",
-    "rust-analyzer.inlayHints.chainingHints": false,
-    "rust-analyzer.inlayHints.renderColons": false,
-    "rust-analyzer.inlayHints.parameterHints": false,
     "debug.console.fontFamily": "Roboto Mono",
     "debug.console.fontSize": 22,
+    "explorer.fileNesting.enabled": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
     "terminal.integrated.fontSize": 20
 }
