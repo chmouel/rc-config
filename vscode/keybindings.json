@@ -238,5 +238,15 @@
     {
         "key": "ctrl+=",
         "command": "extension.aceJump"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "-extension.incrementalSearch.forward",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "-extension.incrementalSearch.forward",
+        "when": "incrementalSearch"
     }
 ]
