@@ -166,7 +166,7 @@
     },
     {
         "key": "cmd+3",
-        "command": "workbench.action.openEditorAtIndex2",
+        "command": "workbench.action.openEditorAtIndex3",
         "when": "editorTextFocus"
     },
     {
@@ -248,5 +248,9 @@
         "key": "ctrl+s",
         "command": "-extension.incrementalSearch.forward",
         "when": "incrementalSearch"
-    }
+    },
+    {
+        "key": "cmd+2",
+        "command": "-workbench.action.focusSecondEditorGroup"
+    },
 ]

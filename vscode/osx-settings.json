@@ -6,7 +6,7 @@
     "editor.dragAndDrop": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.lineNumbers": "off",
+    "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.occurrencesHighlight": false,
     "editor.renderControlCharacters": false,
@@ -153,13 +153,61 @@
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    "rust-client.engine": "rust-analyzer",
-    "rust.all_features": true,
-    "rust.clippy_preference": "on",
     "rust-analyzer.checkOnSave.command": "clippy",
     "debug.console.fontFamily": "Roboto Mono",
     "debug.console.fontSize": 20,
     "explorer.fileNesting.enabled": true,
     "editor.inlayHints.enabled": "offUnlessPressed",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "vim.leader": " ",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<Leader>",
+                "<C-r>"
+            ],
+            "commands": [
+                "workbench.action.openRecent"
+            ]
+        },
+        {
+            "before": [
+                "<C-f>"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<S-Tab>"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<Tab>"
+            ],
+            "commands": [
+                "workbench.action.nextEditor",
+            ],
+            "silent": true
+        }
+    ],
+    "vim.cursorStylePerMode.insert": "underline",
+    "vim.easymotion": true,
 }
