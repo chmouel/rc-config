@@ -6,7 +6,7 @@
     "editor.dragAndDrop": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "off",
     "editor.minimap.enabled": false,
     "editor.occurrencesHighlight": false,
     "editor.renderControlCharacters": false,
@@ -82,7 +82,6 @@
     "window.titleBarStyle": "native",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.productIconTheme": "fluent-icons",
     "workbench.tips.enabled": false,
     "workbench.colorCustomizations": {
         "terminal.foreground": "#fff",
@@ -131,19 +130,6 @@
     "editor.fontLigatures": true,
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Dracula",
-    "cSpell.diagnosticLevel": "Hint",
-    "cSpell.enabled": false,
-    "cSpell.userWords": [
-        "chmouel",
-        "codecov",
-        "configmap",
-        "kubectl",
-        "popd",
-        "pushd",
-        "ratelimited",
-        "releaseyaml",
-        "walkthought"
-    ],
     "workbench.editor.focusRecentEditorAfterClose": false,
     "files.associations": {
         "*.sh": "shellscript"
@@ -174,11 +160,19 @@
     "vim.normalModeKeyBindings": [
         {
             "before": [
+                "<C-e>"
+            ],
+            "commands": [
+                "workbench.action.quickOpenPreviousRecentlyUsedEditor"
+            ],
+        },
+        {
+            "before": [
                 "<Leader>",
                 "<C-r>"
             ],
             "commands": [
-                "workbench.action.openRecent"
+                "workbench.action.quickOpenRecent"
             ]
         },
         {
@@ -206,8 +200,32 @@
                 "workbench.action.nextEditor",
             ],
             "silent": true
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "g"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ]
         }
     ],
     "vim.cursorStylePerMode.insert": "underline",
     "vim.easymotion": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.sneak": true
 }

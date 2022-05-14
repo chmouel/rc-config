@@ -20,11 +20,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "cmd+k cmd+k",
-        "command": "workbench.action.focusNextGroup",
-        "when": "editorTextFocus"
-    },
-    {
         "key": "ctrl+k t",
         "command": "go.toggle.test.file",
         "when": "editorLangId == go"
@@ -67,30 +62,30 @@
         }
     },
     {
-        "key": "ctrl+k v",
+        "key": "cmd+k v",
         "command": "git.openChange",
         "when": "editorTextFocus"
     },
-    {
-        "key": "f3",
-        "command": "go.test.previous",
-        "when": "editorLangId == go && editorTextFocus"
-    },
-    {
-        "key": "ctrl+f3",
-        "command": "go.test.cursor",
-        "when": "editorLangId == go && editorTextFocus"
-    },
-    {
-        "key": "shift+f3",
-        "command": "go.debug.cursor",
-        "when": "editorLangId == go && editorTextFocus && resourceFilename =~ /_test.go/"
-    },
-    {
-        "key": "f12",
-        "command": "editor.action.goToDeclaration",
-        "when": "editorTextFocus"
-    },
+    // {
+    //     "key": "f3",
+    //     "command": "go.test.previous",
+    //     "when": "editorLangId == go && editorTextFocus"
+    // },
+    // {
+    //     "key": "ctrl+f3",
+    //     "command": "go.test.cursor",
+    //     "when": "editorLangId == go && editorTextFocus"
+    // },
+    // {
+    //     "key": "shift+f3",
+    //     "command": "go.debug.cursor",
+    //     "when": "editorLangId == go && editorTextFocus && resourceFilename =~ /_test.go/"
+    // },
+    // {
+    //     "key": "f12",
+    //     "command": "editor.action.goToDeclaration",
+    //     "when": "editorTextFocus"
+    // },
     {
         "key": "ctrl+tab",
         "command": "workbench.action.nextEditor"
@@ -100,14 +95,9 @@
         "command": "workbench.action.previousEditor"
     },
     {
-        "key": "ctrl+l",
-        "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
-        "when": "editorTextFocus"
-    },
-    {
         "key": "ctrl+e",
         "command": "cursorEnd",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !vim.mode == 'normal'"
     },
     {
         "key": "ctrl+k ctrl+a",
@@ -119,16 +109,16 @@
         "command": "workbench.action.closeActiveEditor",
         "when": "editorTextFocus"
     },
-    {
-        "key": "shift+alt+down",
-        "command": "editor.action.copyLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+cmd+space",
-        "command": "editor.action.triggerParameterHints",
-        "when": "editorHasSignatureHelpProvider && editorTextFocus"
-    },
+    // {
+    //     "key": "shift+alt+down",
+    //     "command": "editor.action.copyLinesDownAction",
+    //     "when": "editorTextFocus && !editorReadonly"
+    // },
+    // {
+    //     "key": "ctrl+cmd+space",
+    //     "command": "editor.action.triggerParameterHints",
+    //     "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    // },
     {
         "key": "ctrl+k shift+1",
         "command": "workbench.action.problems.focus",
@@ -180,18 +170,6 @@
         "when": "editorTextFocus"
     },
     {
-        "key": "ctrl+w",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "ctrl+w",
-        "command": "-workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "ctrl+\\",
-        "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
-    },
-    {
         "key": "ctrl+shift+f3",
         "command": "go.debug.previous"
     },
@@ -205,52 +183,33 @@
         "when": "textInputFocus"
     },
     {
-        "key": "ctrl+w",
-        "command": "-expand_region",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+shift+w",
-        "command": "-workbench.action.closeWindow"
-    },
-    {
-        "key": "cmd+k l",
-        "command": "testing.reRunLastRun"
-    },
-    {
-        "key": "cmd+; l",
-        "command": "-testing.reRunLastRun"
-    },
-    {
-        "key": "cmd+k cmd+r",
-        "command": "workbench.action.tasks.reRunTask"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-extension.incrementalSearch.backward",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-extension.incrementalSearch.backward",
-        "when": "incrementalSearch"
-    },
-    {
-        "key": "ctrl+=",
-        "command": "extension.aceJump"
-    },
-    {
-        "key": "ctrl+s",
-        "command": "-extension.incrementalSearch.forward",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+s",
-        "command": "-extension.incrementalSearch.forward",
-        "when": "incrementalSearch"
-    },
-    {
         "key": "cmd+2",
         "command": "-workbench.action.focusSecondEditorGroup"
     },
+    {
+        "key": "shift+;",
+        "command": "vim.showQuickpickCmdLine",
+        "when": "editorTextFocus && vim.mode != 'Insert'"
+    }
+    // {
+    //     "key": "ctrl+w",
+    //     "command": "workbench.action.closeActiveEditor"
+    // },
+    // {
+    //     "key": "ctrl+w",
+    //     "command": "-workbench.action.closeActiveEditor"
+    // },
+    // {
+    //     "key": "ctrl+\\",
+    //     "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+    // },
+    // {
+    //     "key": "ctrl+w",
+    //     "command": "-expand_region",
+    //     "when": "editorTextFocus"
+    // },
+    // {
+    //     "key": "ctrl+shift+w",
+    //     "command": "-workbench.action.closeWindow"
+    // },
 ]
