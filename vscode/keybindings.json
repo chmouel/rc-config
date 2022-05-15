@@ -185,31 +185,5 @@
     {
         "key": "cmd+2",
         "command": "-workbench.action.focusSecondEditorGroup"
-    },
-    {
-        "key": "shift+;",
-        "command": "vim.showQuickpickCmdLine",
-        "when": "editorTextFocus && vim.mode != 'Insert'"
     }
-    // {
-    //     "key": "ctrl+w",
-    //     "command": "workbench.action.closeActiveEditor"
-    // },
-    // {
-    //     "key": "ctrl+w",
-    //     "command": "-workbench.action.closeActiveEditor"
-    // },
-    // {
-    //     "key": "ctrl+\\",
-    //     "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
-    // },
-    // {
-    //     "key": "ctrl+w",
-    //     "command": "-expand_region",
-    //     "when": "editorTextFocus"
-    // },
-    // {
-    //     "key": "ctrl+shift+w",
-    //     "command": "-workbench.action.closeWindow"
-    // },
 ]
