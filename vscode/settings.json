@@ -6,7 +6,7 @@
     "editor.dragAndDrop": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.lineNumbers": "off",
+    "editor.lineNumbers": "on",
     "editor.minimap.enabled": false,
     "editor.occurrencesHighlight": false,
     "editor.renderControlCharacters": false,
@@ -72,7 +72,6 @@
         "editor.fontWeight",
         "terminal.integrated.fontFamily",
         "terminal.integrated.fontSize",
-        "pylint.path",
         "debug.console.fontSize",
         "debug.console.fontFamily"
     ],
@@ -83,7 +82,6 @@
     "window.titleBarStyle": "native",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.productIconTheme": "fluent-icons",
     "workbench.tips.enabled": false,
     "workbench.colorCustomizations": {
         "terminal.foreground": "#fff",
@@ -131,19 +129,6 @@
     "editor.fontLigatures": true,
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "GitHub Light Default",
-    "cSpell.diagnosticLevel": "Hint",
-    "cSpell.enabled": false,
-    "cSpell.userWords": [
-        "chmouel",
-        "codecov",
-        "configmap",
-        "kubectl",
-        "popd",
-        "pushd",
-        "ratelimited",
-        "releaseyaml",
-        "walkthought"
-    ],
     "workbench.editor.focusRecentEditorAfterClose": false,
     "files.associations": {
         "*.sh": "shellscript"
@@ -153,13 +138,119 @@
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    "rust-client.engine": "rust-analyzer",
-    "rust.all_features": true,
-    "rust.clippy_preference": "on",
     "rust-analyzer.checkOnSave.command": "clippy",
     "debug.console.fontFamily": "Roboto Mono",
     "debug.console.fontSize": 22,
     "explorer.fileNesting.enabled": true,
     "editor.inlayHints.enabled": "offUnlessPressed",
-    "terminal.integrated.fontSize": 20
+    "terminal.integrated.fontSize": 20,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<C-e>"
+            ],
+            "commands": [
+                "workbench.action.quickOpenPreviousRecentlyUsedEditor"
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "<C-r>"
+            ],
+            "commands": [
+                "workbench.action.quickOpenRecent"
+            ]
+        },
+        {
+            "before": [
+                "<C-f>"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<S-Tab>"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<Tab>"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "leader",
+                "w"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "g"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ]
+        },
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo"
+                }
+            ]
+        }
+    ],
+    "vim.cursorStylePerMode.insert": "underline",
+    "vim.easymotion": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.sneak": true,
+    "vim.smartRelativeLine": true,
+    "security.workspace.trust.untrustedFiles": "open"
 }
