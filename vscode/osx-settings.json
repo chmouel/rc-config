@@ -128,7 +128,7 @@
     "workbench.reduceMotion": "on",
     "editor.fontLigatures": true,
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Dracula",
+    "workbench.colorTheme": "GitHub Light",
     "workbench.editor.focusRecentEditorAfterClose": false,
     "files.associations": {
         "*.sh": "shellscript"
@@ -156,7 +156,7 @@
             "after": [
                 "<Esc>"
             ]
-        },
+        }
     ],
     "vim.normalModeKeyBindings": [
         {
@@ -165,7 +165,7 @@
             ],
             "commands": [
                 "workbench.action.quickOpenPreviousRecentlyUsedEditor"
-            ],
+            ]
         },
         {
             "before": [
@@ -198,10 +198,10 @@
                 "<Tab>"
             ],
             "commands": [
-                "workbench.action.nextEditor",
+                "workbench.action.nextEditor"
             ],
             "silent": true
-        },
+        }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -210,7 +210,7 @@
                 "w"
             ],
             "commands": [
-                "workbench.action.files.save",
+                "workbench.action.files.save"
             ]
         },
         {
@@ -251,5 +251,6 @@
     "vim.easymotion": true,
     "vim.camelCaseMotion.enable": true,
     "vim.sneak": true,
-    "vim.smartRelativeLine": true
+    "vim.smartRelativeLine": true,
+    "security.workspace.trust.untrustedFiles": "open"
 }
