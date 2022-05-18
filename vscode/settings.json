@@ -245,6 +245,17 @@
                     "command": "redo"
                 }
             ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor"
+                }
+            ]
         }
     ],
     "vim.cursorStylePerMode.insert": "underline",
