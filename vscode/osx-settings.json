@@ -246,22 +246,12 @@
                 }
             ]
         },
-        {
-            "before": [
-                "<C-l>"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor"
-                }
-            ]
-        }
     ],
     "vim.cursorStylePerMode.insert": "underline",
     "vim.easymotion": true,
     "vim.camelCaseMotion.enable": true,
     "vim.sneak": true,
     "vim.smartRelativeLine": true,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "rust-analyzer.completion.privateEditable.enable": true
 }
