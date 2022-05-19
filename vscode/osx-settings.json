@@ -145,10 +145,13 @@
         {
             "before": [
                 "j",
-                "j"
+                "k"
             ],
             "after": [
-                "<Esc>"
+                "<Esc>",
+            ],
+            "commands": [
+                "workbench.action.files.save"
             ]
         }
     ],
