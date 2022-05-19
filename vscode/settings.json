@@ -55,16 +55,12 @@
     "gopls": {
         "formatting.gofumpt": true,
     },
-    "magit.display-buffer-function": "same-column",
-    "magit.forge-enabled": true,
     "output.smartScroll.enabled": false,
-    "python.autoComplete.addBrackets": true,
     "python.formatting.provider": "yapf",
     "python.linting.mypyEnabled": true,
     "python.linting.pycodestyleEnabled": false,
     "python.linting.pylintEnabled": true,
-    "python.pythonPath": "python3",
-    "python.showStartPage": false,
+    "python.defaultInterpreterPath": "python3",
     "settingsSync.ignoredSettings": [
         "workbench.colorTheme",
         "editor.fontSize",
@@ -120,7 +116,6 @@
     "editor.fontSize": 22,
     "settingsSync.keybindingsPerPlatform": false,
     "editor.fontFamily": "Roboto Mono",
-    "window.nativeTabs": true,
     "zenMode.hideTabs": false,
     "explorer.confirmDelete": false,
     "editor.guides.bracketPairs": "active",
@@ -246,22 +241,12 @@
                 }
             ]
         },
-        {
-            "before": [
-                "<C-l>"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor"
-                }
-            ]
-        }
     ],
     "vim.cursorStylePerMode.insert": "underline",
     "vim.easymotion": true,
     "vim.camelCaseMotion.enable": true,
     "vim.sneak": true,
     "vim.smartRelativeLine": true,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "rust-analyzer.completion.privateEditable.enable": true
 }
