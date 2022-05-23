@@ -158,6 +158,14 @@
     "vim.normalModeKeyBindings": [
         {
             "before": [
+                "`"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ]
+        },
+        {
+            "before": [
                 "<C-e>"
             ],
             "commands": [
@@ -250,5 +258,6 @@
     "vim.sneak": true,
     "vim.smartRelativeLine": true,
     "security.workspace.trust.untrustedFiles": "open",
-    "rust-analyzer.completion.privateEditable.enable": true
+    "rust-analyzer.completion.privateEditable.enable": true,
+    "crates.compatibleDecorator": "✓"
 }
