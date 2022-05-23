@@ -146,14 +146,25 @@
         {
             "before": [
                 "j",
-                "j"
+                "k"
             ],
             "after": [
-                "<Esc>"
+                "<Esc>",
+            ],
+            "commands": [
+                "workbench.action.files.save"
             ]
         }
     ],
     "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "`"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ]
+        },
         {
             "before": [
                 "<C-e>"
@@ -248,5 +259,6 @@
     "vim.sneak": true,
     "vim.smartRelativeLine": true,
     "security.workspace.trust.untrustedFiles": "open",
-    "rust-analyzer.completion.privateEditable.enable": true
+    "rust-analyzer.completion.privateEditable.enable": true,
+    "rust-analyzer.rustfmt.enableRangeFormatting": true,
 }
