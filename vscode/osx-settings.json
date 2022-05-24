@@ -259,5 +259,5 @@
     "vim.smartRelativeLine": true,
     "security.workspace.trust.untrustedFiles": "open",
     "rust-analyzer.completion.privateEditable.enable": true,
-    "crates.compatibleDecorator": "✓"
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true,
 }
