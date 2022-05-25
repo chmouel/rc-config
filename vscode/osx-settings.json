@@ -333,6 +333,18 @@
                 }
             ]
         },
+        {
+            "before": [
+                "<Leader>",
+                "G"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "magit.status",
+                }
+            ]
+        },
     ],
     "vim.cursorStylePerMode.insert": "underline",
     "vim.easymotion": true,
