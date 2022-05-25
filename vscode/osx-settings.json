@@ -145,7 +145,7 @@
         {
             "before": [
                 "j",
-                "k"
+                "j"
             ],
             "after": [
                 "<Esc>",
@@ -175,7 +175,7 @@
         {
             "before": [
                 "<Leader>",
-                "<C-r>"
+                "r"
             ],
             "commands": [
                 "workbench.action.quickOpenRecent"
@@ -248,6 +248,88 @@
             "commands": [
                 {
                     "command": "redo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-m>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.actions.view.problems",
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.togglePanel",
+                }
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "1"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openEditorAtIndex1",
+                }
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "2"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openEditorAtIndex2",
+                }
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "3"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openEditorAtIndex3",
+                }
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "4"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openEditorAtIndex4",
+                }
+            ]
+        },
+        {
+            "before": [
+                "<Leader>",
+                "5"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.openEditorAtIndex5",
                 }
             ]
         },
