@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=ChmouSession
-Comment=ChmouelSuperSession
-Exec=/home/chmouel/.local/share/rc/wm/start.sh
-Type=Application

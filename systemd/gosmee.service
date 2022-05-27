@@ -1,8 +1,0 @@
-[Unit]
-Description=Gosmee Forwarding service
-
-[Service]
-ExecStart=gosmee -I check_suite --saveDir /tmp/replay https://smee.io/hhCIb4CaXdb5PEk http://controller.paac-127-0-0-1.nip.io
-
-[Install]
-WantedBy=default.target
