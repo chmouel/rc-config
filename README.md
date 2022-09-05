@@ -1,1 +1,1 @@
-# moved to https://gitlab.freedesktop.org/chmouel/rc-config
+# moved to https://gitlab.org/chmouel/rc-config
